@@ -75,6 +75,10 @@ Puis ouvrir <http://localhost:8765/>. Ajouter `?local` à l'adresse (`http://loc
 - À l'ouverture de l'app, si un membre de la famille est passé devant toi sur un jeu depuis ta dernière visite, une carte « X t'a battu sur Y » s'affiche, avec un bouton vers ce classement ou « Pas maintenant ».
 - Onglet **Infos** dans l'app : barème détaillé et sources des données. Le profil liste les jeux (thème × mode) pas encore joués, avec lancement direct.
 
+## Personnalités : couverture
+
+Les 197 pays sont couverts : 1 054 fiches en onze fichiers (`data/perso-lot1.json` à `perso-lot10.json`, plus `perso-foot.json` pour les 100 footballeurs les plus connus). Règle : 15 fiches pour les grands pays, 8 pour les pays moyens, 3 pour les autres (2 pour l'Eswatini et le Liberia hors footballeurs). Tous les pays ont leurs gentilés dans `pays.json`.
+
 ## À venir
 
-1. Personnalités : Afrique et Océanie ; objectif 15 / 8 / 3 fiches selon la taille du pays. L'Europe (290), les Amériques (159) et l'Asie (230) sont couvertes, plus les 100 footballeurs les plus connus (77 fiches ajoutées, les autres étant déjà présents ; sources dans l'onglet Infos de l'app).
+- Relecture des fiches par la famille ; corrections au fil de l'eau.

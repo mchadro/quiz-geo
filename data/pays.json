@@ -86,7 +86,11 @@
                        3
                    ],
         "onu":  true,
-        "ccn3":  "012"
+        "ccn3":  "012",
+        "gentile":  [
+                        "algérien",
+                        "algérienne"
+                    ]
     },
     {
         "code":  "DE",
@@ -149,7 +153,11 @@
                        18.5
                    ],
         "onu":  true,
-        "ccn3":  "024"
+        "ccn3":  "024",
+        "gentile":  [
+                        "angolais",
+                        "angolaise"
+                    ]
     },
     {
         "code":  "AG",
@@ -461,7 +469,11 @@
                        2.25
                    ],
         "onu":  true,
-        "ccn3":  "204"
+        "ccn3":  "204",
+        "gentile":  [
+                        "béninois",
+                        "béninoise"
+                    ]
     },
     {
         "code":  "BT",
@@ -596,7 +608,11 @@
                        24
                    ],
         "onu":  true,
-        "ccn3":  "072"
+        "ccn3":  "072",
+        "gentile":  [
+                        "botswanais",
+                        "botswanaise"
+                    ]
     },
     {
         "code":  "BR",
@@ -681,7 +697,11 @@
                        -2
                    ],
         "onu":  true,
-        "ccn3":  "854"
+        "ccn3":  "854",
+        "gentile":  [
+                        "burkinabè",
+                        "burkinabé"
+                    ]
     },
     {
         "code":  "BI",
@@ -699,7 +719,11 @@
                        30
                    ],
         "onu":  true,
-        "ccn3":  "108"
+        "ccn3":  "108",
+        "gentile":  [
+                        "burundais",
+                        "burundaise"
+                    ]
     },
     {
         "code":  "KH",
@@ -899,7 +923,11 @@
                        44.25
                    ],
         "onu":  true,
-        "ccn3":  "174"
+        "ccn3":  "174",
+        "gentile":  [
+                        "comorien",
+                        "comorienne"
+                    ]
     },
     {
         "code":  "CG",
@@ -918,7 +946,11 @@
                        15
                    ],
         "onu":  true,
-        "ccn3":  "178"
+        "ccn3":  "178",
+        "gentile":  [
+                        "congolais",
+                        "congolaise"
+                    ]
     },
     {
         "code":  "CD",
@@ -939,7 +971,11 @@
                        25
                    ],
         "onu":  true,
-        "ccn3":  "180"
+        "ccn3":  "180",
+        "gentile":  [
+                        "congolais",
+                        "congolaise"
+                    ]
     },
     {
         "code":  "KP",
@@ -1119,7 +1155,11 @@
                        43
                    ],
         "onu":  true,
-        "ccn3":  "262"
+        "ccn3":  "262",
+        "gentile":  [
+                        "djiboutien",
+                        "djiboutienne"
+                    ]
     },
     {
         "code":  "DM",
@@ -1231,7 +1271,11 @@
                        39
                    ],
         "onu":  true,
-        "ccn3":  "232"
+        "ccn3":  "232",
+        "gentile":  [
+                        "érythréen",
+                        "érythréenne"
+                    ]
     },
     {
         "code":  "ES",
@@ -1295,7 +1339,13 @@
                        31.5
                    ],
         "onu":  true,
-        "ccn3":  "748"
+        "ccn3":  "748",
+        "gentile":  [
+                        "swazi",
+                        "swazie",
+                        "eswatinien",
+                        "eswatinienne"
+                    ]
     },
     {
         "code":  "US",
@@ -1344,7 +1394,11 @@
                        38
                    ],
         "onu":  true,
-        "ccn3":  "231"
+        "ccn3":  "231",
+        "gentile":  [
+                        "éthiopien",
+                        "éthiopienne"
+                    ]
     },
     {
         "code":  "FJ",
@@ -1362,7 +1416,11 @@
                        175
                    ],
         "onu":  true,
-        "ccn3":  "242"
+        "ccn3":  "242",
+        "gentile":  [
+                        "fidjien",
+                        "fidjienne"
+                    ]
     },
     {
         "code":  "FI",
@@ -1424,7 +1482,11 @@
                        11.75
                    ],
         "onu":  true,
-        "ccn3":  "266"
+        "ccn3":  "266",
+        "gentile":  [
+                        "gabonais",
+                        "gabonaise"
+                    ]
     },
     {
         "code":  "GM",
@@ -1442,7 +1504,11 @@
                        -16.56666666
                    ],
         "onu":  true,
-        "ccn3":  "270"
+        "ccn3":  "270",
+        "gentile":  [
+                        "gambien",
+                        "gambienne"
+                    ]
     },
     {
         "code":  "GE",
@@ -1483,7 +1549,11 @@
                        -2
                    ],
         "onu":  true,
-        "ccn3":  "288"
+        "ccn3":  "288",
+        "gentile":  [
+                        "ghanéen",
+                        "ghanéenne"
+                    ]
     },
     {
         "code":  "GR",
@@ -1571,7 +1641,11 @@
                        -10
                    ],
         "onu":  true,
-        "ccn3":  "324"
+        "ccn3":  "324",
+        "gentile":  [
+                        "guinéen",
+                        "guinéenne"
+                    ]
     },
     {
         "code":  "GQ",
@@ -1590,7 +1664,12 @@
                        10
                    ],
         "onu":  true,
-        "ccn3":  "226"
+        "ccn3":  "226",
+        "gentile":  [
+                        "équato-guinéen",
+                        "équato-guinéenne",
+                        "équatoguinéen"
+                    ]
     },
     {
         "code":  "GW",
@@ -1608,7 +1687,12 @@
                        -15
                    ],
         "onu":  true,
-        "ccn3":  "624"
+        "ccn3":  "624",
+        "gentile":  [
+                        "bissau-guinéen",
+                        "bissau-guinéenne",
+                        "guinéen"
+                    ]
     },
     {
         "code":  "GY",
@@ -1717,7 +1801,11 @@
                        57.55
                    ],
         "onu":  true,
-        "ccn3":  "480"
+        "ccn3":  "480",
+        "gentile":  [
+                        "mauricien",
+                        "mauricienne"
+                    ]
     },
     {
         "code":  "CV",
@@ -1737,7 +1825,12 @@
                        -24
                    ],
         "onu":  true,
-        "ccn3":  "132"
+        "ccn3":  "132",
+        "gentile":  [
+                        "cap-verdien",
+                        "cap-verdienne",
+                        "capverdien"
+                    ]
     },
     {
         "code":  "MH",
@@ -1755,7 +1848,11 @@
                        168
                    ],
         "onu":  true,
-        "ccn3":  "584"
+        "ccn3":  "584",
+        "gentile":  [
+                        "marshallais",
+                        "marshallaise"
+                    ]
     },
     {
         "code":  "SB",
@@ -1773,7 +1870,11 @@
                        159
                    ],
         "onu":  true,
-        "ccn3":  "090"
+        "ccn3":  "090",
+        "gentile":  [
+                        "salomonais",
+                        "salomonaise"
+                    ]
     },
     {
         "code":  "IN",
@@ -2062,7 +2163,12 @@
                        38
                    ],
         "onu":  true,
-        "ccn3":  "404"
+        "ccn3":  "404",
+        "gentile":  [
+                        "kényan",
+                        "kényane",
+                        "kenyan"
+                    ]
     },
     {
         "code":  "KG",
@@ -2105,7 +2211,12 @@
                        173
                    ],
         "onu":  true,
-        "ccn3":  "296"
+        "ccn3":  "296",
+        "gentile":  [
+                        "kiribatien",
+                        "kiribatienne",
+                        "gilbertin"
+                    ]
     },
     {
         "code":  "XK",
@@ -2192,7 +2303,12 @@
                        28.5
                    ],
         "onu":  true,
-        "ccn3":  "426"
+        "ccn3":  "426",
+        "gentile":  [
+                        "lesothan",
+                        "lesothane",
+                        "lesothien"
+                    ]
     },
     {
         "code":  "LV",
@@ -2277,7 +2393,11 @@
                        17
                    ],
         "onu":  true,
-        "ccn3":  "434"
+        "ccn3":  "434",
+        "gentile":  [
+                        "libyen",
+                        "libyenne"
+                    ]
     },
     {
         "code":  "LI",
@@ -2385,7 +2505,10 @@
                        47
                    ],
         "onu":  true,
-        "ccn3":  "450"
+        "ccn3":  "450",
+        "gentile":  [
+                        "malgache"
+                    ]
     },
     {
         "code":  "MY",
@@ -2426,7 +2549,12 @@
                        34
                    ],
         "onu":  true,
-        "ccn3":  "454"
+        "ccn3":  "454",
+        "gentile":  [
+                        "malawite",
+                        "malawien",
+                        "malawienne"
+                    ]
     },
     {
         "code":  "MV",
@@ -2466,7 +2594,11 @@
                        -4
                    ],
         "onu":  true,
-        "ccn3":  "466"
+        "ccn3":  "466",
+        "gentile":  [
+                        "malien",
+                        "malienne"
+                    ]
     },
     {
         "code":  "MT",
@@ -2529,7 +2661,11 @@
                        -12
                    ],
         "onu":  true,
-        "ccn3":  "478"
+        "ccn3":  "478",
+        "gentile":  [
+                        "mauritanien",
+                        "mauritanienne"
+                    ]
     },
     {
         "code":  "MX",
@@ -2571,7 +2707,11 @@
                        158.25
                    ],
         "onu":  true,
-        "ccn3":  "583"
+        "ccn3":  "583",
+        "gentile":  [
+                        "micronésien",
+                        "micronésienne"
+                    ]
     },
     {
         "code":  "MD",
@@ -2701,7 +2841,11 @@
                        17
                    ],
         "onu":  true,
-        "ccn3":  "516"
+        "ccn3":  "516",
+        "gentile":  [
+                        "namibien",
+                        "namibienne"
+                    ]
     },
     {
         "code":  "NR",
@@ -2719,7 +2863,11 @@
                        166.91666666
                    ],
         "onu":  true,
-        "ccn3":  "520"
+        "ccn3":  "520",
+        "gentile":  [
+                        "nauruan",
+                        "nauruane"
+                    ]
     },
     {
         "code":  "NP",
@@ -2782,7 +2930,11 @@
                        8
                    ],
         "onu":  true,
-        "ccn3":  "562"
+        "ccn3":  "562",
+        "gentile":  [
+                        "nigérien",
+                        "nigérienne"
+                    ]
     },
     {
         "code":  "NG",
@@ -2845,7 +2997,12 @@
                        174
                    ],
         "onu":  true,
-        "ccn3":  "554"
+        "ccn3":  "554",
+        "gentile":  [
+                        "néo-zélandais",
+                        "néo-zélandaise",
+                        "neozelandais"
+                    ]
     },
     {
         "code":  "OM",
@@ -2886,7 +3043,11 @@
                        32
                    ],
         "onu":  true,
-        "ccn3":  "800"
+        "ccn3":  "800",
+        "gentile":  [
+                        "ougandais",
+                        "ougandaise"
+                    ]
     },
     {
         "code":  "UZ",
@@ -2950,7 +3111,12 @@
                        134.5
                    ],
         "onu":  true,
-        "ccn3":  "585"
+        "ccn3":  "585",
+        "gentile":  [
+                        "paluan",
+                        "paluane",
+                        "palaosien"
+                    ]
     },
     {
         "code":  "PS",
@@ -3017,7 +3183,13 @@
                        147
                    ],
         "onu":  true,
-        "ccn3":  "598"
+        "ccn3":  "598",
+        "gentile":  [
+                        "papouan",
+                        "papouane",
+                        "papou",
+                        "papoue"
+                    ]
     },
     {
         "code":  "PY",
@@ -3198,7 +3370,11 @@
                        21
                    ],
         "onu":  true,
-        "ccn3":  "140"
+        "ccn3":  "140",
+        "gentile":  [
+                        "centrafricain",
+                        "centrafricaine"
+                    ]
     },
     {
         "code":  "DO",
@@ -3315,7 +3491,11 @@
                        30
                    ],
         "onu":  true,
-        "ccn3":  "646"
+        "ccn3":  "646",
+        "gentile":  [
+                        "rwandais",
+                        "rwandaise"
+                    ]
     },
     {
         "code":  "KN",
@@ -3448,7 +3628,11 @@
                        -172.33333333
                    ],
         "onu":  true,
-        "ccn3":  "882"
+        "ccn3":  "882",
+        "gentile":  [
+                        "samoan",
+                        "samoane"
+                    ]
     },
     {
         "code":  "ST",
@@ -3468,7 +3652,11 @@
                        7
                    ],
         "onu":  true,
-        "ccn3":  "678"
+        "ccn3":  "678",
+        "gentile":  [
+                        "santoméen",
+                        "santoméenne"
+                    ]
     },
     {
         "code":  "SN",
@@ -3529,7 +3717,11 @@
                        55.66666666
                    ],
         "onu":  true,
-        "ccn3":  "690"
+        "ccn3":  "690",
+        "gentile":  [
+                        "seychellois",
+                        "seychelloise"
+                    ]
     },
     {
         "code":  "SL",
@@ -3547,7 +3739,12 @@
                        -11.5
                    ],
         "onu":  true,
-        "ccn3":  "694"
+        "ccn3":  "694",
+        "gentile":  [
+                        "sierra-léonais",
+                        "sierra-léonaise",
+                        "sierraléonais"
+                    ]
     },
     {
         "code":  "SG",
@@ -3631,7 +3828,12 @@
                        49
                    ],
         "onu":  true,
-        "ccn3":  "706"
+        "ccn3":  "706",
+        "gentile":  [
+                        "somalien",
+                        "somalienne",
+                        "somali"
+                    ]
     },
     {
         "code":  "SD",
@@ -3649,7 +3851,11 @@
                        30
                    ],
         "onu":  true,
-        "ccn3":  "729"
+        "ccn3":  "729",
+        "gentile":  [
+                        "soudanais",
+                        "soudanaise"
+                    ]
     },
     {
         "code":  "SS",
@@ -3668,7 +3874,11 @@
                        30
                    ],
         "onu":  true,
-        "ccn3":  "728"
+        "ccn3":  "728",
+        "gentile":  [
+                        "sud-soudanais",
+                        "sud-soudanaise"
+                    ]
     },
     {
         "code":  "LK",
@@ -3851,7 +4061,11 @@
                        35
                    ],
         "onu":  true,
-        "ccn3":  "834"
+        "ccn3":  "834",
+        "gentile":  [
+                        "tanzanien",
+                        "tanzanienne"
+                    ]
     },
     {
         "code":  "TD",
@@ -3871,7 +4085,11 @@
                        19
                    ],
         "onu":  true,
-        "ccn3":  "148"
+        "ccn3":  "148",
+        "gentile":  [
+                        "tchadien",
+                        "tchadienne"
+                    ]
     },
     {
         "code":  "CZ",
@@ -3958,7 +4176,11 @@
                        1.16666666
                    ],
         "onu":  true,
-        "ccn3":  "768"
+        "ccn3":  "768",
+        "gentile":  [
+                        "togolais",
+                        "togolaise"
+                    ]
     },
     {
         "code":  "TO",
@@ -3977,7 +4199,11 @@
                        -175
                    ],
         "onu":  true,
-        "ccn3":  "776"
+        "ccn3":  "776",
+        "gentile":  [
+                        "tongien",
+                        "tongienne"
+                    ]
     },
     {
         "code":  "TT",
@@ -4020,7 +4246,11 @@
                        9
                    ],
         "onu":  true,
-        "ccn3":  "788"
+        "ccn3":  "788",
+        "gentile":  [
+                        "tunisien",
+                        "tunisienne"
+                    ]
     },
     {
         "code":  "TM",
@@ -4083,7 +4313,11 @@
                        178
                    ],
         "onu":  true,
-        "ccn3":  "798"
+        "ccn3":  "798",
+        "gentile":  [
+                        "tuvaluan",
+                        "tuvaluane"
+                    ]
     },
     {
         "code":  "UA",
@@ -4147,7 +4381,12 @@
                        167
                    ],
         "onu":  true,
-        "ccn3":  "548"
+        "ccn3":  "548",
+        "gentile":  [
+                        "vanuatais",
+                        "vanuataise",
+                        "vanuatuan"
+                    ]
     },
     {
         "code":  "VE",
@@ -4234,7 +4473,11 @@
                        30
                    ],
         "onu":  true,
-        "ccn3":  "894"
+        "ccn3":  "894",
+        "gentile":  [
+                        "zambien",
+                        "zambienne"
+                    ]
     },
     {
         "code":  "ZW",
@@ -4252,6 +4495,10 @@
                        30
                    ],
         "onu":  true,
-        "ccn3":  "716"
+        "ccn3":  "716",
+        "gentile":  [
+                        "zimbabwéen",
+                        "zimbabwéenne"
+                    ]
     }
 ]
