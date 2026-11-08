@@ -1,0 +1,65 @@
+{
+  "note": "Les 10 premières économies mondiales (PIB nominal, FMI 2025) et, pour chacune, les 5 villes les plus peuplées (ville proprement dite / commune, dernier recensement). pop = millions d'habitants.",
+  "pays": ["US", "CN", "DE", "JP", "IN", "GB", "FR", "IT", "CA", "BR"],
+  "villes": [
+    { "pays": "US", "rang": 1, "nom": "New York", "alias": ["New York City", "NYC"], "pop": 8.3, "latlng": [40.71, -74.01] },
+    { "pays": "US", "rang": 2, "nom": "Los Angeles", "alias": ["LA"], "pop": 3.8, "latlng": [34.05, -118.24] },
+    { "pays": "US", "rang": 3, "nom": "Chicago", "pop": 2.7, "latlng": [41.88, -87.63] },
+    { "pays": "US", "rang": 4, "nom": "Houston", "pop": 2.3, "latlng": [29.76, -95.37] },
+    { "pays": "US", "rang": 5, "nom": "Phoenix", "pop": 1.6, "latlng": [33.45, -112.07] },
+
+    { "pays": "CN", "rang": 1, "nom": "Chongqing", "alias": ["Chungking"], "pop": 32.0, "latlng": [29.56, 106.55] },
+    { "pays": "CN", "rang": 2, "nom": "Shanghai", "alias": ["Shangai", "Changhaï"], "pop": 24.9, "latlng": [31.23, 121.47] },
+    { "pays": "CN", "rang": 3, "nom": "Pékin", "alias": ["Beijing", "Pekin"], "pop": 21.9, "latlng": [39.9, 116.4] },
+    { "pays": "CN", "rang": 4, "nom": "Chengdu", "pop": 20.9, "latlng": [30.57, 104.07] },
+    { "pays": "CN", "rang": 5, "nom": "Canton", "alias": ["Guangzhou"], "pop": 18.7, "latlng": [23.13, 113.26] },
+
+    { "pays": "DE", "rang": 1, "nom": "Berlin", "pop": 3.8, "latlng": [52.52, 13.4] },
+    { "pays": "DE", "rang": 2, "nom": "Hambourg", "alias": ["Hamburg"], "pop": 1.9, "latlng": [53.55, 10.0] },
+    { "pays": "DE", "rang": 3, "nom": "Munich", "alias": ["München", "Munchen"], "pop": 1.5, "latlng": [48.14, 11.58] },
+    { "pays": "DE", "rang": 4, "nom": "Cologne", "alias": ["Köln", "Koln"], "pop": 1.1, "latlng": [50.94, 6.96] },
+    { "pays": "DE", "rang": 5, "nom": "Francfort", "alias": ["Francfort-sur-le-Main", "Frankfurt", "Frankfurt am Main"], "pop": 0.77, "latlng": [50.11, 8.68] },
+
+    { "pays": "JP", "rang": 1, "nom": "Tokyo", "alias": ["Tōkyō"], "pop": 9.7, "latlng": [35.68, 139.69] },
+    { "pays": "JP", "rang": 2, "nom": "Yokohama", "pop": 3.8, "latlng": [35.44, 139.64] },
+    { "pays": "JP", "rang": 3, "nom": "Osaka", "alias": ["Ōsaka"], "pop": 2.8, "latlng": [34.69, 135.5] },
+    { "pays": "JP", "rang": 4, "nom": "Nagoya", "pop": 2.3, "latlng": [35.18, 136.91] },
+    { "pays": "JP", "rang": 5, "nom": "Sapporo", "pop": 2.0, "latlng": [43.06, 141.35] },
+
+    { "pays": "IN", "rang": 1, "nom": "Bombay", "alias": ["Mumbai"], "pop": 12.4, "latlng": [19.08, 72.88] },
+    { "pays": "IN", "rang": 2, "nom": "Delhi", "alias": ["New Delhi"], "pop": 11.0, "latlng": [28.61, 77.21] },
+    { "pays": "IN", "rang": 3, "nom": "Bangalore", "alias": ["Bengaluru"], "pop": 8.4, "latlng": [12.97, 77.59] },
+    { "pays": "IN", "rang": 4, "nom": "Hyderabad", "pop": 6.8, "latlng": [17.39, 78.49] },
+    { "pays": "IN", "rang": 5, "nom": "Ahmedabad", "pop": 5.6, "latlng": [23.02, 72.57] },
+
+    { "pays": "GB", "rang": 1, "nom": "Londres", "alias": ["London"], "pop": 8.9, "latlng": [51.51, -0.13] },
+    { "pays": "GB", "rang": 2, "nom": "Birmingham", "pop": 1.1, "latlng": [52.48, -1.9] },
+    { "pays": "GB", "rang": 3, "nom": "Leeds", "pop": 0.81, "latlng": [53.8, -1.55] },
+    { "pays": "GB", "rang": 4, "nom": "Glasgow", "pop": 0.63, "latlng": [55.86, -4.25] },
+    { "pays": "GB", "rang": 5, "nom": "Sheffield", "pop": 0.56, "latlng": [53.38, -1.47] },
+
+    { "pays": "FR", "rang": 1, "nom": "Paris", "pop": 2.1, "latlng": [48.86, 2.35] },
+    { "pays": "FR", "rang": 2, "nom": "Marseille", "pop": 0.87, "latlng": [43.3, 5.37] },
+    { "pays": "FR", "rang": 3, "nom": "Lyon", "pop": 0.52, "latlng": [45.76, 4.84] },
+    { "pays": "FR", "rang": 4, "nom": "Toulouse", "pop": 0.5, "latlng": [43.6, 1.44] },
+    { "pays": "FR", "rang": 5, "nom": "Nice", "pop": 0.35, "latlng": [43.7, 7.27] },
+
+    { "pays": "IT", "rang": 1, "nom": "Rome", "alias": ["Roma"], "pop": 2.7, "latlng": [41.9, 12.5] },
+    { "pays": "IT", "rang": 2, "nom": "Milan", "alias": ["Milano"], "pop": 1.4, "latlng": [45.46, 9.19] },
+    { "pays": "IT", "rang": 3, "nom": "Naples", "alias": ["Napoli"], "pop": 0.91, "latlng": [40.85, 14.27] },
+    { "pays": "IT", "rang": 4, "nom": "Turin", "alias": ["Torino"], "pop": 0.85, "latlng": [45.07, 7.69] },
+    { "pays": "IT", "rang": 5, "nom": "Palerme", "alias": ["Palermo"], "pop": 0.63, "latlng": [38.12, 13.36] },
+
+    { "pays": "CA", "rang": 1, "nom": "Toronto", "pop": 2.8, "latlng": [43.65, -79.38] },
+    { "pays": "CA", "rang": 2, "nom": "Montréal", "alias": ["Montreal"], "pop": 1.8, "latlng": [45.5, -73.57] },
+    { "pays": "CA", "rang": 3, "nom": "Calgary", "pop": 1.3, "latlng": [51.05, -114.07] },
+    { "pays": "CA", "rang": 4, "nom": "Ottawa", "pop": 1.0, "latlng": [45.42, -75.7] },
+    { "pays": "CA", "rang": 5, "nom": "Edmonton", "pop": 1.0, "latlng": [53.55, -113.49] },
+
+    { "pays": "BR", "rang": 1, "nom": "São Paulo", "alias": ["Sao Paulo"], "pop": 11.4, "latlng": [-23.55, -46.63] },
+    { "pays": "BR", "rang": 2, "nom": "Rio de Janeiro", "alias": ["Rio"], "pop": 6.2, "latlng": [-22.91, -43.17] },
+    { "pays": "BR", "rang": 3, "nom": "Brasilia", "alias": ["Brasília"], "pop": 2.8, "latlng": [-15.79, -47.88] },
+    { "pays": "BR", "rang": 4, "nom": "Fortaleza", "pop": 2.4, "latlng": [-3.72, -38.54] },
+    { "pays": "BR", "rang": 5, "nom": "Salvador", "alias": ["Salvador de Bahia"], "pop": 2.4, "latlng": [-12.97, -38.51] }
+  ]
+}

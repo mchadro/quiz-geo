@@ -1,6 +1,6 @@
 # Quiz géo
 
-Quiz de géographie pour la famille : pays et capitales par continent, cinq modes de jeu (QCM, saisie, « Nomme-les tous » contre la montre, et deux modes sur carte cliquable), comptes joueurs et classement familial. Site statique, pensé pour l'iPhone (ajout à l'écran d'accueil).
+Quiz de géographie pour la famille : pays et capitales par continent, États américains et leurs capitales, grandes villes des 10 premières économies ; cinq modes de jeu (QCM, saisie, « Nomme-les tous » contre la montre, et deux modes sur carte cliquable), comptes joueurs et classement familial. Site statique, pensé pour l'iPhone (ajout à l'écran d'accueil).
 
 ## Contenu du dossier
 
@@ -60,7 +60,9 @@ Puis ouvrir <http://localhost:8765/>. Ajouter `?local` à l'adresse (`http://loc
 
 - Contours des pays : Natural Earth 1:50m via [world-atlas](https://github.com/topojson/world-atlas) (`data/monde-50m.json`, domaine public), projetés avec d3-geo (`lib/`). Les pays trop petits pour être touchés (Vatican, Malte, îles du Pacifique…) ont un repère rond qui disparaît quand on zoome assez.
 
+- États américains : `data/etats-usa.json` (noms français, capitales, codes FIPS), contours us-atlas 1:10m (`data/usa-10m.json`), projection Albers USA avec Alaska et Hawaï en médaillon.
+- Grandes villes : `data/villes.json`. Les 10 premières économies (PIB nominal, FMI 2025) : États-Unis, Chine, Allemagne, Japon, Inde, Royaume-Uni, France, Italie, Canada, Brésil. Pour chacune, les 5 villes les plus peuplées au sens de la **ville proprement dite** (commune ou municipalité), ce qui donne par exemple Chongqing devant Shanghai en Chine, et Leeds ou Sheffield au Royaume-Uni. Le thème « Monde » interroge le pays de chaque ville en mode texte, et la ville elle-même sur la carte.
+
 ## À venir
 
-1. États des États-Unis et leurs capitales ; les 5 plus grandes villes des 10 premières économies.
-2. Personnalités : nationalité à deviner, 3 lignes d'information à la validation.
+1. Personnalités : nationalité à deviner, 3 lignes d'information à la validation.

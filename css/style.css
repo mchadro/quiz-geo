@@ -178,7 +178,12 @@ input:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-colo
 .carte-mer { fill: var(--carte-mer); }
 .carte-autre { fill: var(--carte-autre); stroke: var(--bg); stroke-width: .5; vector-effect: non-scaling-stroke; pointer-events: none; }
 .carte-pays { fill: var(--carte-pays); stroke: var(--surface); stroke-width: .7; vector-effect: non-scaling-stroke; cursor: pointer; transition: fill .15s ease; }
+.carte-fond-pays { fill: var(--carte-pays); stroke: var(--surface); stroke-width: .7; vector-effect: non-scaling-stroke; pointer-events: none; opacity: .7; }
 .carte-marqueur { fill: var(--carte-pays); stroke: var(--surface); stroke-width: 1.5; cursor: pointer; transition: fill .15s ease; }
+.carte-marqueur.point { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 2; }
+.mini-drapeau { width: 22px; height: 16px; object-fit: cover; border-radius: 3px; display: inline-block; margin-right: 6px; box-shadow: 0 0 0 1px var(--line); }
+.segment.defile { max-width: 100%; overflow-x: auto; }
+.segment.defile button { white-space: nowrap; }
 .carte-pays.selection, .carte-marqueur.selection { fill: var(--accent); }
 .carte-pays.trouve, .carte-marqueur.trouve { fill: var(--ok); }
 .carte-pays.manque, .carte-marqueur.manque { fill: var(--ko); }

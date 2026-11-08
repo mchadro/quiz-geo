@@ -1,7 +1,9 @@
-// Carte cliquable : contours Natural Earth (world-atlas 50m), projection d3-geo, zoom au doigt ou à la molette.
-// Les librairies (UMD) et le TopoJSON ne sont chargés que lorsqu'un mode carte démarre.
+// Carte cliquable : contours Natural Earth (world-atlas 50m) et États américains (us-atlas), projection d3-geo,
+// zoom au doigt ou à la molette. Les librairies (UMD) et les contours ne sont chargés qu'au premier mode carte.
+//
+// Trois vues : { type: 'monde', continent } (pays cliquables), { type: 'usa' } (États cliquables),
+// { type: 'points', pays } (villes : points cliquables sur le fond du pays, ou du monde si pays = null).
 
-// Cadrage par continent : points (lon, lat) que la vue doit contenir, rotation et parallèles de la projection conique.
 const VUES = {
   europe: { points: box(-25, 34, 45, 72), rotate: [-15, 0], paralleles: [40, 65] },
   asie: { points: box(25, -12, 150, 78), rotate: [-90, 0], paralleles: [15, 55] },
@@ -9,8 +11,7 @@ const VUES = {
   'amerique-nord': { points: box(-170, 7, -50, 84), rotate: [100, 0], paralleles: [25, 60] },
   'amerique-centrale': { points: box(-95, 6, -58, 28), rotate: [78, 0], paralleles: [10, 25] },
   'amerique-sud': { points: box(-85, -57, -33, 14), rotate: [60, 0], paralleles: [-35, -5] },
-  oceanie: { points: [[110, 22], [150, 22], [180, 10], [-170, 5], [-170, -25], [180, -50], [150, -50], [110, -45], [110, -10]], rotate: [-170, 0], paralleles: [-30, -5] },
-  monde: { points: null }
+  oceanie: { points: [[110, 22], [150, 22], [180, 10], [-170, 5], [-170, -25], [180, -50], [150, -50], [110, -45], [110, -10]], rotate: [-170, 0], paralleles: [-30, -5] }
 };
 function box(l1, b1, l2, b2) {
   const pts = [];
@@ -22,52 +23,89 @@ function box(l1, b1, l2, b2) {
 // Territoires sans code ISO ou disputés, rattachés à un pays du quiz par leur nom Natural Earth.
 const PAR_NOM = { Kosovo: 'XK', Somaliland: 'SO', 'N. Cyprus': 'CY' };
 
-let chargement = null;
+const chargements = {};
 function script(src) {
   return new Promise((ok, ko) => { const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = () => ko(new Error(`Chargement impossible : ${src}`)); document.head.appendChild(s); });
 }
+async function librairies() {
+  if (!window.d3?.geoPath) { await script('lib/d3-array.min.js'); await script('lib/d3-geo.min.js'); }
+  if (!window.topojson) await script('lib/topojson-client.min.js');
+}
+async function topo(fichier, objet) {
+  const r = await fetch(`data/${fichier}`);
+  if (!r.ok) throw new Error('Impossible de charger la carte');
+  const t = await r.json();
+  return window.topojson.feature(t, t.objects[objet]).features;
+}
 
-/** Charge d3-geo, topojson et les contours ; renvoie { features, parCode } (parCode : code ISO2 → features). */
-export function chargerMonde(pays) {
-  if (!chargement) {
-    chargement = (async () => {
-      if (!window.d3?.geoPath) { await script('lib/d3-array.min.js'); await script('lib/d3-geo.min.js'); }
-      if (!window.topojson) await script('lib/topojson-client.min.js');
-      const r = await fetch('data/monde-50m.json');
-      if (!r.ok) throw new Error('Impossible de charger la carte');
-      const topo = await r.json();
-      const features = window.topojson.feature(topo, topo.objects.countries).features;
-      const parCcn3 = Object.fromEntries(pays.filter(p => p.ccn3).map(p => [p.ccn3, p.code]));
-      const parCode = {};
-      for (const f of features) {
-        f.code = parCcn3[f.id] || PAR_NOM[f.properties.name] || null;
-        if (f.code) (parCode[f.code] ||= []).push(f);
-      }
-      return { features, parCode };
-    })();
-    chargement.catch(() => { chargement = null; });
-  }
-  return chargement;
+/** Contours du monde : { features, parCode } (code ISO2 → features). */
+export function chargerMonde(D) {
+  return chargements.monde ||= (async () => {
+    await librairies();
+    const features = await topo('monde-50m.json', 'countries');
+    const parCcn3 = Object.fromEntries(D.pays.filter(p => p.ccn3).map(p => [p.ccn3, p.code]));
+    const parCode = {};
+    for (const f of features) {
+      f.code = parCcn3[f.id] || PAR_NOM[f.properties.name] || null;
+      if (f.code) (parCode[f.code] ||= []).push(f);
+    }
+    return { features, parCode };
+  })().catch(e => { chargements.monde = null; throw e; });
+}
+
+/** Contours des États américains : { features, parCode } (code postal → features). */
+export function chargerUsa(D) {
+  return chargements.usa ||= (async () => {
+    await librairies();
+    const features = await topo('usa-10m.json', 'states');
+    const parFips = Object.fromEntries(D.etats.map(s => [s.fips, s.code]));
+    const parCode = {};
+    for (const f of features) { f.code = parFips[f.id] || null; if (f.code) (parCode[f.code] ||= []).push(f); }
+    return { features, parCode };
+  })().catch(e => { chargements.usa = null; throw e; });
+}
+
+export async function chargerFond(vue, D) {
+  return vue.type === 'usa' ? chargerUsa(D) : chargerMonde(D);
+}
+
+const aire = (d3, g) => d3.geoArea(g);
+function polygones(d3, feature) {
+  const g = feature.geometry;
+  return g.type === 'MultiPolygon' ? g.coordinates.map(c => ({ type: 'Polygon', coordinates: c })) : [g];
+}
+function plusGrandPolygone(d3, features) {
+  return features.flatMap(f => polygones(d3, f)).reduce((a, b) => (aire(d3, a) > aire(d3, b) ? a : b));
 }
 
 /**
- * Dessine la carte dans `conteneur`.
- * elements : les éléments du thème ({ id, pays, court }) ; actifs : codes cliquables.
- * onClic(code) est appelé quand un pays actif est touché.
+ * Dessine la carte dans `conteneur`. elements : { id, court, latlng? } ; onClic(id) à chaque toucher d'un élément.
  */
-export function creerCarte(conteneur, monde, { continent, elements, onClic }) {
+export function creerCarte(conteneur, fond, { vue, elements, onClic }) {
   const d3 = window.d3;
-  const codes = new Set(elements.map(e => e.id));
+  const ids = new Set(elements.map(e => e.id));
   const parId = Object.fromEntries(elements.map(e => [e.id, e]));
   const W = Math.max(300, conteneur.clientWidth), H = Math.max(240, conteneur.clientHeight);
-  const vue = VUES[continent] || VUES.monde;
-  const marge = 10;
+  const marge = 10, cadre = [[marge, marge], [W - marge, H - marge]];
+  const points = vue.type === 'points';
+  const paysFond = points && vue.pays ? (fond.parCode[vue.pays] || []) : [];
+
   let projection;
-  if (vue.points) {
-    projection = d3.geoConicEqualArea().rotate(vue.rotate).parallels(vue.paralleles)
-      .fitExtent([[marge, marge], [W - marge, H - marge]], { type: 'MultiPoint', coordinates: vue.points });
+  if (vue.type === 'usa') {
+    projection = d3.geoAlbersUsa().fitExtent(cadre, { type: 'FeatureCollection', features: fond.features.filter(f => f.code) });
+  } else if (points && vue.pays) {
+    // Cadrer sur les polygones du pays qui contiennent au moins une ville (évite la Guyane pour la France, l'Alaska pour les États-Unis).
+    const villes = elements.map(e => [e.latlng[1], e.latlng[0]]);
+    let polys = paysFond.flatMap(f => polygones(d3, f)).filter(p => villes.some(v => d3.geoContains(p, v)));
+    if (!polys.length) polys = [plusGrandPolygone(d3, paysFond)];
+    const zone = { type: 'MultiPolygon', coordinates: polys.map(p => p.coordinates) };
+    const [lon, lat] = d3.geoCentroid(zone);
+    projection = d3.geoConicEqualArea().rotate([-lon, 0]).parallels([lat - 12, lat + 12]).fitExtent([[marge * 2, marge * 2], [W - marge * 2, H - marge * 2]], zone);
+  } else if (vue.type === 'monde' && VUES[vue.continent]) {
+    const v = VUES[vue.continent];
+    projection = d3.geoConicEqualArea().rotate(v.rotate).parallels(v.paralleles).fitExtent(cadre, { type: 'MultiPoint', coordinates: v.points });
   } else {
-    projection = d3.geoNaturalEarth1().fitExtent([[marge, marge], [W - marge, H - marge]], { type: 'Sphere' });
+    projection = d3.geoNaturalEarth1().fitExtent(cadre, { type: 'Sphere' });
   }
   const chemin = d3.geoPath(projection);
 
@@ -79,58 +117,53 @@ export function creerCarte(conteneur, monde, { continent, elements, onClic }) {
   svg.appendChild(gMonde); svg.appendChild(gSur);
   conteneur.innerHTML = ''; conteneur.appendChild(svg);
 
-  // Terres : d'abord le contexte (gris), puis les pays du thème par-dessus.
-  const pathsParCode = {};
-  const actifs = monde.features.filter(f => f.code && codes.has(f.code));
-  for (const f of monde.features) {
-    if (f.code && codes.has(f.code)) continue;
-    if (f.properties.name === 'Antarctica' && continent !== 'monde') continue;
+  // Terres : contexte en gris, puis les surfaces du thème (cliquables sauf en vue points).
+  const pathsParId = {};
+  const estTheme = f => f.code && (points ? (vue.pays ? f.code === vue.pays : true) : ids.has(f.code));
+  for (const f of fond.features) {
+    if (estTheme(f)) continue;
+    if (f.properties.name === 'Antarctica' && vue.continent !== 'monde') continue;
     const d = chemin(f); if (!d) continue;
     gMonde.appendChild(el('path', { d, class: 'carte-autre' }));
   }
-  for (const f of actifs) {
+  for (const f of fond.features.filter(estTheme)) {
     const d = chemin(f); if (!d) continue;
-    const p = el('path', { d, class: 'carte-pays', 'data-code': f.code });
+    const p = el('path', { d, class: points ? 'carte-fond-pays' : 'carte-pays' });
+    if (!points) { p.dataset.code = f.code; (pathsParId[f.code] ||= []).push(p); }
     gMonde.appendChild(p);
-    (pathsParCode[f.code] ||= []).push(p);
   }
 
-  // Points de repère (pays minuscules ou sans contour) et étiquettes : couche en coordonnées écran.
+  // Repères (points, pays minuscules ou sans contour) et étiquettes : couche en coordonnées écran.
   const centres = {};
   for (const e of elements) {
-    const fs = monde.parCode[e.id] || [];
     let centre = null, petit = true, taille = 0;
+    const fs = points ? [] : (fond.parCode[e.id] || []);
     if (fs.length) {
-      const principal = fs.reduce((a, b) => (d3.geoArea(a) > d3.geoArea(b) ? a : b));
-      const geoms = principal.geometry.type === 'MultiPolygon'
-        ? principal.geometry.coordinates.map(c => ({ type: 'Polygon', coordinates: c }))
-        : [principal.geometry];
-      const plusGrand = geoms.reduce((a, b) => (d3.geoArea(a) > d3.geoArea(b) ? a : b));
-      centre = chemin.centroid(plusGrand);
-      const [[x0, y0], [x1, y1]] = chemin.bounds(plusGrand);
-      taille = Math.min(x1 - x0, y1 - y0);
-      petit = taille < 14;
+      const poly = plusGrandPolygone(d3, fs);
+      centre = chemin.centroid(poly);
+      const [[x0, y0], [x1, y1]] = chemin.bounds(poly);
+      taille = Math.min(x1 - x0, y1 - y0); petit = taille < 14;
     }
-    if (!centre || Number.isNaN(centre[0])) centre = projection([e.pays.latlng[1], e.pays.latlng[0]]);
+    if ((!centre || Number.isNaN(centre[0])) && e.latlng) centre = projection([e.latlng[1], e.latlng[0]]);
     centres[e.id] = { xy: centre, petit, taille };
   }
   const marqueurs = {}, etiquettes = {};
-  for (const [code, c] of Object.entries(centres)) {
+  for (const [id, c] of Object.entries(centres)) {
     if (!c.petit || !c.xy) continue;
-    const m = el('circle', { cx: c.xy[0], cy: c.xy[1], r: 7, class: 'carte-marqueur', 'data-code': code });
-    gSur.appendChild(m); marqueurs[code] = m;
+    const m = el('circle', { cx: c.xy[0], cy: c.xy[1], r: points ? 8 : 7, class: points ? 'carte-marqueur point' : 'carte-marqueur' });
+    m.dataset.code = id; gSur.appendChild(m); marqueurs[id] = m;
   }
 
   // Zoom et déplacement.
   let k = 1, tx = 0, ty = 0;
   const appliquer = () => {
     gMonde.setAttribute('transform', `translate(${tx} ${ty}) scale(${k})`);
-    // Le repère disparaît dès que le pays, zoomé, devient assez grand pour être touché directement.
-    for (const [code, m] of Object.entries(marqueurs)) {
-      const c = centres[code]; m.setAttribute('cx', c.xy[0] * k + tx); m.setAttribute('cy', c.xy[1] * k + ty);
+    for (const [id, m] of Object.entries(marqueurs)) {
+      const c = centres[id]; m.setAttribute('cx', c.xy[0] * k + tx); m.setAttribute('cy', c.xy[1] * k + ty);
+      // Le repère disparaît dès que le pays, zoomé, devient assez grand pour être touché directement.
       m.style.display = c.taille * k >= 14 ? 'none' : '';
     }
-    for (const [code, t] of Object.entries(etiquettes)) { const c = centres[code].xy; t.setAttribute('x', c[0] * k + tx); t.setAttribute('y', c[1] * k + ty - (centres[code].petit ? 11 : 0)); }
+    for (const [id, t] of Object.entries(etiquettes)) { const c = centres[id]; t.setAttribute('x', c.xy[0] * k + tx); t.setAttribute('y', c.xy[1] * k + ty - (c.petit ? 12 : 0)); }
   };
   const zoomer = (facteur, px, py) => {
     const nk = Math.min(16, Math.max(1, k * facteur)); const f = nk / k;
@@ -154,8 +187,7 @@ export function creerCarte(conteneur, monde, { continent, elements, onClic }) {
       if (bouge) { tx += p[0] - avant[0]; ty += p[1] - avant[1]; appliquer(); }
     } else if (pointeurs.size === 2) {
       const [a, b] = [...pointeurs.values()]; const dist = Math.hypot(a[0] - b[0], a[1] - b[1]);
-      const cx = (a[0] + b[0]) / 2, cy = (a[1] + b[1]) / 2;
-      if (dist0 > 0) zoomer(dist / dist0, cx, cy);
+      if (dist0 > 0) zoomer(dist / dist0, (a[0] + b[0]) / 2, (a[1] + b[1]) / 2);
       dist0 = dist; bouge = true;
     }
   });
@@ -163,7 +195,7 @@ export function creerCarte(conteneur, monde, { continent, elements, onClic }) {
     if (!pointeurs.has(ev.pointerId)) return;
     pointeurs.delete(ev.pointerId);
     if (pointeurs.size === 0) {
-      if (!bouge && cible && codes.has(cible)) onClic(cible);
+      if (!bouge && cible && ids.has(cible)) onClic(cible);
       depart = null; cible = null;
     } else if (pointeurs.size === 1) { depart = [...pointeurs.values()][0]; bouge = true; }
   };
@@ -178,27 +210,22 @@ export function creerCarte(conteneur, monde, { continent, elements, onClic }) {
   bReset.addEventListener('click', () => { k = 1; tx = 0; ty = 0; appliquer(); });
   conteneur.appendChild(boutons);
 
-  function etat(code, classe, actif) {
-    for (const p of pathsParCode[code] || []) p.classList.toggle(classe, actif);
-    marqueurs[code]?.classList.toggle(classe, actif);
-  }
-  function etiqueter(code, texte) {
-    if (etiquettes[code]) return;
-    const c = centres[code]; if (!c?.xy) return;
-    const t = el('text', { class: 'carte-etiquette', 'text-anchor': 'middle' });
-    t.textContent = texte; gSur.appendChild(t); etiquettes[code] = t; appliquer();
+  function etat(id, classe, actif) {
+    for (const p of pathsParId[id] || []) p.classList.toggle(classe, actif);
+    marqueurs[id]?.classList.toggle(classe, actif);
   }
   return {
     svg,
-    selectionner(code) { for (const c of codes) etat(c, 'selection', c === code); },
-    marquer(code, classe) { etat(code, 'erreur', false); etat(code, 'selection', false); etat(code, classe, true); },
-    demarquer(code, classe) { etat(code, classe, false); },
-    etiqueter,
-    clignoter(code, classe = 'erreur', ms = 700) { etat(code, classe, true); setTimeout(() => etat(code, classe, false), ms); },
-    centrerSur(code) {
-      const c = centres[code]; if (!c?.xy) return;
-      k = Math.max(k, 3); tx = W / 2 - c.xy[0] * k; ty = H / 2 - c.xy[1] * k; appliquer();
+    selectionner(id) { for (const i of ids) etat(i, 'selection', i === id); },
+    marquer(id, classe) { etat(id, 'erreur', false); etat(id, 'selection', false); etat(id, classe, true); },
+    demarquer(id, classe) { etat(id, classe, false); },
+    clignoter(id, classe = 'erreur', ms = 700) { etat(id, classe, true); setTimeout(() => etat(id, classe, false), ms); },
+    etiqueter(id, texte) {
+      if (etiquettes[id]) return;
+      const c = centres[id]; if (!c?.xy) return;
+      const t = el('text', { class: 'carte-etiquette', 'text-anchor': 'middle' });
+      t.textContent = texte; gSur.appendChild(t); etiquettes[id] = t; appliquer();
     },
-    nom: code => parId[code]?.court || code
+    nom: id => parId[id]?.court || id
   };
 }
