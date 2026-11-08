@@ -292,7 +292,6 @@ details.carte > summary::-webkit-details-marker { display: none; }
 .moonwalk .bras { transform-origin: 40px 40px; animation: balance .6s ease-in-out infinite alternate; transform-box: view-box; }
 .moonwalk .bras-d { animation-delay: -.6s; }
 @keyframes balance { from { transform: rotate(-12deg); } to { transform: rotate(12deg); } }
-@media (prefers-reduced-motion: reduce) { .moonwalk .danseur, .moonwalk .jambe, .moonwalk .pied, .moonwalk .corps, .moonwalk .bras, .confettis i, .battu-gant { animation-duration: 6.5s !important; animation: revert; } }
 
 /* ----- « X t'a battu » ----- */
 .battu { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: 24px; background: rgba(10, 16, 22, .45); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); animation: fondu .3s ease both; }
@@ -304,4 +303,8 @@ details.carte > summary::-webkit-details-marker { display: none; }
 .battu-carte p { margin: 0; line-height: 1.5; }
 
 @media (min-width: 480px) { .grille { grid-template-columns: repeat(3, minmax(0, 1fr)); } .tuile.monde { grid-column: auto; } }
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+/* « Réduire les animations » : on calme les petits effets d'interface, mais les célébrations (moonwalk, confettis,
+   « X t'a battu ») restent visibles : ce sont des récompenses, pas du décor. */
+@media (prefers-reduced-motion: reduce) {
+  .pastille.neuf, .secoue, .btn, .tuile, .progression > div, .choix-avatar, .carte-pays, .carte-marqueur { animation: none !important; transition: none !important; }
+}

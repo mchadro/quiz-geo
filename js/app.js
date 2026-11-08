@@ -533,7 +533,7 @@ async function ecranResultats() {
         if (rang === 1) moonwalk();
       }
     }
-  } catch { /* classement indisponible */ }
+  } catch (ex) { toast(`Classement indisponible : ${ex.message}`); }
 }
 
 // ---------- Célébrations ----------
@@ -725,7 +725,10 @@ function ecranInfos() {
     <section class="carte pile">
       <h2>Ce que fait l’app</h2>
       <p>Pseudo et code secret à 4 chiffres, code famille sur chaque appareil. Scores partagés dans la famille uniquement. Moonwalk quand tu prends la première place d’un jeu, confettis quand tu bats ton record. Si quelqu’un te dépasse pendant ton absence, tu le sauras en revenant.</p>
+      <div class="btn-ligne"><button class="btn" id="test-record">Voir les confettis</button><button class="btn" id="test-moonwalk">Voir le moonwalk</button></div>
     </section>`;
+  document.getElementById('test-record').addEventListener('click', confettis);
+  document.getElementById('test-moonwalk').addEventListener('click', moonwalk);
 }
 
 // ---------- Routeur ----------
