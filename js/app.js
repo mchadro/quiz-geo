@@ -1,6 +1,6 @@
 // Quiz géo : écrans et logique de jeu.
 import { VERSION } from './config.js';
-import { GROUPES, MODES, MODES_CHRONO, CHRONOS, chargerDonnees, infoTheme, listeThemes, nomTheme, nomMode, drapeau, elementsTheme, repTexte, courts, genererPartie } from './data.js';
+import { GROUPES, MODES, MODES_CHRONO, CHRONOS, AVATARS, emojiAvatar, chargerDonnees, infoTheme, listeThemes, nomTheme, nomMode, drapeau, elementsTheme, repTexte, courts, genererPartie } from './data.js';
 import { trouver, normaliser, formaterDuree, formaterDate, echapper as e } from './texte.js';
 import * as store from './store.js';
 
@@ -44,7 +44,7 @@ function ecranConnexion() {
     <form class="carte pile" id="f-connexion" autocomplete="off">
       <div class="champ" id="champ-code" ${code ? 'hidden' : ''}>
         <label for="code">Code famille</label>
-        <input type="password" id="code" value="${e(code)}" autocapitalize="off" autocomplete="off" placeholder="Demande-le à papa">
+        <input type="password" id="code" value="${e(code)}" autocapitalize="off" autocomplete="off">
       </div>
       ${code ? `<p class="petit muted">Code famille enregistré sur cet appareil. <a href="#" id="changer-code">Changer</a></p>` : ''}
       <div class="champ"><label for="pseudo">Pseudo</label>
@@ -75,7 +75,7 @@ function ecranConnexion() {
     try {
       const j = action === 'inscription' ? await store.inscription(codeF, pseudo, pin) : await store.connexion(codeF, pseudo, pin);
       store.retenirCode(codeF);
-      store.ouvrirSession({ id: j.id, pseudo: j.pseudo, pin });
+      store.ouvrirSession({ id: j.id, pseudo: j.pseudo, pin, avatar: j.avatar || null });
       toast(action === 'inscription' ? `Bienvenue, ${j.pseudo} !` : `Salut ${j.pseudo} !`);
       store.synchroniser().then(n => { if (n) toast(`${n} partie(s) envoyée(s)`); });
       aller('#/themes');
@@ -95,7 +95,7 @@ function ecranThemes() {
   const tuile = t => `<button class="tuile ${t.court === 'Monde entier' ? 'monde' : ''}" data-theme="${t.id}">
       <span class="titre ligne">${t.drapeau ? img(drapeau(t.drapeau, 40), 'mini-drapeau') : ''}${e(t.court)}</span><span class="compte">${t.compte} ${e(t.unite)}</span></button>`;
   app.innerHTML = `
-    <div class="entete"><div><p class="sur">Salut ${e(s.pseudo)}</p><h1>À quoi on joue ?</h1></div></div>
+    <div class="entete"><div><p class="sur">Salut ${e(s.pseudo)}</p><h1>À quoi on joue ?</h1></div>${s.avatar ? `<a href="#/profil" class="avatar moyen" aria-label="Profil">${emojiAvatar(s.avatar)}</a>` : ''}</div>
     ${enCours ? `<div class="carte ligne espace mb">
         <div><strong>Partie en cours</strong><br><span class="petit muted">${e(nomTheme(enCours.theme, D))} · ${e(nomMode(enCours.mode))} · ${MODES_CHRONO.includes(enCours.mode) ? enCours.trouves.length : enCours.index}/${enCours.ordre.length}</span></div>
         <div class="ligne"><button class="btn discret" id="abandonner">Abandonner</button><button class="btn primaire" id="reprendre">Reprendre</button></div>
@@ -467,16 +467,63 @@ async function ecranResultats() {
   });
   document.getElementById('autre').addEventListener('click', () => aller('#/themes'));
   document.getElementById('voir-classement').addEventListener('click', () => aller(`#/classement?theme=${r.theme}&mode=${r.mode}`));
+  if (r.enregistrement === 'en cours') return; // le rang se calcule une fois la partie enregistrée
   try {
     const cl = (await store.classement()).filter(x => x.theme === r.theme && x.mode === r.mode).sort(trier);
     const moi = cl.find(x => x.pseudo === s.pseudo);
     const rang = moi ? cl.indexOf(moi) + 1 : null;
     const el = document.getElementById('rang');
     if (el && rang) {
+      // Record perso : cette partie est la meilleure du joueur sur ce thème et ce mode (score, puis temps).
       const record = moi.bonnes === r.bonnes && moi.duree_ms === r.duree_ms;
       el.innerHTML = `${record ? '<span class="badge ok">Record perso</span> ' : ''}${rang === 1 ? 'Meilleur de la famille' : `${rang}e de la famille sur ${cl.length}`}`;
+      if (!r.celebre) {
+        r.celebre = true;
+        try { sessionStorage.setItem('qg.resultat', JSON.stringify(r)); } catch { /* rien */ }
+        if (record) confettis();
+        if (rang === 1) moonwalk();
+      }
     }
   } catch { /* classement indisponible */ }
+}
+
+// ---------- Célébrations ----------
+function confettis() {
+  const zone = document.createElement('div'); zone.className = 'confettis'; zone.setAttribute('aria-hidden', 'true');
+  const couleurs = ['#1f6f8b', '#e2762a', '#f2c84b', '#2e7d32', '#c62828', '#6fa8dc', '#c06ad8'];
+  for (let i = 0; i < 90; i++) {
+    const c = document.createElement('i');
+    c.style.left = `${Math.random() * 100}%`;
+    c.style.background = couleurs[i % couleurs.length];
+    c.style.animationDelay = `${Math.random() * 1.2}s`;
+    c.style.animationDuration = `${2.6 + Math.random() * 1.6}s`;
+    c.style.transform = `rotate(${Math.random() * 360}deg)`;
+    c.style.width = `${6 + Math.random() * 6}px`;
+    zone.appendChild(c);
+  }
+  const titre = document.createElement('div'); titre.className = 'bandeau-record'; titre.textContent = 'Record personnel !';
+  zone.appendChild(titre);
+  document.body.appendChild(zone);
+  setTimeout(() => zone.remove(), 5200);
+}
+
+function moonwalk() {
+  const d = document.createElement('div'); d.className = 'moonwalk'; d.setAttribute('aria-hidden', 'true');
+  d.innerHTML = `<svg viewBox="0 0 60 100" width="72" height="120">
+      <g class="corps">
+        <rect x="18" y="4" width="24" height="8" rx="2" fill="#1c1c1c"/><rect x="24" y="0" width="12" height="8" rx="2" fill="#1c1c1c"/>
+        <circle cx="30" cy="18" r="8" fill="#e8b89a"/>
+        <path d="M22 26 L38 26 L40 56 L20 56 Z" fill="#e2762a"/>
+        <path class="bras bras-g" d="M22 28 L10 48" stroke="#e2762a" stroke-width="6" stroke-linecap="round" fill="none"/>
+        <path class="bras bras-d" d="M38 28 L50 46" stroke="#e2762a" stroke-width="6" stroke-linecap="round" fill="none"/>
+      </g>
+      <path class="jambe jambe-g" d="M25 56 L22 92" stroke="#1c1c1c" stroke-width="7" stroke-linecap="round" fill="none"/>
+      <path class="jambe jambe-d" d="M35 56 L38 92" stroke="#1c1c1c" stroke-width="7" stroke-linecap="round" fill="none"/>
+      <ellipse class="pied pied-g" cx="20" cy="95" rx="8" ry="3.5" fill="#f4f4f4" stroke="#1c1c1c" stroke-width="1.5"/>
+      <ellipse class="pied pied-d" cx="40" cy="95" rx="8" ry="3.5" fill="#f4f4f4" stroke="#1c1c1c" stroke-width="1.5"/>
+    </svg><div class="bandeau-premier">1<sup>re</sup> place !</div>`;
+  document.body.appendChild(d);
+  setTimeout(() => d.remove(), 6500);
 }
 
 // ---------- Classement ----------
@@ -501,13 +548,13 @@ async function ecranClassement() {
       </div>
       <div class="carte mt" style="padding:4px 12px">
         ${lignes.length ? `<table><thead><tr><th></th><th>Joueur</th><th class="num">Score</th><th class="num">Temps</th><th class="num">Parties</th></tr></thead><tbody>
-          ${lignes.map((l, i) => `<tr class="${l.pseudo === s.pseudo ? 'moi' : ''}"><td class="rang">${i + 1}</td><td><strong>${e(l.pseudo)}</strong><br><span class="petit muted">${formaterDate(l.jouee_le)}</span></td>
+          ${lignes.map((l, i) => `<tr class="${l.pseudo === s.pseudo ? 'moi' : ''}"><td class="rang">${i + 1}</td><td><span class="avatar petit-avatar">${emojiAvatar(l.avatar)}</span><strong>${e(l.pseudo)}</strong><br><span class="petit muted">${formaterDate(l.jouee_le)}</span></td>
             <td class="num"><strong>${l.bonnes}</strong>/${l.total}</td><td class="num">${formaterDuree(l.duree_ms)}</td><td class="num muted">${l.parties}</td></tr>`).join('')}
         </tbody></table>` : `<p class="vide">Personne n’a encore joué ce thème dans ce mode.</p>`}
       </div>
       <button class="btn primaire bloc mt" id="jouer-ce-theme">Jouer ${e(nomTheme(theme, D))} en ${e(nomMode(mode))}</button>
       <h2 class="mt mb">Dernières parties</h2>
-      <div class="fil">${fil.length ? fil.map(f => `<div class="item"><div><span class="qui">${e(f.pseudo)}</span> <span class="muted">·</span> ${e(nomTheme(f.theme, D))} <span class="badge">${e(nomMode(f.mode))}</span></div>
+      <div class="fil">${fil.length ? fil.map(f => `<div class="item"><div><span class="avatar petit-avatar">${emojiAvatar(f.avatar)}</span><span class="qui">${e(f.pseudo)}</span> <span class="muted">·</span> ${e(nomTheme(f.theme, D))} <span class="badge">${e(nomMode(f.mode))}</span></div>
         <div class="centre" style="flex:none"><strong>${f.bonnes}/${f.total}</strong><br><span class="petit muted">${formaterDate(f.jouee_le)}</span></div></div>`).join('') : '<p class="vide">Rien pour l’instant.</p>'}</div>`;
     document.getElementById('theme').addEventListener('change', ev => { theme = ev.target.value; rendu(); });
     app.querySelectorAll('[data-mode]').forEach(b => b.addEventListener('click', () => { mode = b.dataset.mode; rendu(); }));
@@ -521,9 +568,23 @@ async function ecranClassement() {
 // ---------- Profil et progression ----------
 async function ecranProfil() {
   const s = store.session();
-  app.innerHTML = `<div class="entete"><div><p class="sur">Profil</p><h1>${e(s.pseudo)}</h1></div>
-    <button class="btn discret" id="deconnexion">Se déconnecter</button></div><div class="chargement">Chargement…</div>`;
+  app.innerHTML = `<div class="entete"><div class="ligne"><button class="avatar grand" id="ouvrir-avatars" aria-label="Changer d’avatar">${emojiAvatar(s.avatar) || '🙂'}</button><div><p class="sur">Profil</p><h1>${e(s.pseudo)}</h1></div></div>
+    <button class="btn discret" id="deconnexion">Se déconnecter</button></div>
+    <details class="carte mb" id="avatars"><summary class="ligne espace"><strong>Mon avatar</strong><span class="petit muted">${s.avatar ? 'Changer' : 'Choisis-en un'}</span></summary>
+      <div class="grille-avatars">${AVATARS.map(a => `<button class="avatar choix-avatar ${a.id === s.avatar ? 'actif' : ''}" data-avatar="${a.id}" title="${e(a.nom)}" aria-label="${e(a.nom)}">${a.e}</button>`).join('')}</div>
+    </details>
+    <div class="chargement">Chargement…</div>`;
   document.getElementById('deconnexion').addEventListener('click', () => { store.fermerSession(); store.effacerPartie(); aller('#/connexion'); });
+  document.getElementById('ouvrir-avatars').addEventListener('click', () => { document.getElementById('avatars').open = true; });
+  if (!s.avatar) document.getElementById('avatars').open = true;
+  app.querySelectorAll('[data-avatar]').forEach(b => b.addEventListener('click', async () => {
+    try {
+      await store.definirAvatar(b.dataset.avatar);
+      app.querySelectorAll('[data-avatar]').forEach(x => x.classList.toggle('actif', x === b));
+      document.getElementById('ouvrir-avatars').textContent = b.textContent;
+      toast('Avatar enregistré');
+    } catch (ex) { toast(ex.message); }
+  }));
   let hist = [];
   try { hist = await store.historique(); } catch (ex) { app.querySelector('.chargement').outerHTML = `<p class="erreur">${e(ex.message)}</p>`; return; }
   const parTheme = new Map();

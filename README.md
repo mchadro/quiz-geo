@@ -20,6 +20,7 @@ Quiz de géographie pour la famille : pays et capitales par continent, États am
 1. Ouvrir le projet Supabase (celui du Démineur), menu **SQL Editor**, **New query**.
 2. Ouvrir `supabase-quiz.sql`, remplacer `CHANGEZ-MOI` (dernières lignes) par le **code famille** de votre choix, coller le tout, cliquer **Run**.
 3. Pour changer le code famille plus tard : relancer uniquement le dernier bloc `insert into public.qg_famille…` avec le nouveau code.
+4. Coller et lancer ensuite `supabase-avatars.sql` (avatar des joueurs dans la connexion et les classements).
 
 Les tables sont préfixées `qg_` et n'ont aucun accès direct : tout passe par des fonctions qui vérifient le code famille, puis le pseudo et le code secret du joueur. Les codes secrets sont stockés hachés.
 
@@ -65,6 +66,12 @@ Puis ouvrir <http://localhost:8765/>. Ajouter `?local` à l'adresse (`http://loc
 
 - Personnalités : `data/personnalites.json`, rédigé et relu à la main (dates et faits vérifiables sur Wikipédia). Chaque fiche : nationalités acceptées (codes ISO, la première est la principale et sert pour la carte), domaine, dates, 3 lignes d'information affichées après la réponse. Les gentilés (« française », « allemand »…) sont dans `pays.json` et acceptés en saisie. Livré par lots : lot 1 = France, Allemagne, Royaume-Uni, Italie, Espagne, Russie (15 chacun).
 
+## Règles du classement et célébrations
+
+- Classement par thème et par mode : meilleure partie de chaque joueur, triée par score décroissant puis **temps croissant** (à score égal, le plus rapide est devant).
+- Première place de la famille : un bonhomme traverse l'écran en moonwalk. Record personnel : bandeau « Record personnel ! » et confettis. Les deux peuvent se cumuler.
+- Chaque joueur choisit un avatar parmi 36 (animaux, personnages, objets) dans son profil.
+
 ## À venir
 
-1. Personnalités : lots suivants (reste de l'Europe, puis Amériques, Asie, Afrique, Océanie) ; objectif 15 / 8 / 3 fiches selon la taille du pays.
+1. Personnalités : lots suivants (Amériques, Asie, Afrique, Océanie) ; objectif 15 / 8 / 3 fiches selon la taille du pays. L'Europe est couverte (290 fiches).

@@ -254,5 +254,41 @@ tr.moi td { background: var(--accent-soft); }
 .badge.ok { background: var(--ok-soft); color: var(--ok); }
 .badge.accent { background: var(--accent-soft); color: var(--accent); }
 
+/* ----- Avatars ----- */
+.avatar { display: inline-grid; place-items: center; border-radius: 50%; background: var(--surface-2); line-height: 1; text-decoration: none; border: 0; font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif; }
+.avatar.moyen { width: 44px; height: 44px; font-size: 26px; flex: none; }
+.avatar.grand { width: 64px; height: 64px; font-size: 38px; cursor: pointer; margin-right: 12px; flex: none; box-shadow: var(--shadow); }
+.avatar.petit-avatar { width: 26px; height: 26px; font-size: 16px; vertical-align: middle; margin-right: 6px; }
+.grille-avatars { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin-top: 14px; }
+.choix-avatar { width: 100%; aspect-ratio: 1; font-size: 26px; cursor: pointer; border: 2px solid transparent; transition: transform .08s ease; }
+.choix-avatar:active { transform: scale(.92); }
+.choix-avatar.actif { border-color: var(--accent); background: var(--accent-soft); }
+details.carte > summary { cursor: pointer; list-style: none; }
+details.carte > summary::-webkit-details-marker { display: none; }
+
+/* ----- Célébrations ----- */
+.confettis { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 50; }
+.confettis i { position: absolute; top: -12px; width: 8px; height: 14px; border-radius: 2px; opacity: .95; animation: chute linear forwards; }
+@keyframes chute { 0% { transform: translateY(0) rotate(0); } 100% { transform: translateY(110vh) rotate(720deg); opacity: .8; } }
+.bandeau-record, .bandeau-premier {
+  position: absolute; left: 50%; transform: translateX(-50%); padding: 10px 22px; border-radius: 99px; font-family: var(--titre); font-weight: 700; font-size: 1.25rem;
+  box-shadow: var(--shadow); white-space: nowrap; animation: surgir .5s cubic-bezier(.2, 1.4, .4, 1) both;
+}
+.bandeau-record { top: 18%; background: var(--ok); color: #fff; }
+.bandeau-premier { top: 28%; background: var(--warn); color: #fff; }
+@keyframes surgir { from { transform: translateX(-50%) scale(.3); opacity: 0; } to { transform: translateX(-50%) scale(1); opacity: 1; } }
+.moonwalk { position: fixed; inset: 0; pointer-events: none; z-index: 51; }
+.moonwalk svg { position: absolute; bottom: calc(var(--nav-h) + 10px + env(safe-area-inset-bottom)); left: 0; animation: glisse 6s linear forwards; filter: drop-shadow(0 6px 6px rgba(0, 0, 0, .25)); }
+/* Le bonhomme regarde à droite (scaleX) mais recule vers la gauche : c'est le moonwalk. */
+@keyframes glisse { from { transform: translateX(105vw) scaleX(-1); } to { transform: translateX(-90px) scaleX(-1); } }
+.moonwalk .jambe, .moonwalk .pied { transform-origin: 30px 56px; animation: pas .7s ease-in-out infinite alternate; }
+.moonwalk .jambe-d, .moonwalk .pied-d { animation-delay: -.7s; }
+@keyframes pas { from { transform: rotate(-16deg); } to { transform: rotate(16deg); } }
+.moonwalk .corps { transform-origin: 30px 56px; animation: dandine .7s ease-in-out infinite alternate; }
+@keyframes dandine { from { transform: rotate(-4deg) translateY(0); } to { transform: rotate(4deg) translateY(-2px); } }
+.moonwalk .bras { transform-origin: 30px 28px; animation: balance .7s ease-in-out infinite alternate; }
+.moonwalk .bras-d { animation-delay: -.7s; }
+@keyframes balance { from { transform: rotate(-10deg); } to { transform: rotate(10deg); } }
+
 @media (min-width: 480px) { .grille { grid-template-columns: repeat(3, minmax(0, 1fr)); } .tuile.monde { grid-column: auto; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }

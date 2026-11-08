@@ -13,7 +13,8 @@ export const CONTINENTS = [
 ];
 
 export const GROUPES = [
-  { id: 'pays', nom: 'Pays', description: 'Un drapeau s’affiche, retrouve le pays. Sur la carte : touche-le.' },
+  { id: 'pays', nom: 'Pays', description: 'Sur la carte ou de mémoire : nomme ou touche tous les pays d’un continent.' },
+  { id: 'drapeaux', nom: 'Drapeaux', description: 'Un drapeau s’affiche, retrouve le pays : QCM ou réponse libre.' },
   { id: 'capitales', nom: 'Capitales', description: 'Un pays s’affiche, donne sa capitale.' },
   { id: 'usa', nom: 'États-Unis', description: 'Les 50 États et leurs capitales.' },
   { id: 'villes', nom: 'Grandes villes', description: 'Les 5 villes les plus peuplées des 10 premières économies du monde.' },
@@ -45,8 +46,14 @@ export async function chargerDonnees() {
     if (!r.ok) throw new Error(`Impossible de charger ${n}`);
     return r.json();
   }));
+  // Les personnalités sont livrées par lots, un fichier chacun.
+  const lots = await Promise.all((perso.lots || []).map(async f => {
+    const r = await fetch(`data/${f}`);
+    if (!r.ok) throw new Error(`Impossible de charger ${f}`);
+    return r.json();
+  }));
   cache = {
-    pays, etats, villes: villes.villes, economies: villes.pays, personnes: perso.personnes, domaines: perso.domaines,
+    pays, etats, villes: villes.villes, economies: villes.pays, personnes: lots.flat(), domaines: perso.domaines,
     parCode: Object.fromEntries(pays.map(p => [p.code, p]))
   };
   return cache;
@@ -70,11 +77,11 @@ export function infoTheme(id, D) {
   const [groupe, reste] = [id.slice(0, id.indexOf('-')), id.slice(id.indexOf('-') + 1)];
   if (id === 'etats-usa') return { id, groupe: 'usa', nom: 'États des États-Unis', court: 'Les 50 États', unite: 'États', consigne: 'Quel est cet État ?', consigneCarte: 'Quel est cet État ?', prompt: 'drapeau', carte: { type: 'usa' } };
   if (id === 'capitales-usa') return { id, groupe: 'usa', nom: 'Capitales des États américains', court: 'Les 50 capitales', unite: 'capitales', consigne: 'Quelle est la capitale de cet État ?', consigneCarte: 'Quelle est sa capitale ?', prompt: 'texte', carte: { type: 'usa' } };
-  if (groupe === 'pays' || groupe === 'capitales') {
+  if (groupe === 'pays' || groupe === 'capitales' || groupe === 'drapeaux') {
     const c = CONTINENTS.find(x => x.id === reste); if (!c) return null;
-    return groupe === 'pays'
-      ? { id, groupe, nom: `Pays · ${c.nom}`, court: c.nom, unite: 'pays', consigne: 'Quel est ce pays ?', consigneCarte: 'Quel est ce pays ?', prompt: 'drapeau', carte: { type: 'monde', continent: c.id } }
-      : { id, groupe, nom: `Capitales · ${c.nom}`, court: c.nom, unite: 'capitales', consigne: 'Quelle est la capitale ?', consigneCarte: 'Quelle est sa capitale ?', prompt: 'texte', carte: { type: 'monde', continent: c.id } };
+    if (groupe === 'pays') return { id, groupe, nom: `Pays · ${c.nom}`, court: c.nom, unite: 'pays', consigne: 'Nomme tous les pays', consigneCarte: 'Quel est ce pays ?', prompt: 'drapeau', carte: { type: 'monde', continent: c.id }, modes: ['carte', 'carte-trouve', 'liste'] };
+    if (groupe === 'drapeaux') return { id, groupe, nom: `Drapeaux · ${c.nom}`, court: c.nom, unite: 'drapeaux', consigne: 'Quel est ce pays ?', consigneCarte: 'Quel est ce pays ?', prompt: 'drapeau', carte: { type: 'monde', continent: c.id }, modes: ['qcm', 'saisie'] };
+    return { id, groupe, nom: `Capitales · ${c.nom}`, court: c.nom, unite: 'capitales', consigne: 'Quelle est la capitale ?', consigneCarte: 'Quelle est sa capitale ?', prompt: 'texte', carte: { type: 'monde', continent: c.id } };
   }
   if (groupe === 'perso') {
     const c = CONTINENTS.find(x => x.id === reste); if (!c) return null;
@@ -95,6 +102,7 @@ export function nomTheme(id, D) { return infoTheme(id, D)?.nom || id; }
 export function listeThemes(D) {
   const t = [];
   for (const c of CONTINENTS) t.push(infoTheme(`pays-${c.id}`, D));
+  for (const c of CONTINENTS) t.push(infoTheme(`drapeaux-${c.id}`, D));
   for (const c of CONTINENTS) t.push(infoTheme(`capitales-${c.id}`, D));
   t.push(infoTheme('etats-usa', D), infoTheme('capitales-usa', D));
   for (const code of D.economies) t.push(infoTheme(`villes-${code}`, D));
@@ -102,6 +110,20 @@ export function listeThemes(D) {
   for (const c of CONTINENTS) t.push(infoTheme(`perso-${c.id}`, D));
   return t.map(x => ({ ...x, compte: elementsTheme(x.id, D).length })).filter(x => x.compte > 0);
 }
+
+/** Avatars proposés aux joueurs. */
+export const AVATARS = [
+  { id: 'canard', e: '🦆', nom: 'Canard' }, { id: 'licorne', e: '🦄', nom: 'Licorne' }, { id: 'lapin', e: '🐰', nom: 'Lapin' }, { id: 'biche', e: '🦌', nom: 'Biche' },
+  { id: 'renard', e: '🦊', nom: 'Renard' }, { id: 'panda', e: '🐼', nom: 'Panda' }, { id: 'koala', e: '🐨', nom: 'Koala' }, { id: 'lion', e: '🦁', nom: 'Lion' },
+  { id: 'tigre', e: '🐯', nom: 'Tigre' }, { id: 'grenouille', e: '🐸', nom: 'Grenouille' }, { id: 'pingouin', e: '🐧', nom: 'Pingouin' }, { id: 'hibou', e: '🦉', nom: 'Hibou' },
+  { id: 'tortue', e: '🐢', nom: 'Tortue' }, { id: 'pieuvre', e: '🐙', nom: 'Pieuvre' }, { id: 'papillon', e: '🦋', nom: 'Papillon' }, { id: 'dragon', e: '🐉', nom: 'Dragon' },
+  { id: 'lutin', e: '🧝', nom: 'Lutin' }, { id: 'magicien', e: '🧙', nom: 'Magicien' }, { id: 'lunettes', e: '🤓', nom: 'Bonhomme à lunettes' }, { id: 'casquette', e: '🧢', nom: 'Casquette' },
+  { id: 'fille-couettes', e: '👧', nom: 'Fille à couettes' }, { id: 'garcon', e: '👦', nom: 'Garçon' }, { id: 'astronaute', e: '🧑‍🚀', nom: 'Astronaute' }, { id: 'ninja', e: '🥷', nom: 'Ninja' },
+  { id: 'vampire', e: '🧛', nom: 'Vampire' }, { id: 'sirene', e: '🧜', nom: 'Sirène' }, { id: 'robot', e: '🤖', nom: 'Robot' }, { id: 'alien', e: '👽', nom: 'Extraterrestre' },
+  { id: 'vin', e: '🍷', nom: 'Verre de vin' }, { id: 'pizza', e: '🍕', nom: 'Pizza' }, { id: 'cafe', e: '☕', nom: 'Café' }, { id: 'ballon', e: '⚽', nom: 'Ballon de foot' },
+  { id: 'basket', e: '🏀', nom: 'Ballon de basket' }, { id: 'guitare', e: '🎸', nom: 'Guitare' }, { id: 'fusee', e: '🚀', nom: 'Fusée' }, { id: 'globe', e: '🌍', nom: 'Globe' }
+];
+export function emojiAvatar(id) { return (AVATARS.find(a => a.id === id) || {}).e || ''; }
 
 /** Libellés acceptés comme bonne réponse au QCM (plusieurs pour une double nationalité). */
 export function courts(el) { const r = repTexte(el); return r.courts || [r.court]; }
@@ -117,7 +139,7 @@ function ordinal(n) { return n === 1 ? '1re' : `${n}e`; }
 export function elementsTheme(id, D) {
   const t = infoTheme(id, D);
   if (!t) return [];
-  if (t.groupe === 'pays') {
+  if (t.groupe === 'pays' || t.groupe === 'drapeaux') {
     return paysDuContinent(D.pays, t.carte.continent).map(p => ({
       id: p.code, court: p.nom, reponse: p.nom, formes: [p.nom, ...(p.alias || [])], drapeau: drapeau(p.code), petitDrapeau: drapeau(p.code, 80),
       titre: p.nom, libelle: p.nom, info: p.statut, latlng: p.latlng

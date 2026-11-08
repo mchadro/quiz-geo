@@ -50,15 +50,19 @@ const hors = {
   async inscription(code, pseudo, pin) {
     const j = this.joueurs();
     if (j.some(x => x.pseudo.toLowerCase() === pseudo.toLowerCase())) throw new Error('Ce pseudo est déjà pris');
-    const joueur = { id: Date.now(), pseudo, pin };
+    const joueur = { id: Date.now(), pseudo, pin, avatar: null };
     local.set('qg.local.joueurs', [...j, joueur]);
-    return { id: joueur.id, pseudo };
+    return { id: joueur.id, pseudo, avatar: null };
   },
   async connexion(code, pseudo, pin) {
     const j = this.joueurs().find(x => x.pseudo.toLowerCase() === pseudo.toLowerCase() && x.pin === pin);
     if (!j) throw new Error('Pseudo ou code secret incorrect');
-    return { id: j.id, pseudo: j.pseudo };
+    return { id: j.id, pseudo: j.pseudo, avatar: j.avatar || null };
   },
+  async definirAvatar(s, avatar) {
+    local.set('qg.local.joueurs', this.joueurs().map(x => (x.id === s.id ? { ...x, avatar } : x)));
+  },
+  avatarDe(pseudo) { return (this.joueurs().find(x => x.pseudo === pseudo) || {}).avatar || null; },
   async enregistrer(s, p) {
     const partie = { id: Date.now(), pseudo: s.pseudo, ...p, jouee_le: new Date().toISOString() };
     local.set('qg.local.parties', [partie, ...this.parties()].slice(0, 500));
@@ -72,9 +76,9 @@ const hors = {
       if (!m) meilleures.set(k, { ...p, parties: 1 });
       else { m.parties++; if (p.bonnes > m.bonnes || (p.bonnes === m.bonnes && p.duree_ms < m.duree_ms)) Object.assign(m, p, { parties: m.parties }); }
     }
-    return [...meilleures.values()];
+    return [...meilleures.values()].map(p => ({ ...p, avatar: this.avatarDe(p.pseudo) }));
   },
-  async dernieres() { return this.parties().slice(0, 30); },
+  async dernieres() { return this.parties().slice(0, 30).map(p => ({ ...p, avatar: this.avatarDe(p.pseudo) })); },
   async historique(s) { return this.parties().filter(p => p.pseudo === s.pseudo); }
 };
 
@@ -117,6 +121,15 @@ export async function synchroniser() {
   }
   local.set('qg.attente', restantes);
   return attente.length - restantes.length;
+}
+
+/** Change l'avatar du joueur connecté et le mémorise dans la session. */
+export async function definirAvatar(avatar) {
+  const s = session();
+  if (!s) throw new Error('Pas de joueur connecté');
+  if (enLigne()) await rpc('qg_definir_avatar', { p_code: codeFamille(), p_pseudo: s.pseudo, p_pin: s.pin, p_avatar: avatar });
+  else await hors.definirAvatar(s, avatar);
+  ouvrirSession({ ...s, avatar });
 }
 
 export async function classement() {
