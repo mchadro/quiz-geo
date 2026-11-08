@@ -19,6 +19,9 @@
   --titre: 'Space Grotesk', system-ui, sans-serif;
   --texte: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif;
   --nav-h: 64px;
+  --carte-mer: #d9e6ee;
+  --carte-autre: #e8e3d7;
+  --carte-pays: #d9c89b;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
@@ -27,6 +30,7 @@
     --accent: #5fb3cf; --accent-ink: #0f1419; --accent-soft: #1d3a46;
     --ok: #7bc47f; --ok-soft: #1d3322; --ko: #ef7b7b; --ko-soft: #3b1f1f; --warn: #e0a24a;
     --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -10px rgba(0, 0, 0, .6);
+    --carte-mer: #15212b; --carte-autre: #2b343d; --carte-pays: #7d6f45;
     color-scheme: dark;
   }
 }
@@ -34,6 +38,7 @@
   --bg: #0f1419; --surface: #1a2129; --surface-2: #232c36; --ink: #e8e6e1; --muted: #9aa3ad; --line: #2b3540;
   --accent: #5fb3cf; --accent-ink: #0f1419; --accent-soft: #1d3a46;
   --ok: #7bc47f; --ok-soft: #1d3322; --ko: #ef7b7b; --ko-soft: #3b1f1f; --warn: #e0a24a;
+  --carte-mer: #15212b; --carte-autre: #2b343d; --carte-pays: #7d6f45;
   color-scheme: dark;
 }
 
@@ -163,6 +168,26 @@ input:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-colo
 .pastille.neuf { animation: pop .25s ease; }
 .pastille.manque { border-color: var(--ko); color: var(--ko); background: var(--ko-soft); }
 @keyframes pop { from { transform: scale(.7); opacity: 0; } }
+
+/* ----- Carte ----- */
+.carte-zone {
+  position: relative; height: calc(100dvh - 250px); min-height: 280px; max-height: 72vh;
+  border-radius: var(--radius); overflow: hidden; background: var(--carte-mer); box-shadow: var(--shadow); touch-action: none;
+}
+.carte-svg { display: block; width: 100%; height: 100%; user-select: none; -webkit-user-select: none; }
+.carte-mer { fill: var(--carte-mer); }
+.carte-autre { fill: var(--carte-autre); stroke: var(--bg); stroke-width: .5; vector-effect: non-scaling-stroke; pointer-events: none; }
+.carte-pays { fill: var(--carte-pays); stroke: var(--surface); stroke-width: .7; vector-effect: non-scaling-stroke; cursor: pointer; transition: fill .15s ease; }
+.carte-marqueur { fill: var(--carte-pays); stroke: var(--surface); stroke-width: 1.5; cursor: pointer; transition: fill .15s ease; }
+.carte-pays.selection, .carte-marqueur.selection { fill: var(--accent); }
+.carte-pays.trouve, .carte-marqueur.trouve { fill: var(--ok); }
+.carte-pays.manque, .carte-marqueur.manque { fill: var(--ko); }
+.carte-pays.erreur, .carte-marqueur.erreur { fill: var(--ko); }
+.carte-etiquette { font: 600 11px var(--texte); fill: var(--ink); paint-order: stroke; stroke: var(--bg); stroke-width: 3px; stroke-linejoin: round; pointer-events: none; }
+.carte-zoom { position: absolute; right: 10px; bottom: 10px; display: grid; gap: 6px; }
+.carte-zoom button { width: 38px; height: 38px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); font-size: 1.15rem; cursor: pointer; box-shadow: var(--shadow); }
+.cible { padding: 10px 14px; text-align: center; margin-bottom: 10px; min-height: 44px; }
+.ok-texte { color: var(--ok); font-weight: 700; } .ko-texte { color: var(--ko); font-weight: 700; }
 
 /* ----- Résultats ----- */
 .score { text-align: center; padding: 24px 16px; }

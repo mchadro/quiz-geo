@@ -1,6 +1,6 @@
 // Quiz géo : écrans et logique de jeu.
 import { VERSION } from './config.js';
-import { CONTINENTS, TYPES, MODES, CHRONOS, chargerPays, themeId, decouperTheme, nomTheme, nomMode, drapeau, elementsTheme, genererPartie, paysDuContinent } from './data.js';
+import { CONTINENTS, TYPES, MODES, MODES_CHRONO, CHRONOS, chargerPays, themeId, decouperTheme, nomTheme, nomMode, drapeau, elementsTheme, genererPartie, paysDuContinent } from './data.js';
 import { trouver, normaliser, formaterDuree, formaterDate, echapper as e } from './texte.js';
 import * as store from './store.js';
 
@@ -124,7 +124,7 @@ function ecranModes() {
         ${MODES.map(m => `<button class="tuile ${m.id === mode ? 'active' : ''}" data-mode="${m.id}">
           <span class="titre">${e(m.nom)}</span><span class="compte">${e(m.description)}</span></button>`).join('')}
       </div>
-      ${mode === 'liste' ? `<div class="carte mt ligne espace" style="flex-wrap:wrap">
+      ${MODES_CHRONO.includes(mode) ? `<div class="carte mt ligne espace" style="flex-wrap:wrap">
         <div><strong>Chrono</strong><br><span class="petit muted">${formaterDuree(n * c.secondes * 1000)} au total (${c.secondes} s par élément)</span></div>
         <div class="segment">${CHRONOS.map(x => `<button data-chrono="${x.id}" class="${x.id === chrono ? 'actif' : ''}">${x.nom}</button>`).join('')}</div>
       </div>` : ''}
@@ -161,7 +161,7 @@ function ecranPartie() {
   }
   function brancherQuitter() {
     document.getElementById('quitter').addEventListener('click', () => {
-      if (partie.mode === 'liste') { if (confirm('Arrêter ici ? La partie sera comptée telle quelle.')) terminer(); return; }
+      if (MODES_CHRONO.includes(partie.mode)) { if (confirm('Arrêter ici ? La partie sera comptée telle quelle.')) terminer(); return; }
       sauver(); aller('#/themes');
     });
   }
@@ -170,13 +170,13 @@ function ecranPartie() {
   function terminer() {
     arreterMinuterie();
     const duree = Math.min(ecoule(), partie.dureeMax || Infinity);
-    const rates = partie.mode === 'liste'
+    const rates = MODES_CHRONO.includes(partie.mode)
       ? partie.ordre.filter(id => !partie.trouves.includes(id))
       : partie.ordre.filter(id => !partie.reponses[id]?.ok);
     const bonnes = partie.ordre.length - rates.length;
     dernierResultat = {
       theme: partie.theme, mode: partie.mode, total: partie.ordre.length, bonnes, duree_ms: Math.round(duree),
-      details: { rates, chrono: partie.chrono, reponses: partie.mode === 'liste' ? undefined : Object.fromEntries(rates.map(id => [id, partie.reponses[id]?.saisie || ''])) },
+      details: { rates, chrono: partie.chrono, erreurs: partie.erreurs, reponses: MODES_CHRONO.includes(partie.mode) ? undefined : Object.fromEntries(rates.map(id => [id, partie.reponses[id]?.saisie || ''])) },
       enregistrement: 'en cours'
     };
     try { sessionStorage.setItem('qg.resultat', JSON.stringify(dernierResultat)); } catch { /* rien */ }
@@ -308,7 +308,116 @@ function ecranPartie() {
     return `<span class="pastille ${neuf ? 'neuf' : ''}">${imgDrapeau(id, '', 40)}${e(el.court)}</span>`;
   }
 
-  if (partie.mode === 'liste') liste(); else question();
+  // ----- Carte : nomme-les tous -----
+  function chronoCarte() {
+    const barreChrono = document.getElementById('chrono'); const temps = document.getElementById('temps');
+    const tic = () => {
+      const reste = Math.max(0, partie.dureeMax - ecoule());
+      temps.textContent = formaterDuree(reste);
+      barreChrono.firstElementChild.style.width = `${(reste / partie.dureeMax) * 100}%`;
+      barreChrono.classList.toggle('alerte', reste < partie.dureeMax * 0.15);
+      if (reste <= 0) { toast('Temps écoulé !'); terminer(); }
+    };
+    arreterMinuterie(); tic(); minuterie = setInterval(tic, 250);
+  }
+  async function chargerCarte(zone, onClic) {
+    const { chargerMonde, creerCarte } = await import('./carte.js');
+    const monde = await chargerMonde(PAYS);
+    return creerCarte(zone, monde, { continent: d.continent.id, elements, onClic });
+  }
+  async function carteNommer() {
+    const total = partie.ordre.length;
+    const consigne = d.type.id === 'pays' ? 'Quel est ce pays ?' : 'Quelle est sa capitale ?';
+    app.innerHTML = `${barre(`${partie.trouves.length}/${total}`)}
+      <div class="progression chrono" id="chrono"><div style="width:100%"></div></div>
+      <div class="liste-tete" style="margin-top:-8px"><div class="petit muted" id="consigne">Touche un pays sur la carte</div><div class="temps" id="temps"></div></div>
+      <form class="saisie-ligne" id="f-carte" style="margin:4px 0 10px"><input type="text" id="saisie" disabled autocapitalize="words" autocomplete="off" autocorrect="off" spellcheck="false" enterkeyhint="go" placeholder="Touche un pays…">
+        <button class="btn primaire" type="submit">OK</button></form>
+      <div class="carte-zone" id="carte"><div class="chargement">Chargement de la carte…</div></div>
+      <button class="btn discret bloc mt-s" id="fin">J’ai fini</button>`;
+    brancherQuitter();
+    document.getElementById('fin').addEventListener('click', () => { if (confirm('Terminer maintenant ?')) terminer(); });
+    const input = document.getElementById('saisie');
+    let sel = null, carte;
+    try { carte = await chargerCarte(document.getElementById('carte'), clic); }
+    catch (ex) { document.getElementById('carte').innerHTML = `<p class="erreur centre" style="padding:24px">${e(ex.message)}</p>`; return; }
+    if (route() !== 'partie') return;
+    for (const id of partie.trouves) { carte.marquer(id, 'trouve'); carte.etiqueter(id, parId[id].court); }
+    chronoCarte();
+    function clic(code) {
+      if (partie.trouves.includes(code)) { toast(`Déjà trouvé : ${parId[code].court}`, 1200); return; }
+      sel = code; carte.selectionner(code);
+      input.disabled = false; input.placeholder = consigne; input.focus();
+      document.getElementById('consigne').textContent = consigne;
+    }
+    document.getElementById('f-carte').addEventListener('submit', ev => {
+      ev.preventDefault();
+      if (!sel) { toast('Touche d’abord un pays', 1200); return; }
+      const v = input.value.trim(); if (!v) return;
+      if (trouver(v, [{ id: sel, formes: parId[sel].formes }])) {
+        partie.trouves.push(sel); sauver();
+        carte.marquer(sel, 'trouve'); carte.etiqueter(sel, parId[sel].court); carte.selectionner(null);
+        sel = null; input.value = ''; input.placeholder = 'Touche un pays…'; input.disabled = true;
+        document.getElementById('consigne').textContent = 'Touche un pays sur la carte';
+        app.querySelector('.compteur').textContent = `${partie.trouves.length}/${total}`;
+        if (partie.trouves.length === total) terminer();
+      } else {
+        partie.erreurs++; sauver();
+        carte.clignoter(sel, 'erreur');
+        const autre = trouver(v, partie.ordre.filter(id => id !== sel).map(id => ({ id, formes: parId[id].formes })));
+        toast(autre ? (d.type.id === 'pays' ? 'C’est un autre pays…' : 'C’est la capitale d’un autre pays…') : 'Non…', 1200);
+        input.classList.remove('secoue'); void input.offsetWidth; input.classList.add('secoue'); input.select();
+      }
+    });
+  }
+
+  // ----- Carte : trouve-le -----
+  async function carteTrouver() {
+    const total = partie.ordre.length;
+    app.innerHTML = `${barre(`${Math.min(partie.index + 1, total)}/${total}`)}
+      <div class="progression"><div style="width:${(partie.index / total) * 100}%"></div></div>
+      <div class="carte cible" id="cible">…</div>
+      <div class="carte-zone" id="carte"><div class="chargement">Chargement de la carte…</div></div>`;
+    brancherQuitter();
+    let attente = false, carte;
+    try { carte = await chargerCarte(document.getElementById('carte'), clic); }
+    catch (ex) { document.getElementById('carte').innerHTML = `<p class="erreur centre" style="padding:24px">${e(ex.message)}</p>`; return; }
+    if (route() !== 'partie') return;
+    for (const [id, r] of Object.entries(partie.reponses)) { carte.marquer(id, r.ok ? 'trouve' : 'manque'); carte.etiqueter(id, parId[id].court); }
+    poser();
+    function poser() {
+      if (partie.index >= total) return terminer();
+      const el = parId[partie.ordre[partie.index]];
+      document.getElementById('cible').innerHTML = d.type.id === 'pays'
+        ? `Où est <strong>${e(el.pays.nom)}</strong> ?`
+        : `Quel pays a pour capitale <strong>${e(el.court)}</strong> ?`;
+      app.querySelector('.compteur').textContent = `${partie.index + 1}/${total}`;
+      app.querySelector('.progression > div').style.width = `${(partie.index / total) * 100}%`;
+      attente = true;
+    }
+    function clic(code) {
+      if (!attente) return;
+      if (partie.reponses[code]) { toast(`Déjà joué : ${parId[code].court}`, 1000); return; }
+      const id = partie.ordre[partie.index]; const ok = code === id;
+      attente = false;
+      partie.reponses[id] = { ok, saisie: ok ? '' : parId[code].pays.nom };
+      partie.index++; sauver();
+      if (ok) {
+        carte.marquer(id, 'trouve'); carte.etiqueter(id, parId[id].court);
+        document.getElementById('cible').innerHTML = `<span class="ok-texte">Exact !</span>`;
+        setTimeout(poser, 500);
+      } else {
+        carte.clignoter(code, 'erreur', 1400); carte.marquer(id, 'manque'); carte.etiqueter(id, parId[id].court);
+        document.getElementById('cible').innerHTML = `<span class="ko-texte">Non, c’était ${e(parId[code].pays.nom)}.</span> ${e(parId[id].pays.nom)} est en rouge sur la carte.`;
+        setTimeout(poser, 1600);
+      }
+    }
+  }
+
+  if (partie.mode === 'liste') liste();
+  else if (partie.mode === 'carte') carteNommer();
+  else if (partie.mode === 'carte-trouve') carteTrouver();
+  else question();
 }
 
 // ---------- Résultats ----------

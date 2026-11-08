@@ -20,8 +20,12 @@ export const TYPES = [
 export const MODES = [
   { id: 'qcm', nom: 'QCM', description: '4 propositions, une seule est juste.' },
   { id: 'saisie', nom: 'Saisie', description: 'Tape la réponse. Les accents et les petites fautes sont tolérés.' },
-  { id: 'liste', nom: 'Nomme-les tous', description: 'Un chrono, un champ : tape tout ce que tu connais, dans l’ordre que tu veux.' }
+  { id: 'liste', nom: 'Nomme-les tous', description: 'Un chrono, un champ : tape tout ce que tu connais, dans l’ordre que tu veux.' },
+  { id: 'carte', nom: 'Carte : nomme-les tous', description: 'Touche chaque pays sur la carte et tape sa réponse, contre la montre.', carte: true },
+  { id: 'carte-trouve', nom: 'Carte : trouve-le', description: 'Un nom s’affiche, touche le bon pays sur la carte.', carte: true }
 ];
+
+export const MODES_CHRONO = ['liste', 'carte'];
 
 // Secondes accordées par élément en mode « Nomme-les tous ».
 export const CHRONOS = [
@@ -85,11 +89,12 @@ export function genererPartie(theme, mode, pays, options = {}) {
       partie.choix[e.id] = melanger([e.id, ...autres.map(a => a.id)]);
     }
   }
-  if (mode === 'liste') {
+  if (MODES_CHRONO.includes(mode)) {
     const chrono = CHRONOS.find(c => c.id === options.chrono) || CHRONOS[1];
     partie.chrono = chrono.id;
     partie.dureeMax = elements.length * chrono.secondes * 1000;
     partie.trouves = [];
+    partie.erreurs = 0;
   }
   return partie;
 }

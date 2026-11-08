@@ -1,6 +1,6 @@
 # Quiz géo
 
-Quiz de géographie pour la famille : pays et capitales par continent, trois modes de jeu (QCM, saisie, « Nomme-les tous » contre la montre), comptes joueurs et classement familial. Site statique, pensé pour l'iPhone (ajout à l'écran d'accueil).
+Quiz de géographie pour la famille : pays et capitales par continent, cinq modes de jeu (QCM, saisie, « Nomme-les tous » contre la montre, et deux modes sur carte cliquable), comptes joueurs et classement familial. Site statique, pensé pour l'iPhone (ajout à l'écran d'accueil).
 
 ## Contenu du dossier
 
@@ -58,8 +58,9 @@ Puis ouvrir <http://localhost:8765/>. Ajouter `?local` à l'adresse (`http://loc
 - 193 membres de l'ONU + Kosovo, Taïwan, Palestine, Vatican, chacun avec une note sur son statut.
 - Découpage : Europe (46, dont Russie et Chypre), Asie (48, dont Turquie, Caucase, Kazakhstan), Afrique (54), Amérique du Nord (3), Amérique centrale et Caraïbes (20), Amérique du Sud (12), Océanie (14).
 
+- Contours des pays : Natural Earth 1:50m via [world-atlas](https://github.com/topojson/world-atlas) (`data/monde-50m.json`, domaine public), projetés avec d3-geo (`lib/`). Les pays trop petits pour être touchés (Vatican, Malte, îles du Pacifique…) ont un repère rond qui disparaît quand on zoome assez.
+
 ## À venir
 
-1. Mode carte « Nomme-les tous » (cliquer sur chaque pays) puis « Trouve-le ».
-2. États des États-Unis et leurs capitales ; les 5 plus grandes villes des 10 premières économies.
-3. Personnalités : nationalité à deviner, 3 lignes d'information à la validation.
+1. États des États-Unis et leurs capitales ; les 5 plus grandes villes des 10 premières économies.
+2. Personnalités : nationalité à deviner, 3 lignes d'information à la validation.

@@ -15,7 +15,8 @@
                        33,
                        65
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "004"
     },
     {
         "code":  "ZA",
@@ -35,7 +36,8 @@
                        -29,
                        24
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "710"
     },
     {
         "code":  "AL",
@@ -52,7 +54,8 @@
                        41,
                        20
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "008"
     },
     {
         "code":  "DZ",
@@ -70,7 +73,8 @@
                        28,
                        3
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "012"
     },
     {
         "code":  "DE",
@@ -87,7 +91,8 @@
                        51,
                        9
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "276"
     },
     {
         "code":  "AD",
@@ -105,7 +110,8 @@
                        42.5,
                        1.5
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "020"
     },
     {
         "code":  "AO",
@@ -122,7 +128,8 @@
                        -12.5,
                        18.5
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "024"
     },
     {
         "code":  "AG",
@@ -139,7 +146,8 @@
                        17.05,
                        -61.8
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "028"
     },
     {
         "code":  "SA",
@@ -157,7 +165,8 @@
                        25,
                        45
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "682"
     },
     {
         "code":  "AR",
@@ -174,7 +183,8 @@
                        -34,
                        -64
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "032"
     },
     {
         "code":  "AM",
@@ -192,7 +202,8 @@
                        40,
                        45
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "051"
     },
     {
         "code":  "AU",
@@ -209,7 +220,8 @@
                        -27,
                        133
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "036"
     },
     {
         "code":  "AT",
@@ -227,7 +239,8 @@
                        47.33333333,
                        13.33333333
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "040"
     },
     {
         "code":  "AZ",
@@ -245,7 +258,8 @@
                        40.5,
                        47.5
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "031"
     },
     {
         "code":  "BS",
@@ -262,7 +276,8 @@
                        24.25,
                        -76
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "044"
     },
     {
         "code":  "BH",
@@ -279,7 +294,8 @@
                        26,
                        50.55
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "048"
     },
     {
         "code":  "BD",
@@ -297,7 +313,8 @@
                        24,
                        90
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "050"
     },
     {
         "code":  "BB",
@@ -314,7 +331,8 @@
                        13.16666666,
                        -59.53333333
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "052"
     },
     {
         "code":  "BE",
@@ -332,7 +350,8 @@
                        50.83333333,
                        4
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "056"
     },
     {
         "code":  "BZ",
@@ -349,7 +368,8 @@
                        17.25,
                        -88.75
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "084"
     },
     {
         "code":  "BJ",
@@ -366,7 +386,8 @@
                        9.5,
                        2.25
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "204"
     },
     {
         "code":  "BT",
@@ -384,7 +405,8 @@
                        27.5,
                        90.5
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "064"
     },
     {
         "code":  "BY",
@@ -403,7 +425,8 @@
                        53,
                        28
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "112"
     },
     {
         "code":  "MM",
@@ -422,7 +445,8 @@
                        22,
                        98
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "104"
     },
     {
         "code":  "BO",
@@ -440,7 +464,8 @@
                        -17,
                        -65
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "068"
     },
     {
         "code":  "BA",
@@ -458,7 +483,8 @@
                        44,
                        18
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "070"
     },
     {
         "code":  "BW",
@@ -475,7 +501,8 @@
                        -22,
                        24
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "072"
     },
     {
         "code":  "BR",
@@ -493,7 +520,8 @@
                        -10,
                        -55
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "076"
     },
     {
         "code":  "BN",
@@ -510,7 +538,8 @@
                        4.5,
                        114.66666666
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "096"
     },
     {
         "code":  "BG",
@@ -527,7 +556,8 @@
                        43,
                        25
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "100"
     },
     {
         "code":  "BF",
@@ -545,7 +575,8 @@
                        13,
                        -2
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "854"
     },
     {
         "code":  "BI",
@@ -562,7 +593,8 @@
                        -3.5,
                        30
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "108"
     },
     {
         "code":  "KH",
@@ -579,7 +611,8 @@
                        13,
                        105
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "116"
     },
     {
         "code":  "CM",
@@ -596,7 +629,8 @@
                        6,
                        12
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "120"
     },
     {
         "code":  "CA",
@@ -613,7 +647,8 @@
                        60,
                        -95
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "124"
     },
     {
         "code":  "CL",
@@ -630,7 +665,8 @@
                        -30,
                        -71
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "152"
     },
     {
         "code":  "CN",
@@ -648,7 +684,8 @@
                        35,
                        105
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "156"
     },
     {
         "code":  "CY",
@@ -666,7 +703,8 @@
                        35,
                        33
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "196"
     },
     {
         "code":  "VA",
@@ -688,7 +726,8 @@
                        12.45
                    ],
         "onu":  true,
-        "statut":  "État observateur non membre de l'ONU. Plus petit État du monde (0,44 km²), enclavé dans Rome, dirigé par le pape."
+        "statut":  "État observateur non membre de l'ONU. Plus petit État du monde (0,44 km²), enclavé dans Rome, dirigé par le pape.",
+        "ccn3":  "336"
     },
     {
         "code":  "CO",
@@ -706,7 +745,8 @@
                        4,
                        -72
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "170"
     },
     {
         "code":  "KM",
@@ -723,7 +763,8 @@
                        -12.16666666,
                        44.25
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "174"
     },
     {
         "code":  "CG",
@@ -741,7 +782,8 @@
                        -1,
                        15
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "178"
     },
     {
         "code":  "CD",
@@ -761,7 +803,8 @@
                        0,
                        25
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "180"
     },
     {
         "code":  "KP",
@@ -779,7 +822,8 @@
                        40,
                        127
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "408"
     },
     {
         "code":  "KR",
@@ -797,7 +841,8 @@
                        37,
                        127.5
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "410"
     },
     {
         "code":  "CR",
@@ -814,7 +859,8 @@
                        10,
                        -84
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "188"
     },
     {
         "code":  "CI",
@@ -831,7 +877,8 @@
                        8,
                        -5
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "384"
     },
     {
         "code":  "HR",
@@ -848,7 +895,8 @@
                        45.16666666,
                        15.5
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "191"
     },
     {
         "code":  "CU",
@@ -866,7 +914,8 @@
                        21.5,
                        -80
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "192"
     },
     {
         "code":  "DK",
@@ -884,7 +933,8 @@
                        56,
                        10
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "208"
     },
     {
         "code":  "DJ",
@@ -902,7 +952,8 @@
                        11.5,
                        43
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "262"
     },
     {
         "code":  "DM",
@@ -919,7 +970,8 @@
                        15.41666666,
                        -61.33333333
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "212"
     },
     {
         "code":  "EG",
@@ -937,7 +989,8 @@
                        27,
                        30
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "818"
     },
     {
         "code":  "AE",
@@ -957,7 +1010,8 @@
                        24,
                        54
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "784"
     },
     {
         "code":  "EC",
@@ -974,7 +1028,8 @@
                        -2,
                        -77.5
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "218"
     },
     {
         "code":  "ER",
@@ -991,7 +1046,8 @@
                        15,
                        39
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "232"
     },
     {
         "code":  "ES",
@@ -1008,7 +1064,8 @@
                        40,
                        -4
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "724"
     },
     {
         "code":  "EE",
@@ -1025,7 +1082,8 @@
                        59,
                        26
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "233"
     },
     {
         "code":  "SZ",
@@ -1044,7 +1102,8 @@
                        -26.5,
                        31.5
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "748"
     },
     {
         "code":  "US",
@@ -1067,7 +1126,8 @@
                        38,
                        -97
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "840"
     },
     {
         "code":  "ET",
@@ -1085,7 +1145,8 @@
                        8,
                        38
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "231"
     },
     {
         "code":  "FJ",
@@ -1102,7 +1163,8 @@
                        -18,
                        175
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "242"
     },
     {
         "code":  "FI",
@@ -1119,7 +1181,8 @@
                        64,
                        26
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "246"
     },
     {
         "code":  "FR",
@@ -1136,7 +1199,8 @@
                        46,
                        2
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "250"
     },
     {
         "code":  "GA",
@@ -1153,7 +1217,8 @@
                        -1,
                        11.75
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "266"
     },
     {
         "code":  "GM",
@@ -1170,7 +1235,8 @@
                        13.46666666,
                        -16.56666666
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "270"
     },
     {
         "code":  "GE",
@@ -1188,7 +1254,8 @@
                        42,
                        43.5
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "268"
     },
     {
         "code":  "GH",
@@ -1205,7 +1272,8 @@
                        8,
                        -2
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "288"
     },
     {
         "code":  "GR",
@@ -1223,7 +1291,8 @@
                        39,
                        22
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "300"
     },
     {
         "code":  "GD",
@@ -1242,7 +1311,8 @@
                        12.11666666,
                        -61.66666666
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "308"
     },
     {
         "code":  "GT",
@@ -1261,7 +1331,8 @@
                        15.5,
                        -90.25
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "320"
     },
     {
         "code":  "GN",
@@ -1278,7 +1349,8 @@
                        11,
                        -10
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "324"
     },
     {
         "code":  "GQ",
@@ -1296,7 +1368,8 @@
                        2,
                        10
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "226"
     },
     {
         "code":  "GW",
@@ -1313,7 +1386,8 @@
                        12,
                        -15
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "624"
     },
     {
         "code":  "GY",
@@ -1330,7 +1404,8 @@
                        5,
                        -59
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "328"
     },
     {
         "code":  "HT",
@@ -1347,7 +1422,8 @@
                        19,
                        -72.41666666
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "332"
     },
     {
         "code":  "HN",
@@ -1364,7 +1440,8 @@
                        15,
                        -86.5
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "340"
     },
     {
         "code":  "HU",
@@ -1381,7 +1458,8 @@
                        47,
                        20
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "348"
     },
     {
         "code":  "MU",
@@ -1401,7 +1479,8 @@
                        -20.28333333,
                        57.55
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "480"
     },
     {
         "code":  "CV",
@@ -1420,7 +1499,8 @@
                        16,
                        -24
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "132"
     },
     {
         "code":  "MH",
@@ -1437,7 +1517,8 @@
                        9,
                        168
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "584"
     },
     {
         "code":  "SB",
@@ -1454,7 +1535,8 @@
                        -8,
                        159
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "090"
     },
     {
         "code":  "IN",
@@ -1471,7 +1553,8 @@
                        20,
                        77
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "356"
     },
     {
         "code":  "ID",
@@ -1488,7 +1571,8 @@
                        -5,
                        120
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "360"
     },
     {
         "code":  "IQ",
@@ -1506,7 +1590,8 @@
                        33,
                        44
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "368"
     },
     {
         "code":  "IR",
@@ -1524,7 +1609,8 @@
                        32,
                        53
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "364"
     },
     {
         "code":  "IE",
@@ -1541,7 +1627,8 @@
                        53,
                        -8
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "372"
     },
     {
         "code":  "IS",
@@ -1558,7 +1645,8 @@
                        65,
                        -18
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "352"
     },
     {
         "code":  "IL",
@@ -1576,7 +1664,8 @@
                        31.47,
                        35.13
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "376"
     },
     {
         "code":  "IT",
@@ -1593,7 +1682,8 @@
                        42.83333333,
                        12.83333333
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "380"
     },
     {
         "code":  "JM",
@@ -1610,7 +1700,8 @@
                        18.25,
                        -77.5
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "388"
     },
     {
         "code":  "JP",
@@ -1627,7 +1718,8 @@
                        36,
                        138
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "392"
     },
     {
         "code":  "JO",
@@ -1644,7 +1736,8 @@
                        31,
                        36
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "400"
     },
     {
         "code":  "KZ",
@@ -1663,7 +1756,8 @@
                        48,
                        68
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "398"
     },
     {
         "code":  "KE",
@@ -1680,7 +1774,8 @@
                        1,
                        38
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "404"
     },
     {
         "code":  "KG",
@@ -1698,7 +1793,8 @@
                        41,
                        75
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "417"
     },
     {
         "code":  "KI",
@@ -1717,7 +1813,8 @@
                        1.41666666,
                        173
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "296"
     },
     {
         "code":  "XK",
@@ -1735,7 +1832,8 @@
                        21.166667
                    ],
         "onu":  false,
-        "statut":  "Indépendance déclarée en 2008 (ex-province de Serbie). Reconnu par une centaine d'États, pas par la Serbie ni la Russie. Non membre de l'ONU."
+        "statut":  "Indépendance déclarée en 2008 (ex-province de Serbie). Reconnu par une centaine d'États, pas par la Serbie ni la Russie. Non membre de l'ONU.",
+        "ccn3":  ""
     },
     {
         "code":  "KW",
@@ -1754,7 +1852,8 @@
                        29.5,
                        45.75
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "414"
     },
     {
         "code":  "LA",
@@ -1771,7 +1870,8 @@
                        18,
                        105
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "418"
     },
     {
         "code":  "LS",
@@ -1788,7 +1888,8 @@
                        -29.5,
                        28.5
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "426"
     },
     {
         "code":  "LV",
@@ -1805,7 +1906,8 @@
                        57,
                        25
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "428"
     },
     {
         "code":  "LB",
@@ -1823,7 +1925,8 @@
                        33.83333333,
                        35.83333333
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "422"
     },
     {
         "code":  "LR",
@@ -1840,7 +1943,8 @@
                        6.5,
                        -9.5
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "430"
     },
     {
         "code":  "LY",
@@ -1857,7 +1961,8 @@
                        25,
                        17
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "434"
     },
     {
         "code":  "LI",
@@ -1874,7 +1979,8 @@
                        47.26666666,
                        9.53333333
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "438"
     },
     {
         "code":  "LT",
@@ -1891,7 +1997,8 @@
                        56,
                        24
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "440"
     },
     {
         "code":  "LU",
@@ -1909,7 +2016,8 @@
                        49.75,
                        6.16666666
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "442"
     },
     {
         "code":  "MK",
@@ -1927,7 +2035,8 @@
                        41.83333333,
                        22
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "807"
     },
     {
         "code":  "MG",
@@ -1944,7 +2053,8 @@
                        -20,
                        47
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "450"
     },
     {
         "code":  "MY",
@@ -1962,7 +2072,8 @@
                        2.5,
                        112.5
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "458"
     },
     {
         "code":  "MW",
@@ -1979,7 +2090,8 @@
                        -13.5,
                        34
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "454"
     },
     {
         "code":  "MV",
@@ -1996,7 +2108,8 @@
                        3.25,
                        73
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "462"
     },
     {
         "code":  "ML",
@@ -2013,7 +2126,8 @@
                        17,
                        -4
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "466"
     },
     {
         "code":  "MT",
@@ -2031,7 +2145,8 @@
                        35.83333333,
                        14.58333333
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "470"
     },
     {
         "code":  "MA",
@@ -2048,7 +2163,8 @@
                        32,
                        -5
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "504"
     },
     {
         "code":  "MR",
@@ -2065,7 +2181,8 @@
                        20,
                        -12
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "478"
     },
     {
         "code":  "MX",
@@ -2084,7 +2201,8 @@
                        23,
                        -102
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "484"
     },
     {
         "code":  "FM",
@@ -2101,7 +2219,8 @@
                        6.91666666,
                        158.25
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "583"
     },
     {
         "code":  "MD",
@@ -2121,7 +2240,8 @@
                        47,
                        29
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "498"
     },
     {
         "code":  "MC",
@@ -2138,7 +2258,8 @@
                        43.73333333,
                        7.4
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "492"
     },
     {
         "code":  "MN",
@@ -2156,7 +2277,8 @@
                        46,
                        105
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "496"
     },
     {
         "code":  "ME",
@@ -2173,7 +2295,8 @@
                        42.5,
                        19.3
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "499"
     },
     {
         "code":  "MZ",
@@ -2190,7 +2313,8 @@
                        -18.25,
                        35
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "508"
     },
     {
         "code":  "NA",
@@ -2207,7 +2331,8 @@
                        -22,
                        17
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "516"
     },
     {
         "code":  "NR",
@@ -2224,7 +2349,8 @@
                        -0.53333333,
                        166.91666666
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "520"
     },
     {
         "code":  "NP",
@@ -2242,7 +2368,8 @@
                        28,
                        84
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "524"
     },
     {
         "code":  "NI",
@@ -2259,7 +2386,8 @@
                        13,
                        -85
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "558"
     },
     {
         "code":  "NE",
@@ -2276,7 +2404,8 @@
                        16,
                        8
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "562"
     },
     {
         "code":  "NG",
@@ -2294,7 +2423,8 @@
                        10,
                        8
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "566"
     },
     {
         "code":  "NO",
@@ -2311,7 +2441,8 @@
                        62,
                        10
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "578"
     },
     {
         "code":  "NZ",
@@ -2328,7 +2459,8 @@
                        -41,
                        174
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "554"
     },
     {
         "code":  "OM",
@@ -2346,7 +2478,8 @@
                        21,
                        57
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "512"
     },
     {
         "code":  "UG",
@@ -2363,7 +2496,8 @@
                        1,
                        32
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "800"
     },
     {
         "code":  "UZ",
@@ -2381,7 +2515,8 @@
                        41,
                        64
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "860"
     },
     {
         "code":  "PK",
@@ -2398,7 +2533,8 @@
                        30,
                        70
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "586"
     },
     {
         "code":  "PW",
@@ -2416,7 +2552,8 @@
                        7.5,
                        134.5
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "585"
     },
     {
         "code":  "PS",
@@ -2436,7 +2573,8 @@
                        35.2
                    ],
         "onu":  false,
-        "statut":  "État observateur non membre de l'ONU depuis 2012, reconnu par environ 150 États. Territoires : Cisjordanie et bande de Gaza. Ramallah est le siège administratif ; Jérusalem-Est est revendiquée comme capitale."
+        "statut":  "État observateur non membre de l'ONU depuis 2012, reconnu par environ 150 États. Territoires : Cisjordanie et bande de Gaza. Ramallah est le siège administratif ; Jérusalem-Est est revendiquée comme capitale.",
+        "ccn3":  "275"
     },
     {
         "code":  "PA",
@@ -2455,7 +2593,8 @@
                        9,
                        -80
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "591"
     },
     {
         "code":  "PG",
@@ -2472,7 +2611,8 @@
                        -6,
                        147
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "598"
     },
     {
         "code":  "PY",
@@ -2490,7 +2630,8 @@
                        -23,
                        -58
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "600"
     },
     {
         "code":  "NL",
@@ -2508,7 +2649,8 @@
                        52.5,
                        5.75
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "528"
     },
     {
         "code":  "PE",
@@ -2525,7 +2667,8 @@
                        -10,
                        -76
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "604"
     },
     {
         "code":  "PH",
@@ -2543,7 +2686,8 @@
                        13,
                        122
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "608"
     },
     {
         "code":  "PL",
@@ -2561,7 +2705,8 @@
                        52,
                        20
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "616"
     },
     {
         "code":  "PT",
@@ -2579,7 +2724,8 @@
                        39.5,
                        -8
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "620"
     },
     {
         "code":  "QA",
@@ -2596,7 +2742,8 @@
                        25.5,
                        51.25
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "634"
     },
     {
         "code":  "CF",
@@ -2614,7 +2761,8 @@
                        7,
                        21
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "140"
     },
     {
         "code":  "DO",
@@ -2632,7 +2780,8 @@
                        19,
                        -70.66666666
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "214"
     },
     {
         "code":  "RO",
@@ -2650,7 +2799,8 @@
                        46,
                        25
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "642"
     },
     {
         "code":  "GB",
@@ -2671,7 +2821,8 @@
                        54,
                        -2
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "826"
     },
     {
         "code":  "RU",
@@ -2689,7 +2840,8 @@
                        60,
                        100
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "643"
     },
     {
         "code":  "RW",
@@ -2706,7 +2858,8 @@
                        -2,
                        30
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "646"
     },
     {
         "code":  "KN",
@@ -2725,7 +2878,8 @@
                        17.33333333,
                        -62.75
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "659"
     },
     {
         "code":  "LC",
@@ -2742,7 +2896,8 @@
                        13.88333333,
                        -60.96666666
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "662"
     },
     {
         "code":  "SM",
@@ -2761,7 +2916,8 @@
                        43.76666666,
                        12.41666666
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "674"
     },
     {
         "code":  "VC",
@@ -2778,7 +2934,8 @@
                        13.25,
                        -61.2
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "670"
     },
     {
         "code":  "SV",
@@ -2796,7 +2953,8 @@
                        13.83333333,
                        -88.91666666
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "222"
     },
     {
         "code":  "WS",
@@ -2813,7 +2971,8 @@
                        -13.58333333,
                        -172.33333333
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "882"
     },
     {
         "code":  "ST",
@@ -2832,7 +2991,8 @@
                        1,
                        7
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "678"
     },
     {
         "code":  "SN",
@@ -2849,7 +3009,8 @@
                        14,
                        -14
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "686"
     },
     {
         "code":  "RS",
@@ -2866,7 +3027,8 @@
                        44,
                        21
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "688"
     },
     {
         "code":  "SC",
@@ -2883,7 +3045,8 @@
                        -4.58333333,
                        55.66666666
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "690"
     },
     {
         "code":  "SL",
@@ -2900,7 +3063,8 @@
                        8.5,
                        -11.5
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "694"
     },
     {
         "code":  "SG",
@@ -2918,7 +3082,8 @@
                        1.36666666,
                        103.8
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "702"
     },
     {
         "code":  "SK",
@@ -2935,7 +3100,8 @@
                        48.66666666,
                        19.5
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "703"
     },
     {
         "code":  "SI",
@@ -2952,7 +3118,8 @@
                        46.11666666,
                        14.81666666
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "705"
     },
     {
         "code":  "SO",
@@ -2970,7 +3137,8 @@
                        10,
                        49
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "706"
     },
     {
         "code":  "SD",
@@ -2987,7 +3155,8 @@
                        15,
                        30
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "729"
     },
     {
         "code":  "SS",
@@ -3005,7 +3174,8 @@
                        7,
                        30
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "728"
     },
     {
         "code":  "LK",
@@ -3025,7 +3195,8 @@
                        7,
                        81
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "144"
     },
     {
         "code":  "SE",
@@ -3042,7 +3213,8 @@
                        62,
                        15
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "752"
     },
     {
         "code":  "CH",
@@ -3060,7 +3232,8 @@
                        47,
                        8
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "756"
     },
     {
         "code":  "SR",
@@ -3078,7 +3251,8 @@
                        4,
                        -56
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "740"
     },
     {
         "code":  "SY",
@@ -3096,7 +3270,8 @@
                        35,
                        38
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "760"
     },
     {
         "code":  "TJ",
@@ -3114,7 +3289,8 @@
                        39,
                        71
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "762"
     },
     {
         "code":  "TW",
@@ -3134,7 +3310,8 @@
                        121
                    ],
         "onu":  false,
-        "statut":  "Gouvernement autonome depuis 1949, non membre de l'ONU (siège perdu en 1971 au profit de la Chine populaire). Revendiqué par la Chine, reconnu par une douzaine d'États."
+        "statut":  "Gouvernement autonome depuis 1949, non membre de l'ONU (siège perdu en 1971 au profit de la Chine populaire). Revendiqué par la Chine, reconnu par une douzaine d'États.",
+        "ccn3":  "158"
     },
     {
         "code":  "TZ",
@@ -3151,7 +3328,8 @@
                        -6,
                        35
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "834"
     },
     {
         "code":  "TD",
@@ -3170,7 +3348,8 @@
                        15,
                        19
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "148"
     },
     {
         "code":  "CZ",
@@ -3187,7 +3366,8 @@
                        49.75,
                        15.5
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "203"
     },
     {
         "code":  "TH",
@@ -3204,7 +3384,8 @@
                        15,
                        100
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "764"
     },
     {
         "code":  "TL",
@@ -3223,7 +3404,8 @@
                        -8.83333333,
                        125.91666666
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "626"
     },
     {
         "code":  "TG",
@@ -3240,7 +3422,8 @@
                        8,
                        1.16666666
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "768"
     },
     {
         "code":  "TO",
@@ -3258,7 +3441,8 @@
                        -20,
                        -175
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "776"
     },
     {
         "code":  "TT",
@@ -3278,7 +3462,8 @@
                        11,
                        -61
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "780"
     },
     {
         "code":  "TN",
@@ -3295,7 +3480,8 @@
                        34,
                        9
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "788"
     },
     {
         "code":  "TM",
@@ -3314,7 +3500,8 @@
                        40,
                        60
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "795"
     },
     {
         "code":  "TR",
@@ -3331,7 +3518,8 @@
                        39,
                        35
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "792"
     },
     {
         "code":  "TV",
@@ -3348,7 +3536,8 @@
                        -8,
                        178
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "798"
     },
     {
         "code":  "UA",
@@ -3366,7 +3555,8 @@
                        49,
                        32
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "804"
     },
     {
         "code":  "UY",
@@ -3383,7 +3573,8 @@
                        -33,
                        -56
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "858"
     },
     {
         "code":  "VU",
@@ -3401,7 +3592,8 @@
                        -16,
                        167
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "548"
     },
     {
         "code":  "VE",
@@ -3418,7 +3610,8 @@
                        8,
                        -66
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "862"
     },
     {
         "code":  "VN",
@@ -3438,7 +3631,8 @@
                        16.16666666,
                        107.83333333
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "704"
     },
     {
         "code":  "YE",
@@ -3456,7 +3650,8 @@
                        15,
                        48
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "887"
     },
     {
         "code":  "ZM",
@@ -3473,7 +3668,8 @@
                        -15,
                        30
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "894"
     },
     {
         "code":  "ZW",
@@ -3490,6 +3686,7 @@
                        -20,
                        30
                    ],
-        "onu":  true
+        "onu":  true,
+        "ccn3":  "716"
     }
 ]
