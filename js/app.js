@@ -1,6 +1,6 @@
 // Quiz géo : écrans et logique de jeu.
 import { VERSION } from './config.js';
-import { GROUPES, MODES, MODES_CHRONO, CHRONOS, AVATARS, emojiAvatar, chargerDonnees, infoTheme, listeThemes, nomTheme, nomMode, drapeau, elementsTheme, repTexte, courts, genererPartie } from './data.js';
+import { GROUPES, MODES, MODES_CHRONO, CHRONOS, AVATARS, BONUS_PODIUM, emojiAvatar, classementGeneral, chargerDonnees, infoTheme, listeThemes, nomTheme, nomMode, drapeau, elementsTheme, repTexte, courts, genererPartie } from './data.js';
 import { trouver, normaliser, formaterDuree, formaterDate, echapper as e } from './texte.js';
 import * as store from './store.js';
 
@@ -106,6 +106,54 @@ function ecranThemes() {
   app.querySelectorAll('[data-theme]').forEach(b => b.addEventListener('click', () => aller(`#/modes?theme=${b.dataset.theme}`)));
   document.getElementById('reprendre')?.addEventListener('click', () => aller('#/partie'));
   document.getElementById('abandonner')?.addEventListener('click', () => { store.effacerPartie(); ecranThemes(); });
+  verifierDepassements();
+}
+
+// Au retour dans l'app : qui m'a dépassé depuis la dernière fois ?
+let depassementsVerifies = false;
+async function verifierDepassements() {
+  if (depassementsVerifies) return;
+  depassementsVerifies = true;
+  const s = store.session(); if (!s) return;
+  let cl; try { cl = await store.classement(); } catch { return; }
+  const parJeu = new Map();
+  for (const l of cl) { const k = `${l.theme}|${l.mode}`; (parJeu.get(k) || parJeu.set(k, []).get(k)).push(l); }
+  const maintenant = {};
+  for (const [k, lignes] of parJeu) {
+    lignes.sort(trier);
+    const moi = lignes.findIndex(l => l.pseudo === s.pseudo);
+    if (moi < 0) continue;
+    maintenant[k] = lignes.slice(0, moi).map(l => l.pseudo);
+  }
+  const avant = store.dessusMemo(s.pseudo);
+  store.sauverDessus(s.pseudo, maintenant);
+  if (!avant) return;
+  const nouveaux = [];
+  for (const [k, dessus] of Object.entries(maintenant)) {
+    for (const p of dessus) if (!(avant[k] || []).includes(p)) nouveaux.push({ pseudo: p, k });
+  }
+  if (nouveaux.length) afficherBattu(nouveaux, cl);
+}
+
+function afficherBattu(nouveaux, cl) {
+  const zone = document.createElement('div'); zone.className = 'battu';
+  zone.innerHTML = `<div class="battu-carte">
+    <div class="battu-gant">🥊</div>
+    ${nouveaux.slice(0, 4).map(n => {
+      const [theme, mode] = n.k.split('|');
+      const av = cl.find(l => l.pseudo === n.pseudo)?.avatar;
+      return `<p><span class="avatar petit-avatar">${emojiAvatar(av)}</span><strong>${e(n.pseudo)}</strong> t’a battu sur <strong>${e(nomTheme(theme, D))}</strong> <span class="badge">${e(nomMode(mode))}</span></p>`;
+    }).join('')}
+    ${nouveaux.length > 4 ? `<p class="petit muted">… et ${nouveaux.length - 4} autre${nouveaux.length > 5 ? 's' : ''}</p>` : ''}
+    <button class="btn primaire bloc mt-s" id="revanche">Prendre ma revanche</button>
+  </div>`;
+  document.body.appendChild(zone);
+  const fermer = () => zone.remove();
+  zone.addEventListener('click', ev => { if (ev.target === zone) fermer(); });
+  zone.querySelector('#revanche').addEventListener('click', () => {
+    const [theme, mode] = nouveaux[0].k.split('|');
+    fermer(); aller(`#/classement?theme=${theme}&mode=${mode}`);
+  });
 }
 
 // ---------- Modes ----------
@@ -538,10 +586,21 @@ async function ecranClassement() {
   let tout = [], fil = [];
   try { [tout, fil] = await Promise.all([store.classement(), store.dernieresParties()]); }
   catch (ex) { app.innerHTML += `<p class="erreur">${e(ex.message)}</p>`; return; }
+  const general = classementGeneral(tout, trier);
   const rendu = () => {
     const lignes = tout.filter(x => x.theme === theme && x.mode === mode).sort(trier);
     app.innerHTML = `
-      <div class="entete"><div><p class="sur">Famille</p><h1>Classement</h1></div></div>
+      <div class="entete"><div><p class="sur">Famille</p><h1>Classement général</h1></div></div>
+      <div class="carte mb" style="padding:4px 12px">
+        ${general.length ? `<table><thead><tr><th></th><th>Joueur</th><th class="num">Points</th><th class="num">Jeux</th><th class="num">🥇 🥈 🥉</th></tr></thead><tbody>
+          ${general.map((g, i) => `<tr class="${g.pseudo === s.pseudo ? 'moi' : ''}"><td class="rang">${i + 1}</td><td><span class="avatar petit-avatar">${emojiAvatar(g.avatar)}</span><strong>${e(g.pseudo)}</strong></td>
+            <td class="num"><strong>${g.points}</strong></td><td class="num muted">${g.jeux}</td><td class="num muted">${g.podiums.join(' · ')}</td></tr>`).join('')}
+        </tbody></table>
+        <details class="petit muted" style="padding:8px 0 10px"><summary>Comment sont comptés les points ?</summary>
+          <p class="mt-s">Pour chaque jeu (un thème dans un mode), ta meilleure partie compte : 1 point par bonne réponse en QCM, ×2 en saisie, en « Nomme-les tous » et sur la carte « Trouve-le », ×3 sur la carte « Nomme-les tous ». Bonus par jeu : +${BONUS_PODIUM[0]} au premier, +${BONUS_PODIUM[1]} au deuxième, +${BONUS_PODIUM[2]} au troisième. À égalité de score sur un jeu, le plus rapide est devant.</p>
+        </details>` : '<p class="vide">Aucune partie enregistrée pour l’instant.</p>'}
+      </div>
+      <h2 class="mb">Par jeu</h2>
       <div class="pile">
         <select id="theme">${GROUPES.map(g => `<optgroup label="${e(g.nom)}">${THEMES.filter(t => t.groupe === g.id).map(t => `<option value="${t.id}" ${t.id === theme ? 'selected' : ''}>${e(t.nom)}</option>`).join('')}</optgroup>`).join('')}</select>
         <div class="segment defile">${MODES.map(m => `<button data-mode="${m.id}" class="${m.id === mode ? 'actif' : ''}">${m.nom}</button>`).join('')}</div>

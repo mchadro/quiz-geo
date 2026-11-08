@@ -290,5 +290,14 @@ details.carte > summary::-webkit-details-marker { display: none; }
 .moonwalk .bras-d { animation-delay: -.7s; }
 @keyframes balance { from { transform: rotate(-10deg); } to { transform: rotate(10deg); } }
 
+/* ----- « X t'a battu » ----- */
+.battu { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: 24px; background: rgba(10, 16, 22, .45); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); animation: fondu .3s ease both; }
+@keyframes fondu { from { opacity: 0; } }
+.battu-carte { background: var(--surface); border-radius: var(--radius); padding: 20px 20px 16px; max-width: 420px; width: 100%; box-shadow: var(--shadow); text-align: center; animation: surgir-carte .55s cubic-bezier(.2, 1.4, .4, 1) both; display: grid; gap: 10px; }
+@keyframes surgir-carte { from { transform: scale(.4) rotate(-6deg); opacity: 0; } to { transform: none; opacity: 1; } }
+.battu-gant { font-size: 56px; line-height: 1; animation: coup .6s ease-in-out .3s 3; }
+@keyframes coup { 0%, 100% { transform: translateX(0) rotate(0); } 30% { transform: translateX(-30px) rotate(-20deg); } 60% { transform: translateX(14px) rotate(8deg) scale(1.15); } }
+.battu-carte p { margin: 0; line-height: 1.5; }
+
 @media (min-width: 480px) { .grille { grid-template-columns: repeat(3, minmax(0, 1fr)); } .tuile.monde { grid-column: auto; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }

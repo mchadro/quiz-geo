@@ -31,6 +31,30 @@ export const MODES = [
 
 export const MODES_CHRONO = ['liste', 'carte'];
 
+// Barème du classement général : points par bonne réponse selon le mode, et bonus de podium par jeu (thème × mode).
+export const POINTS_MODE = { qcm: 1, saisie: 2, liste: 2, 'carte-trouve': 2, carte: 3 };
+export const BONUS_PODIUM = [10, 5, 2];
+
+/**
+ * Classement général à partir des meilleures parties (une par joueur, thème et mode).
+ * Chaque jeu rapporte bonnes × coefficient du mode, plus un bonus pour les trois premiers du jeu.
+ */
+export function classementGeneral(meilleures, trier) {
+  const parJeu = new Map();
+  for (const l of meilleures) { const k = `${l.theme}|${l.mode}`; (parJeu.get(k) || parJeu.set(k, []).get(k)).push(l); }
+  const joueurs = new Map();
+  for (const lignes of parJeu.values()) {
+    lignes.sort(trier);
+    lignes.forEach((l, i) => {
+      const j = joueurs.get(l.pseudo) || joueurs.set(l.pseudo, { pseudo: l.pseudo, avatar: l.avatar, points: 0, jeux: 0, podiums: [0, 0, 0], parties: 0 }).get(l.pseudo);
+      j.points += l.bonnes * (POINTS_MODE[l.mode] || 1) + (BONUS_PODIUM[i] || 0);
+      j.jeux++; j.parties += Number(l.parties) || 1;
+      if (i < 3) j.podiums[i]++;
+    });
+  }
+  return [...joueurs.values()].sort((a, b) => b.points - a.points || b.podiums[0] - a.podiums[0] || b.jeux - a.jeux);
+}
+
 // Secondes accordées par élément en mode chrono.
 export const CHRONOS = [
   { id: 'rapide', nom: 'Rapide', secondes: 5 },

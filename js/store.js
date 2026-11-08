@@ -22,6 +22,9 @@ export function retenirCode(code) { local.set('qg.code', code); }
 export function partieEnCours() { return local.get('qg.partie'); }
 export function sauverPartie(p) { local.set('qg.partie', p); }
 export function effacerPartie() { local.del('qg.partie'); }
+// Qui était devant moi, par thème et mode, à la dernière visite (pour signaler qu'on m'a dépassé).
+export function dessusMemo(pseudo) { return local.get(`qg.dessus.${pseudo}`); }
+export function sauverDessus(pseudo, d) { local.set(`qg.dessus.${pseudo}`, d); }
 export function prefs() { return local.get('qg.prefs', { chrono: 'normal', mode: 'saisie' }); }
 export function sauverPrefs(p) { local.set('qg.prefs', { ...prefs(), ...p }); }
 

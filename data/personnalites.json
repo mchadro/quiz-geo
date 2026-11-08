@@ -1,5 +1,5 @@
 {
-  "note": "Les fiches sont dans les fichiers perso-lot*.json (lot 1 : 6 grands pays d'Europe, 15 chacun ; lot 2 : 16 pays moyens d'Europe, 8 chacun ; lot 3 : 24 petits pays d'Europe, 3 chacun). pays = codes ISO des nationalités acceptées (la première est la principale). infos = 3 lignes affichées après la réponse.",
+  "note": "Les fiches sont dans les fichiers perso-lot*.json (lot 1 : 6 grands pays d'Europe, 15 chacun ; lot 2 : 16 pays moyens d'Europe, 8 chacun ; lot 3 : 24 petits pays d'Europe, 3 chacun ; lot 4 : 8 grands pays des Amériques, 15 ou 8 chacun ; lot 5 : 27 autres pays des Amériques, 3 chacun). pays = codes ISO des nationalités acceptées (la première est la principale). infos = 3 lignes affichées après la réponse.",
   "domaines": { "science": "Sciences", "politique": "Politique", "histoire": "Histoire", "litterature": "Littérature", "arts": "Arts", "musique": "Musique", "cinema": "Cinéma", "sport": "Sport", "exploration": "Exploration", "religion": "Religion", "economie": "Économie" },
-  "lots": ["perso-lot1.json", "perso-lot2.json", "perso-lot3.json"]
+  "lots": ["perso-lot1.json", "perso-lot2.json", "perso-lot3.json", "perso-lot4.json", "perso-lot5.json"]
 }

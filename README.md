@@ -71,7 +71,9 @@ Puis ouvrir <http://localhost:8765/>. Ajouter `?local` à l'adresse (`http://loc
 - Classement par thème et par mode : meilleure partie de chaque joueur, triée par score décroissant puis **temps croissant** (à score égal, le plus rapide est devant).
 - Première place de la famille : un bonhomme traverse l'écran en moonwalk. Record personnel : bandeau « Record personnel ! » et confettis. Les deux peuvent se cumuler.
 - Chaque joueur choisit un avatar parmi 36 (animaux, personnages, objets) dans son profil.
+- **Classement général** par points (calculé à l'affichage, sans table supplémentaire) : pour chaque jeu (thème × mode), la meilleure partie compte 1 point par bonne réponse en QCM, ×2 en saisie, « Nomme-les tous » et carte « Trouve-le », ×3 sur la carte « Nomme-les tous » ; bonus +10 / +5 / +2 pour les trois premiers de chaque jeu. Barème dans `POINTS_MODE` et `BONUS_PODIUM` (`js/data.js`).
+- À l'ouverture de l'app, si un membre de la famille est passé devant toi sur un jeu depuis ta dernière visite, une carte « X t'a battu sur Y » s'affiche, avec un bouton vers ce classement.
 
 ## À venir
 
-1. Personnalités : lots suivants (Amériques, Asie, Afrique, Océanie) ; objectif 15 / 8 / 3 fiches selon la taille du pays. L'Europe est couverte (290 fiches).
+1. Personnalités : lots suivants (Asie, Afrique, Océanie) ; objectif 15 / 8 / 3 fiches selon la taille du pays. L'Europe (290 fiches) et les Amériques (159 fiches) sont couvertes.
