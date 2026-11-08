@@ -149,6 +149,9 @@ input:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-colo
 .retour-reponse.ko { background: var(--ko-soft); color: var(--ko); }
 .retour-reponse .bonne { font-weight: 700; color: var(--ink); }
 .retour-reponse .statut { color: var(--ink); font-size: .9rem; opacity: .85; margin-top: 4px; }
+.infos { margin: 6px 0 0; padding-left: 18px; color: var(--ink); font-size: .9rem; display: grid; gap: 4px; text-align: left; }
+.cible .infos { margin-top: 8px; }
+.question .petit.muted { margin-top: 2px; }
 
 .saisie-ligne { display: flex; gap: 8px; margin-top: 16px; }
 .saisie-ligne input { flex: 1; }

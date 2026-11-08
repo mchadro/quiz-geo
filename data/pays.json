@@ -37,7 +37,11 @@
                        24
                    ],
         "onu":  true,
-        "ccn3":  "710"
+        "ccn3":  "710",
+        "gentile":  [
+                        "sud-africain",
+                        "sud-africaine"
+                    ]
     },
     {
         "code":  "AL",
@@ -55,7 +59,11 @@
                        20
                    ],
         "onu":  true,
-        "ccn3":  "008"
+        "ccn3":  "008",
+        "gentile":  [
+                        "albanais",
+                        "albanaise"
+                    ]
     },
     {
         "code":  "DZ",
@@ -92,7 +100,11 @@
                        9
                    ],
         "onu":  true,
-        "ccn3":  "276"
+        "ccn3":  "276",
+        "gentile":  [
+                        "allemand",
+                        "allemande"
+                    ]
     },
     {
         "code":  "AD",
@@ -111,7 +123,11 @@
                        1.5
                    ],
         "onu":  true,
-        "ccn3":  "020"
+        "ccn3":  "020",
+        "gentile":  [
+                        "andorran",
+                        "andorrane"
+                    ]
     },
     {
         "code":  "AO",
@@ -184,7 +200,11 @@
                        -64
                    ],
         "onu":  true,
-        "ccn3":  "032"
+        "ccn3":  "032",
+        "gentile":  [
+                        "argentin",
+                        "argentine"
+                    ]
     },
     {
         "code":  "AM",
@@ -221,7 +241,11 @@
                        133
                    ],
         "onu":  true,
-        "ccn3":  "036"
+        "ccn3":  "036",
+        "gentile":  [
+                        "australien",
+                        "australienne"
+                    ]
     },
     {
         "code":  "AT",
@@ -240,7 +264,11 @@
                        13.33333333
                    ],
         "onu":  true,
-        "ccn3":  "040"
+        "ccn3":  "040",
+        "gentile":  [
+                        "autrichien",
+                        "autrichienne"
+                    ]
     },
     {
         "code":  "AZ",
@@ -351,7 +379,10 @@
                        4
                    ],
         "onu":  true,
-        "ccn3":  "056"
+        "ccn3":  "056",
+        "gentile":  [
+                        "belge"
+                    ]
     },
     {
         "code":  "BZ",
@@ -426,7 +457,10 @@
                        28
                    ],
         "onu":  true,
-        "ccn3":  "112"
+        "ccn3":  "112",
+        "gentile":  [
+                        "biélorusse"
+                    ]
     },
     {
         "code":  "MM",
@@ -484,7 +518,12 @@
                        18
                    ],
         "onu":  true,
-        "ccn3":  "070"
+        "ccn3":  "070",
+        "gentile":  [
+                        "bosnien",
+                        "bosnienne",
+                        "bosniaque"
+                    ]
     },
     {
         "code":  "BW",
@@ -521,7 +560,11 @@
                        -55
                    ],
         "onu":  true,
-        "ccn3":  "076"
+        "ccn3":  "076",
+        "gentile":  [
+                        "brésilien",
+                        "brésilienne"
+                    ]
     },
     {
         "code":  "BN",
@@ -557,7 +600,10 @@
                        25
                    ],
         "onu":  true,
-        "ccn3":  "100"
+        "ccn3":  "100",
+        "gentile":  [
+                        "bulgare"
+                    ]
     },
     {
         "code":  "BF",
@@ -648,7 +694,11 @@
                        -95
                    ],
         "onu":  true,
-        "ccn3":  "124"
+        "ccn3":  "124",
+        "gentile":  [
+                        "canadien",
+                        "canadienne"
+                    ]
     },
     {
         "code":  "CL",
@@ -685,7 +735,11 @@
                        105
                    ],
         "onu":  true,
-        "ccn3":  "156"
+        "ccn3":  "156",
+        "gentile":  [
+                        "chinois",
+                        "chinoise"
+                    ]
     },
     {
         "code":  "CY",
@@ -704,7 +758,10 @@
                        33
                    ],
         "onu":  true,
-        "ccn3":  "196"
+        "ccn3":  "196",
+        "gentile":  [
+                        "chypriote"
+                    ]
     },
     {
         "code":  "VA",
@@ -727,7 +784,10 @@
                    ],
         "onu":  true,
         "statut":  "État observateur non membre de l'ONU. Plus petit État du monde (0,44 km²), enclavé dans Rome, dirigé par le pape.",
-        "ccn3":  "336"
+        "ccn3":  "336",
+        "gentile":  [
+                        "vatican"
+                    ]
     },
     {
         "code":  "CO",
@@ -842,7 +902,13 @@
                        127.5
                    ],
         "onu":  true,
-        "ccn3":  "410"
+        "ccn3":  "410",
+        "gentile":  [
+                        "sud-coréen",
+                        "sud-coréenne",
+                        "coréen",
+                        "coréenne"
+                    ]
     },
     {
         "code":  "CR",
@@ -896,7 +962,10 @@
                        15.5
                    ],
         "onu":  true,
-        "ccn3":  "191"
+        "ccn3":  "191",
+        "gentile":  [
+                        "croate"
+                    ]
     },
     {
         "code":  "CU",
@@ -934,7 +1003,11 @@
                        10
                    ],
         "onu":  true,
-        "ccn3":  "208"
+        "ccn3":  "208",
+        "gentile":  [
+                        "danois",
+                        "danoise"
+                    ]
     },
     {
         "code":  "DJ",
@@ -990,7 +1063,11 @@
                        30
                    ],
         "onu":  true,
-        "ccn3":  "818"
+        "ccn3":  "818",
+        "gentile":  [
+                        "égyptien",
+                        "égyptienne"
+                    ]
     },
     {
         "code":  "AE",
@@ -1065,7 +1142,11 @@
                        -4
                    ],
         "onu":  true,
-        "ccn3":  "724"
+        "ccn3":  "724",
+        "gentile":  [
+                        "espagnol",
+                        "espagnole"
+                    ]
     },
     {
         "code":  "EE",
@@ -1083,7 +1164,11 @@
                        26
                    ],
         "onu":  true,
-        "ccn3":  "233"
+        "ccn3":  "233",
+        "gentile":  [
+                        "estonien",
+                        "estonienne"
+                    ]
     },
     {
         "code":  "SZ",
@@ -1127,7 +1212,13 @@
                        -97
                    ],
         "onu":  true,
-        "ccn3":  "840"
+        "ccn3":  "840",
+        "gentile":  [
+                        "américain",
+                        "américaine",
+                        "états-unien",
+                        "états-unienne"
+                    ]
     },
     {
         "code":  "ET",
@@ -1182,7 +1273,11 @@
                        26
                    ],
         "onu":  true,
-        "ccn3":  "246"
+        "ccn3":  "246",
+        "gentile":  [
+                        "finlandais",
+                        "finlandaise"
+                    ]
     },
     {
         "code":  "FR",
@@ -1200,7 +1295,11 @@
                        2
                    ],
         "onu":  true,
-        "ccn3":  "250"
+        "ccn3":  "250",
+        "gentile":  [
+                        "français",
+                        "française"
+                    ]
     },
     {
         "code":  "GA",
@@ -1255,7 +1354,11 @@
                        43.5
                    ],
         "onu":  true,
-        "ccn3":  "268"
+        "ccn3":  "268",
+        "gentile":  [
+                        "géorgien",
+                        "géorgienne"
+                    ]
     },
     {
         "code":  "GH",
@@ -1292,7 +1395,11 @@
                        22
                    ],
         "onu":  true,
-        "ccn3":  "300"
+        "ccn3":  "300",
+        "gentile":  [
+                        "grec",
+                        "grecque"
+                    ]
     },
     {
         "code":  "GD",
@@ -1459,7 +1566,11 @@
                        20
                    ],
         "onu":  true,
-        "ccn3":  "348"
+        "ccn3":  "348",
+        "gentile":  [
+                        "hongrois",
+                        "hongroise"
+                    ]
     },
     {
         "code":  "MU",
@@ -1554,7 +1665,11 @@
                        77
                    ],
         "onu":  true,
-        "ccn3":  "356"
+        "ccn3":  "356",
+        "gentile":  [
+                        "indien",
+                        "indienne"
+                    ]
     },
     {
         "code":  "ID",
@@ -1628,7 +1743,11 @@
                        -8
                    ],
         "onu":  true,
-        "ccn3":  "372"
+        "ccn3":  "372",
+        "gentile":  [
+                        "irlandais",
+                        "irlandaise"
+                    ]
     },
     {
         "code":  "IS",
@@ -1646,7 +1765,11 @@
                        -18
                    ],
         "onu":  true,
-        "ccn3":  "352"
+        "ccn3":  "352",
+        "gentile":  [
+                        "islandais",
+                        "islandaise"
+                    ]
     },
     {
         "code":  "IL",
@@ -1683,7 +1806,11 @@
                        12.83333333
                    ],
         "onu":  true,
-        "ccn3":  "380"
+        "ccn3":  "380",
+        "gentile":  [
+                        "italien",
+                        "italienne"
+                    ]
     },
     {
         "code":  "JM",
@@ -1719,7 +1846,11 @@
                        138
                    ],
         "onu":  true,
-        "ccn3":  "392"
+        "ccn3":  "392",
+        "gentile":  [
+                        "japonais",
+                        "japonaise"
+                    ]
     },
     {
         "code":  "JO",
@@ -1833,7 +1964,11 @@
                    ],
         "onu":  false,
         "statut":  "Indépendance déclarée en 2008 (ex-province de Serbie). Reconnu par une centaine d'États, pas par la Serbie ni la Russie. Non membre de l'ONU.",
-        "ccn3":  ""
+        "ccn3":  "",
+        "gentile":  [
+                        "kosovar",
+                        "kosovare"
+                    ]
     },
     {
         "code":  "KW",
@@ -1907,7 +2042,11 @@
                        25
                    ],
         "onu":  true,
-        "ccn3":  "428"
+        "ccn3":  "428",
+        "gentile":  [
+                        "letton",
+                        "lettone"
+                    ]
     },
     {
         "code":  "LB",
@@ -1980,7 +2119,11 @@
                        9.53333333
                    ],
         "onu":  true,
-        "ccn3":  "438"
+        "ccn3":  "438",
+        "gentile":  [
+                        "liechtensteinois",
+                        "liechtensteinoise"
+                    ]
     },
     {
         "code":  "LT",
@@ -1998,7 +2141,11 @@
                        24
                    ],
         "onu":  true,
-        "ccn3":  "440"
+        "ccn3":  "440",
+        "gentile":  [
+                        "lituanien",
+                        "lituanienne"
+                    ]
     },
     {
         "code":  "LU",
@@ -2017,7 +2164,11 @@
                        6.16666666
                    ],
         "onu":  true,
-        "ccn3":  "442"
+        "ccn3":  "442",
+        "gentile":  [
+                        "luxembourgeois",
+                        "luxembourgeoise"
+                    ]
     },
     {
         "code":  "MK",
@@ -2036,7 +2187,11 @@
                        22
                    ],
         "onu":  true,
-        "ccn3":  "807"
+        "ccn3":  "807",
+        "gentile":  [
+                        "macédonien",
+                        "macédonienne"
+                    ]
     },
     {
         "code":  "MG",
@@ -2146,7 +2301,11 @@
                        14.58333333
                    ],
         "onu":  true,
-        "ccn3":  "470"
+        "ccn3":  "470",
+        "gentile":  [
+                        "maltais",
+                        "maltaise"
+                    ]
     },
     {
         "code":  "MA",
@@ -2202,7 +2361,11 @@
                        -102
                    ],
         "onu":  true,
-        "ccn3":  "484"
+        "ccn3":  "484",
+        "gentile":  [
+                        "mexicain",
+                        "mexicaine"
+                    ]
     },
     {
         "code":  "FM",
@@ -2241,7 +2404,10 @@
                        29
                    ],
         "onu":  true,
-        "ccn3":  "498"
+        "ccn3":  "498",
+        "gentile":  [
+                        "moldave"
+                    ]
     },
     {
         "code":  "MC",
@@ -2259,7 +2425,10 @@
                        7.4
                    ],
         "onu":  true,
-        "ccn3":  "492"
+        "ccn3":  "492",
+        "gentile":  [
+                        "monégasque"
+                    ]
     },
     {
         "code":  "MN",
@@ -2296,7 +2465,11 @@
                        19.3
                    ],
         "onu":  true,
-        "ccn3":  "499"
+        "ccn3":  "499",
+        "gentile":  [
+                        "monténégrin",
+                        "monténégrine"
+                    ]
     },
     {
         "code":  "MZ",
@@ -2424,7 +2597,11 @@
                        8
                    ],
         "onu":  true,
-        "ccn3":  "566"
+        "ccn3":  "566",
+        "gentile":  [
+                        "nigérian",
+                        "nigériane"
+                    ]
     },
     {
         "code":  "NO",
@@ -2442,7 +2619,11 @@
                        10
                    ],
         "onu":  true,
-        "ccn3":  "578"
+        "ccn3":  "578",
+        "gentile":  [
+                        "norvégien",
+                        "norvégienne"
+                    ]
     },
     {
         "code":  "NZ",
@@ -2650,7 +2831,13 @@
                        5.75
                    ],
         "onu":  true,
-        "ccn3":  "528"
+        "ccn3":  "528",
+        "gentile":  [
+                        "néerlandais",
+                        "néerlandaise",
+                        "hollandais",
+                        "hollandaise"
+                    ]
     },
     {
         "code":  "PE",
@@ -2706,7 +2893,11 @@
                        20
                    ],
         "onu":  true,
-        "ccn3":  "616"
+        "ccn3":  "616",
+        "gentile":  [
+                        "polonais",
+                        "polonaise"
+                    ]
     },
     {
         "code":  "PT",
@@ -2725,7 +2916,11 @@
                        -8
                    ],
         "onu":  true,
-        "ccn3":  "620"
+        "ccn3":  "620",
+        "gentile":  [
+                        "portugais",
+                        "portugaise"
+                    ]
     },
     {
         "code":  "QA",
@@ -2800,7 +2995,11 @@
                        25
                    ],
         "onu":  true,
-        "ccn3":  "642"
+        "ccn3":  "642",
+        "gentile":  [
+                        "roumain",
+                        "roumaine"
+                    ]
     },
     {
         "code":  "GB",
@@ -2822,7 +3021,16 @@
                        -2
                    ],
         "onu":  true,
-        "ccn3":  "826"
+        "ccn3":  "826",
+        "gentile":  [
+                        "britannique",
+                        "anglais",
+                        "anglaise",
+                        "écossais",
+                        "écossaise",
+                        "gallois",
+                        "galloise"
+                    ]
     },
     {
         "code":  "RU",
@@ -2841,7 +3049,10 @@
                        100
                    ],
         "onu":  true,
-        "ccn3":  "643"
+        "ccn3":  "643",
+        "gentile":  [
+                        "russe"
+                    ]
     },
     {
         "code":  "RW",
@@ -2917,7 +3128,11 @@
                        12.41666666
                    ],
         "onu":  true,
-        "ccn3":  "674"
+        "ccn3":  "674",
+        "gentile":  [
+                        "saint-marinais",
+                        "saint-marinaise"
+                    ]
     },
     {
         "code":  "VC",
@@ -3028,7 +3243,10 @@
                        21
                    ],
         "onu":  true,
-        "ccn3":  "688"
+        "ccn3":  "688",
+        "gentile":  [
+                        "serbe"
+                    ]
     },
     {
         "code":  "SC",
@@ -3101,7 +3319,10 @@
                        19.5
                    ],
         "onu":  true,
-        "ccn3":  "703"
+        "ccn3":  "703",
+        "gentile":  [
+                        "slovaque"
+                    ]
     },
     {
         "code":  "SI",
@@ -3119,7 +3340,10 @@
                        14.81666666
                    ],
         "onu":  true,
-        "ccn3":  "705"
+        "ccn3":  "705",
+        "gentile":  [
+                        "slovène"
+                    ]
     },
     {
         "code":  "SO",
@@ -3214,7 +3438,11 @@
                        15
                    ],
         "onu":  true,
-        "ccn3":  "752"
+        "ccn3":  "752",
+        "gentile":  [
+                        "suédois",
+                        "suédoise"
+                    ]
     },
     {
         "code":  "CH",
@@ -3233,7 +3461,11 @@
                        8
                    ],
         "onu":  true,
-        "ccn3":  "756"
+        "ccn3":  "756",
+        "gentile":  [
+                        "suisse",
+                        "suissesse"
+                    ]
     },
     {
         "code":  "SR",
@@ -3367,7 +3599,10 @@
                        15.5
                    ],
         "onu":  true,
-        "ccn3":  "203"
+        "ccn3":  "203",
+        "gentile":  [
+                        "tchèque"
+                    ]
     },
     {
         "code":  "TH",
@@ -3519,7 +3754,11 @@
                        35
                    ],
         "onu":  true,
-        "ccn3":  "792"
+        "ccn3":  "792",
+        "gentile":  [
+                        "turc",
+                        "turque"
+                    ]
     },
     {
         "code":  "TV",
@@ -3556,7 +3795,11 @@
                        32
                    ],
         "onu":  true,
-        "ccn3":  "804"
+        "ccn3":  "804",
+        "gentile":  [
+                        "ukrainien",
+                        "ukrainienne"
+                    ]
     },
     {
         "code":  "UY",

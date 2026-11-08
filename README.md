@@ -63,6 +63,8 @@ Puis ouvrir <http://localhost:8765/>. Ajouter `?local` à l'adresse (`http://loc
 - États américains : `data/etats-usa.json` (noms français, capitales, codes FIPS), contours us-atlas 1:10m (`data/usa-10m.json`), projection Albers USA avec Alaska et Hawaï en médaillon.
 - Grandes villes : `data/villes.json`. Les 10 premières économies (PIB nominal, FMI 2025) : États-Unis, Chine, Allemagne, Japon, Inde, Royaume-Uni, France, Italie, Canada, Brésil. Pour chacune, les 5 villes les plus peuplées au sens de la **ville proprement dite** (commune ou municipalité), ce qui donne par exemple Chongqing devant Shanghai en Chine, et Leeds ou Sheffield au Royaume-Uni. Le thème « Monde » interroge le pays de chaque ville en mode texte, et la ville elle-même sur la carte.
 
+- Personnalités : `data/personnalites.json`, rédigé et relu à la main (dates et faits vérifiables sur Wikipédia). Chaque fiche : nationalités acceptées (codes ISO, la première est la principale et sert pour la carte), domaine, dates, 3 lignes d'information affichées après la réponse. Les gentilés (« française », « allemand »…) sont dans `pays.json` et acceptés en saisie. Livré par lots : lot 1 = France, Allemagne, Royaume-Uni, Italie, Espagne, Russie (15 chacun).
+
 ## À venir
 
-1. Personnalités : nationalité à deviner, 3 lignes d'information à la validation.
+1. Personnalités : lots suivants (reste de l'Europe, puis Amériques, Asie, Afrique, Océanie) ; objectif 15 / 8 / 3 fiches selon la taille du pays.

@@ -1,6 +1,6 @@
 // Quiz géo : écrans et logique de jeu.
 import { VERSION } from './config.js';
-import { GROUPES, MODES, MODES_CHRONO, CHRONOS, chargerDonnees, infoTheme, listeThemes, nomTheme, nomMode, drapeau, elementsTheme, repTexte, genererPartie } from './data.js';
+import { GROUPES, MODES, MODES_CHRONO, CHRONOS, chargerDonnees, infoTheme, listeThemes, nomTheme, nomMode, drapeau, elementsTheme, repTexte, courts, genererPartie } from './data.js';
 import { trouver, normaliser, formaterDuree, formaterDate, echapper as e } from './texte.js';
 import * as store from './store.js';
 
@@ -115,14 +115,15 @@ function ecranModes() {
   if (!t) return aller('#/themes');
   const n = elements(theme).length;
   const prefs = store.prefs();
-  let mode = prefs.mode, chrono = prefs.chrono;
+  const modes = t.modes ? MODES.filter(m => t.modes.includes(m.id)) : MODES;
+  let mode = modes.some(m => m.id === prefs.mode) ? prefs.mode : modes[0].id, chrono = prefs.chrono;
   const rendu = () => {
     const c = CHRONOS.find(x => x.id === chrono) || CHRONOS[1];
     app.innerHTML = `
       <div class="entete"><div><button class="retour" id="retour">‹ Thèmes</button><h1>${e(t.nom)}</h1>
         <p class="muted">${n} questions · ${e(t.consigne)}</p></div></div>
       <div class="pile">
-        ${MODES.map(m => `<button class="tuile ${m.id === mode ? 'active' : ''}" data-mode="${m.id}">
+        ${modes.map(m => `<button class="tuile ${m.id === mode ? 'active' : ''}" data-mode="${m.id}">
           <span class="titre">${e(m.nom)}</span><span class="compte">${e(m.description)}</span></button>`).join('')}
       </div>
       ${MODES_CHRONO.includes(mode) ? `<div class="carte mt ligne espace" style="flex-wrap:wrap">
@@ -166,7 +167,8 @@ function ecranPartie() {
       sauver(); aller('#/themes');
     });
   }
-  const infoHtml = el => (el.info ? `<div class="statut">${e(el.info)}</div>` : '');
+  const infoHtml = el => (el.infos ? `<ul class="infos">${el.infos.map(i => `<li>${e(i)}</li>`).join('')}</ul>` : el.info ? `<div class="statut">${e(el.info)}</div>` : '');
+  const aInfo = el => Boolean(el.info || el.infos);
 
   function terminer() {
     arreterMinuterie();
@@ -198,9 +200,11 @@ function ecranPartie() {
     precharger(parId[partie.ordre[partie.index + 1]]);
     const prompt = t.prompt === 'drapeau'
       ? `<p class="consigne">${e(t.consigne)}</p>${img(el.drapeau, 'drapeau')}`
-      : `<p class="consigne">${e(t.consigne)}</p>${img(el.petitDrapeau, 'mini')}<div class="nom">${e(el.titre)}</div>`;
+      : `<p class="consigne">${e(t.consigne)}</p>${el.sousTitre ? '' : img(el.petitDrapeau, 'mini')}<div class="nom">${e(el.titre)}</div>${el.sousTitre ? `<div class="petit muted">${e(el.sousTitre)}</div>` : ''}`;
+    // Anciennes parties sauvegardées : les propositions étaient des identifiants, pas des libellés.
+    const label = c => (parId[c] ? repTexte(parId[c]).court : c);
     const corps = partie.mode === 'qcm'
-      ? `<div class="choix" id="choix">${partie.choix[id].map(c => `<button class="btn" data-choix="${c}">${e(repTexte(parId[c]).court)}</button>`).join('')}</div>`
+      ? `<div class="choix" id="choix">${partie.choix[id].map(c => `<button class="btn" data-choix="${e(label(c))}">${e(label(c))}</button>`).join('')}</div>`
       : `<form class="saisie-ligne" id="f-saisie"><input type="text" id="saisie" autocapitalize="words" autocomplete="off" autocorrect="off" spellcheck="false" enterkeyhint="go" placeholder="Ta réponse">
           <button class="btn primaire" type="submit">OK</button></form>
          <button class="btn discret bloc mt-s" id="passer">Je ne sais pas</button>`;
@@ -209,10 +213,7 @@ function ecranPartie() {
       <div class="carte question">${prompt}</div>${corps}<div id="retour-reponse"></div>`;
     brancherQuitter();
     if (partie.mode === 'qcm') {
-      app.querySelectorAll('[data-choix]').forEach(b => b.addEventListener('click', () => {
-        const ok = repTexte(parId[b.dataset.choix]).court === repTexte(el).court;
-        repondre(id, ok, repTexte(parId[b.dataset.choix]).court, b);
-      }));
+      app.querySelectorAll('[data-choix]').forEach(b => b.addEventListener('click', () => repondre(id, courts(el).includes(b.dataset.choix), b.dataset.choix, b)));
     } else {
       const input = document.getElementById('saisie');
       input.focus();
@@ -231,7 +232,7 @@ function ecranPartie() {
     partie.index++;
     sauver();
     if (partie.mode === 'qcm') {
-      app.querySelectorAll('[data-choix]').forEach(b => { b.disabled = true; if (repTexte(parId[b.dataset.choix]).court === rep.court) b.classList.add('ok'); });
+      app.querySelectorAll('[data-choix]').forEach(b => { b.disabled = true; if (courts(el).includes(b.dataset.choix)) b.classList.add('ok'); });
       if (!ok && bouton) bouton.classList.add('ko');
     } else {
       document.getElementById('saisie').disabled = true;
@@ -242,7 +243,7 @@ function ecranPartie() {
       <div><strong>${ok ? 'Exact !' : (saisie ? 'Raté.' : 'Passé.')}</strong></div>
       ${!ok || rep.reponse !== rep.court ? `<div class="bonne">${e(rep.reponse)}</div>` : ''}
       ${infoHtml(el)}
-      ${ok && !el.info ? '' : `<button class="btn primaire mt-s" id="suivant">${partie.index >= partie.ordre.length ? 'Voir le résultat' : 'Suivant'}</button>`}
+      ${ok && !aInfo(el) ? '' : `<button class="btn primaire mt-s" id="suivant">${partie.index >= partie.ordre.length ? 'Voir le résultat' : 'Suivant'}</button>`}
     </div>`;
     const suivant = document.getElementById('suivant');
     if (suivant) { suivant.focus(); suivant.addEventListener('click', question); }
@@ -321,10 +322,13 @@ function ecranPartie() {
   }
 
   // ----- Carte -----
+  // Sur la carte, on touche des « cibles » : les éléments eux-mêmes, ou les pays quand le thème porte sur des personnes.
+  const cibles = t.cibles ? elements(t.cibles) : els;
+  const cibleParId = Object.fromEntries(cibles.map(x => [x.id, x]));
   async function chargerCarte(zone, onClic) {
     const { chargerFond, creerCarte } = await import('./carte.js');
     const fond = await chargerFond(t.carte, D);
-    return creerCarte(zone, fond, { vue: t.carte, elements: els, onClic });
+    return creerCarte(zone, fond, { vue: t.carte, elements: cibles, onClic });
   }
   const unite = { pays: 'un pays', capitales: 'un pays', usa: 'un État', villes: 'une ville' }[t.groupe];
 
@@ -384,9 +388,13 @@ function ecranPartie() {
     try { carte = await chargerCarte(document.getElementById('carte'), clic); }
     catch (ex) { document.getElementById('carte').innerHTML = `<p class="erreur centre" style="padding:24px">${e(ex.message)}</p>`; return; }
     if (route() !== 'partie') return;
-    for (const [id, r] of Object.entries(partie.reponses)) { carte.marquer(id, r.ok ? 'trouve' : 'manque'); carte.etiqueter(id, parId[id].court); }
+    // Pays (ou État, ou ville) attendu pour un élément : lui-même, ou sa nationalité principale.
+    const cibleDe = el => (el.pays && t.cibles ? el.pays[0] : el.id);
+    const estBon = (el, code) => (el.pays && t.cibles ? el.pays.includes(code) : code === el.id);
+    for (const [id, r] of Object.entries(partie.reponses)) { const c = cibleDe(parId[id]); carte.marquer(c, r.ok ? 'trouve' : 'manque'); carte.etiqueter(c, cibleParId[c].court); }
     poser();
     function invite(el) {
+      if (t.groupe === 'perso') return `De quel pays est <strong>${e(el.titre)}</strong> ?<br><span class="petit muted">${e(el.sousTitre)}</span>`;
       if (t.groupe === 'capitales' || t.id === 'capitales-usa') return `${t.id === 'capitales-usa' ? 'Quel État' : 'Quel pays'} a pour capitale <strong>${e(el.court)}</strong> ?`;
       return `Où est <strong>${e(el.court)}</strong> ?`;
     }
@@ -399,20 +407,23 @@ function ecranPartie() {
     }
     function clic(code) {
       if (!attente) return;
-      if (partie.reponses[code]) { toast(`Déjà joué : ${parId[code].court}`, 1000); return; }
-      const id = partie.ordre[partie.index]; const ok = code === id;
+      if (!t.cibles && partie.reponses[code]) { toast(`Déjà joué : ${parId[code].court}`, 1000); return; }
+      const id = partie.ordre[partie.index]; const el = parId[id]; const ok = estBon(el, code);
+      const bonne = ok ? code : cibleDe(el);
       attente = false;
-      partie.reponses[id] = { ok, saisie: ok ? '' : parId[code].titre };
+      partie.reponses[id] = { ok, saisie: ok ? '' : cibleParId[code].titre };
       partie.index++; sauver();
+      const suite = el.infos ? `${infoHtml(el)}<button class="btn primaire mt-s" id="suivant">${partie.index >= total ? 'Voir le résultat' : 'Suivant'}</button>` : '';
       if (ok) {
-        carte.marquer(id, 'trouve'); carte.etiqueter(id, parId[id].court);
-        document.getElementById('cible').innerHTML = `<span class="ok-texte">Exact !</span>`;
-        setTimeout(poser, 500);
+        carte.marquer(bonne, 'trouve'); carte.etiqueter(bonne, cibleParId[bonne].court);
+        document.getElementById('cible').innerHTML = `<span class="ok-texte">Exact !</span>${suite}`;
+        if (!el.infos) setTimeout(poser, 500);
       } else {
-        carte.clignoter(code, 'erreur', 1400); carte.marquer(id, 'manque'); carte.etiqueter(id, parId[id].court);
-        document.getElementById('cible').innerHTML = `<span class="ko-texte">Non, c’était ${e(parId[code].titre)}.</span> La bonne réponse est en rouge sur la carte.`;
-        setTimeout(poser, 1600);
+        carte.clignoter(code, 'erreur', 1400); carte.marquer(bonne, 'manque'); carte.etiqueter(bonne, cibleParId[bonne].court);
+        document.getElementById('cible').innerHTML = `<span class="ko-texte">Non, c’était ${e(cibleParId[code].titre)}.</span> La bonne réponse${t.cibles ? ` (${e(el.reponse)})` : ''} est en rouge sur la carte.${suite}`;
+        if (!el.infos) setTimeout(poser, 1600);
       }
+      document.getElementById('suivant')?.addEventListener('click', poser);
     }
   }
 
@@ -449,7 +460,7 @@ async function ecranResultats() {
       <div class="rates">${rates.map(el => `<div class="rate">${img(el.petitDrapeau)}<div class="texte">
         <div class="bonne">${e(el.libelle)}</div>
         ${r.details.reponses?.[el.id] ? `<div class="toi">Toi : ${e(r.details.reponses[el.id])}</div>` : ''}
-        ${el.info ? `<div class="statut">${e(el.info)}</div>` : ''}
+        ${el.infos ? `<ul class="infos statut">${el.infos.map(i => `<li>${e(i)}</li>`).join('')}</ul>` : el.info ? `<div class="statut">${e(el.info)}</div>` : ''}
       </div></div>`).join('')}</div>` : ''}`;
   document.getElementById('rejouer').addEventListener('click', () => {
     store.sauverPartie(genererPartie(r.theme, r.mode, D, { chrono: r.details.chrono })); aller('#/partie');

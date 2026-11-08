@@ -16,7 +16,8 @@ export const GROUPES = [
   { id: 'pays', nom: 'Pays', description: 'Un drapeau s’affiche, retrouve le pays. Sur la carte : touche-le.' },
   { id: 'capitales', nom: 'Capitales', description: 'Un pays s’affiche, donne sa capitale.' },
   { id: 'usa', nom: 'États-Unis', description: 'Les 50 États et leurs capitales.' },
-  { id: 'villes', nom: 'Grandes villes', description: 'Les 5 villes les plus peuplées des 10 premières économies du monde.' }
+  { id: 'villes', nom: 'Grandes villes', description: 'Les 5 villes les plus peuplées des 10 premières économies du monde.' },
+  { id: 'perso', nom: 'Personnalités', description: 'Quelle est, ou était, la nationalité de cette personne ? Trois infos à la clé.' }
 ];
 
 export const MODES = [
@@ -39,12 +40,15 @@ export const CHRONOS = [
 let cache = null;
 export async function chargerDonnees() {
   if (cache) return cache;
-  const [pays, etats, villes] = await Promise.all(['pays', 'etats-usa', 'villes'].map(async n => {
+  const [pays, etats, villes, perso] = await Promise.all(['pays', 'etats-usa', 'villes', 'personnalites'].map(async n => {
     const r = await fetch(`data/${n}.json`);
     if (!r.ok) throw new Error(`Impossible de charger ${n}`);
     return r.json();
   }));
-  cache = { pays, etats, villes: villes.villes, economies: villes.pays, parCode: Object.fromEntries(pays.map(p => [p.code, p])) };
+  cache = {
+    pays, etats, villes: villes.villes, economies: villes.pays, personnes: perso.personnes, domaines: perso.domaines,
+    parCode: Object.fromEntries(pays.map(p => [p.code, p]))
+  };
   return cache;
 }
 
@@ -72,6 +76,11 @@ export function infoTheme(id, D) {
       ? { id, groupe, nom: `Pays · ${c.nom}`, court: c.nom, unite: 'pays', consigne: 'Quel est ce pays ?', consigneCarte: 'Quel est ce pays ?', prompt: 'drapeau', carte: { type: 'monde', continent: c.id } }
       : { id, groupe, nom: `Capitales · ${c.nom}`, court: c.nom, unite: 'capitales', consigne: 'Quelle est la capitale ?', consigneCarte: 'Quelle est sa capitale ?', prompt: 'texte', carte: { type: 'monde', continent: c.id } };
   }
+  if (groupe === 'perso') {
+    const c = CONTINENTS.find(x => x.id === reste); if (!c) return null;
+    return { id, groupe, nom: `Personnalités · ${c.nom}`, court: c.nom, unite: 'personnes', consigne: 'Quelle est sa nationalité ?', prompt: 'texte',
+      carte: { type: 'monde', continent: c.id }, cibles: `pays-${c.id}`, modes: ['qcm', 'saisie', 'carte-trouve'] };
+  }
   if (groupe === 'villes') {
     if (reste === 'monde') return { id, groupe, nom: 'Villes · Monde entier', court: 'Les 50 villes', unite: 'villes', consigne: 'Dans quel pays se trouve cette ville ?', consigneCarte: 'Quelle est cette ville ?', prompt: 'texte', carte: { type: 'points', pays: null } };
     const p = D?.parCode[reste]; if (!p) return null;
@@ -90,8 +99,12 @@ export function listeThemes(D) {
   t.push(infoTheme('etats-usa', D), infoTheme('capitales-usa', D));
   for (const code of D.economies) t.push(infoTheme(`villes-${code}`, D));
   t.push(infoTheme('villes-monde', D));
-  return t.map(x => ({ ...x, compte: elementsTheme(x.id, D).length }));
+  for (const c of CONTINENTS) t.push(infoTheme(`perso-${c.id}`, D));
+  return t.map(x => ({ ...x, compte: elementsTheme(x.id, D).length })).filter(x => x.compte > 0);
 }
+
+/** Libellés acceptés comme bonne réponse au QCM (plusieurs pour une double nationalité). */
+export function courts(el) { const r = repTexte(el); return r.courts || [r.court]; }
 
 function ordinal(n) { return n === 1 ? '1re' : `${n}e`; }
 
@@ -127,6 +140,23 @@ export function elementsTheme(id, D) {
       id: s.code, court: s.capitale, reponse: s.capitale, formes: s.capitales || [s.capitale], drapeau: drapeau(`us-${s.code}`), petitDrapeau: drapeau(`us-${s.code}`, 80),
       titre: s.nom, libelle: `${s.nom} → ${s.capitale}`
     }));
+  }
+  if (t.groupe === 'perso') {
+    const continent = t.carte.continent;
+    const paysDuTheme = paysDuContinent(D.pays, continent);
+    const personnes = D.personnes.filter(p => continent === 'monde' || D.parCode[p.pays[0]]?.continent === continent);
+    return personnes.map(p => {
+      const pays = p.pays.map(c => D.parCode[c]).filter(Boolean);
+      const noms = pays.map(x => x.nom);
+      return {
+        id: p.id, court: noms.join(' / '), courts: noms, reponse: noms.join(' et '),
+        formes: pays.flatMap(x => [x.nom, ...(x.alias || []), ...(x.gentile || [])]),
+        drapeau: drapeau(pays[0].code), petitDrapeau: drapeau(pays[0].code, 80),
+        titre: p.nom, sousTitre: `${D.domaines[p.domaine] || p.domaine} · ${p.vie}`,
+        libelle: `${p.nom} → ${noms.join(' / ')}`, infos: p.infos, pays: p.pays,
+        distracteurs: paysDuTheme.map(x => x.nom)
+      };
+    });
   }
   if (t.groupe === 'villes') {
     const villes = t.carte.pays ? D.villes.filter(v => v.pays === t.carte.pays) : D.villes;
@@ -164,14 +194,15 @@ export function genererPartie(theme, mode, D, options = {}) {
   const ordre = melanger(elements.map(e => e.id));
   const partie = { theme, mode, ordre, index: 0, reponses: {}, debut: Date.now(), ecoule: 0 };
   if (mode === 'qcm') {
+    // Les propositions sont des libellés : la bonne réponse et trois autres, distincts
+    // (plusieurs villes d'un même pays donnent la même réponse « pays » ; une double nationalité en exclut deux).
     partie.choix = {};
     for (const e of elements) {
-      const bonne = repTexte(e).court;
-      // Propositions distinctes par libellé (plusieurs villes d'un même pays donnent la même réponse « pays »).
-      const autres = melanger(elements.filter(x => repTexte(x).court !== bonne));
-      const vus = new Set([bonne]); const ids = [e.id];
-      for (const a of autres) { const c = repTexte(a).court; if (vus.has(c)) continue; vus.add(c); ids.push(a.id); if (ids.length === 4) break; }
-      partie.choix[e.id] = melanger(ids);
+      const bons = courts(e);
+      const vivier = e.distracteurs || elements.map(x => repTexte(x).court);
+      const vus = new Set(bons); const labels = [bons[0]];
+      for (const c of melanger(vivier)) { if (vus.has(c)) continue; vus.add(c); labels.push(c); if (labels.length === 4) break; }
+      partie.choix[e.id] = melanger(labels);
     }
   }
   if (MODES_CHRONO.includes(mode)) {
