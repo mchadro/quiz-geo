@@ -1,0 +1,3495 @@
+[
+    {
+        "code":  "AF",
+        "nom":  "Afghanistan",
+        "alias":  [
+                      "République islamique d'Afghanistan"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Kaboul",
+        "capitales":  [
+                          "Kaboul",
+                          "Kabul"
+                      ],
+        "latlng":  [
+                       33,
+                       65
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "ZA",
+        "nom":  "Afrique du Sud",
+        "alias":  [
+                      "République d'Afrique du Sud"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Pretoria (exécutive), Le Cap (législative), Bloemfontein (judiciaire)",
+        "capitales":  [
+                          "Pretoria",
+                          "Le Cap",
+                          "Bloemfontein",
+                          "Cape Town"
+                      ],
+        "latlng":  [
+                       -29,
+                       24
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "AL",
+        "nom":  "Albanie",
+        "alias":  [
+                      "République d'Albanie"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Tirana",
+        "capitales":  [
+                          "Tirana"
+                      ],
+        "latlng":  [
+                       41,
+                       20
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "DZ",
+        "nom":  "Algérie",
+        "alias":  [
+                      "République démocratique et populaire d'Algérie"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Alger",
+        "capitales":  [
+                          "Alger",
+                          "Algiers"
+                      ],
+        "latlng":  [
+                       28,
+                       3
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "DE",
+        "nom":  "Allemagne",
+        "alias":  [
+                      "République fédérale d'Allemagne"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Berlin",
+        "capitales":  [
+                          "Berlin"
+                      ],
+        "latlng":  [
+                       51,
+                       9
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "AD",
+        "nom":  "Andorre",
+        "alias":  [
+                      "Principauté d'Andorre"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Andorre-la-Vieille",
+        "capitales":  [
+                          "Andorre-la-Vieille",
+                          "Andorra la Vella"
+                      ],
+        "latlng":  [
+                       42.5,
+                       1.5
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "AO",
+        "nom":  "Angola",
+        "alias":  [
+                      "République d'Angola"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Luanda",
+        "capitales":  [
+                          "Luanda"
+                      ],
+        "latlng":  [
+                       -12.5,
+                       18.5
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "AG",
+        "nom":  "Antigua-et-Barbuda",
+        "alias":  [
+                      "Antigua -et-Barbuda"
+                  ],
+        "continent":  "amerique-centrale",
+        "capitale":  "Saint John's",
+        "capitales":  [
+                          "Saint John's"
+                      ],
+        "latlng":  [
+                       17.05,
+                       -61.8
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "SA",
+        "nom":  "Arabie saoudite",
+        "alias":  [
+                      "Royaume d'Arabie Saoudite"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Riyad",
+        "capitales":  [
+                          "Riyad",
+                          "Riyadh"
+                      ],
+        "latlng":  [
+                       25,
+                       45
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "AR",
+        "nom":  "Argentine",
+        "alias":  [
+                      "République argentine"
+                  ],
+        "continent":  "amerique-sud",
+        "capitale":  "Buenos Aires",
+        "capitales":  [
+                          "Buenos Aires"
+                      ],
+        "latlng":  [
+                       -34,
+                       -64
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "AM",
+        "nom":  "Arménie",
+        "alias":  [
+                      "République d'Arménie"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Erevan",
+        "capitales":  [
+                          "Erevan",
+                          "Yerevan"
+                      ],
+        "latlng":  [
+                       40,
+                       45
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "AU",
+        "nom":  "Australie",
+        "alias":  [
+
+                  ],
+        "continent":  "oceanie",
+        "capitale":  "Canberra",
+        "capitales":  [
+                          "Canberra"
+                      ],
+        "latlng":  [
+                       -27,
+                       133
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "AT",
+        "nom":  "Autriche",
+        "alias":  [
+                      "République d'Autriche"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Vienne",
+        "capitales":  [
+                          "Vienne",
+                          "Vienna"
+                      ],
+        "latlng":  [
+                       47.33333333,
+                       13.33333333
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "AZ",
+        "nom":  "Azerbaïdjan",
+        "alias":  [
+                      "République d'Azerbaïdjan"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Bakou",
+        "capitales":  [
+                          "Bakou",
+                          "Baku"
+                      ],
+        "latlng":  [
+                       40.5,
+                       47.5
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "BS",
+        "nom":  "Bahamas",
+        "alias":  [
+                      "Commonwealth des Bahamas"
+                  ],
+        "continent":  "amerique-centrale",
+        "capitale":  "Nassau",
+        "capitales":  [
+                          "Nassau"
+                      ],
+        "latlng":  [
+                       24.25,
+                       -76
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "BH",
+        "nom":  "Bahreïn",
+        "alias":  [
+                      "Royaume de Bahreïn"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Manama",
+        "capitales":  [
+                          "Manama"
+                      ],
+        "latlng":  [
+                       26,
+                       50.55
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "BD",
+        "nom":  "Bangladesh",
+        "alias":  [
+                      "La République populaire du Bangladesh"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Dacca",
+        "capitales":  [
+                          "Dacca",
+                          "Dhaka"
+                      ],
+        "latlng":  [
+                       24,
+                       90
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "BB",
+        "nom":  "Barbade",
+        "alias":  [
+
+                  ],
+        "continent":  "amerique-centrale",
+        "capitale":  "Bridgetown",
+        "capitales":  [
+                          "Bridgetown"
+                      ],
+        "latlng":  [
+                       13.16666666,
+                       -59.53333333
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "BE",
+        "nom":  "Belgique",
+        "alias":  [
+                      "Royaume de Belgique"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Bruxelles",
+        "capitales":  [
+                          "Bruxelles",
+                          "Brussels"
+                      ],
+        "latlng":  [
+                       50.83333333,
+                       4
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "BZ",
+        "nom":  "Belize",
+        "alias":  [
+
+                  ],
+        "continent":  "amerique-centrale",
+        "capitale":  "Belmopan",
+        "capitales":  [
+                          "Belmopan"
+                      ],
+        "latlng":  [
+                       17.25,
+                       -88.75
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "BJ",
+        "nom":  "Bénin",
+        "alias":  [
+                      "République du Bénin"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Porto-Novo",
+        "capitales":  [
+                          "Porto-Novo"
+                      ],
+        "latlng":  [
+                       9.5,
+                       2.25
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "BT",
+        "nom":  "Bhoutan",
+        "alias":  [
+                      "Royaume du Bhoutan"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Thimphou",
+        "capitales":  [
+                          "Thimphou",
+                          "Thimphu"
+                      ],
+        "latlng":  [
+                       27.5,
+                       90.5
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "BY",
+        "nom":  "Biélorussie",
+        "alias":  [
+                      "République de Biélorussie",
+                      "Bélarus",
+                      "Belarus"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Minsk",
+        "capitales":  [
+                          "Minsk"
+                      ],
+        "latlng":  [
+                       53,
+                       28
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "MM",
+        "nom":  "Birmanie",
+        "alias":  [
+                      "République de l'Union du Myanmar",
+                      "Myanmar"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Naypyidaw",
+        "capitales":  [
+                          "Naypyidaw",
+                          "Nay Pyi Taw"
+                      ],
+        "latlng":  [
+                       22,
+                       98
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "BO",
+        "nom":  "Bolivie",
+        "alias":  [
+                      "État plurinational de Bolivie"
+                  ],
+        "continent":  "amerique-sud",
+        "capitale":  "Sucre (constitutionnelle) et La Paz (siège du gouvernement)",
+        "capitales":  [
+                          "Sucre",
+                          "La Paz"
+                      ],
+        "latlng":  [
+                       -17,
+                       -65
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "BA",
+        "nom":  "Bosnie-Herzégovine",
+        "alias":  [
+                      "Bosnie-et-Herzégovine",
+                      "Bosnie"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Sarajevo",
+        "capitales":  [
+                          "Sarajevo"
+                      ],
+        "latlng":  [
+                       44,
+                       18
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "BW",
+        "nom":  "Botswana",
+        "alias":  [
+                      "République du Botswana"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Gaborone",
+        "capitales":  [
+                          "Gaborone"
+                      ],
+        "latlng":  [
+                       -22,
+                       24
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "BR",
+        "nom":  "Brésil",
+        "alias":  [
+                      "République fédérative du Brésil"
+                  ],
+        "continent":  "amerique-sud",
+        "capitale":  "Brasilia",
+        "capitales":  [
+                          "Brasilia",
+                          "Brasília"
+                      ],
+        "latlng":  [
+                       -10,
+                       -55
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "BN",
+        "nom":  "Brunei",
+        "alias":  [
+                      "État de Brunei Darussalam"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Bandar Seri Begawan",
+        "capitales":  [
+                          "Bandar Seri Begawan"
+                      ],
+        "latlng":  [
+                       4.5,
+                       114.66666666
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "BG",
+        "nom":  "Bulgarie",
+        "alias":  [
+                      "République de Bulgarie"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Sofia",
+        "capitales":  [
+                          "Sofia"
+                      ],
+        "latlng":  [
+                       43,
+                       25
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "BF",
+        "nom":  "Burkina Faso",
+        "alias":  [
+                      "République du Burkina",
+                      "Burkina"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Ouagadougou",
+        "capitales":  [
+                          "Ouagadougou"
+                      ],
+        "latlng":  [
+                       13,
+                       -2
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "BI",
+        "nom":  "Burundi",
+        "alias":  [
+                      "République du Burundi"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Gitega",
+        "capitales":  [
+                          "Gitega"
+                      ],
+        "latlng":  [
+                       -3.5,
+                       30
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "KH",
+        "nom":  "Cambodge",
+        "alias":  [
+                      "Royaume du Cambodge"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Phnom Penh",
+        "capitales":  [
+                          "Phnom Penh"
+                      ],
+        "latlng":  [
+                       13,
+                       105
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "CM",
+        "nom":  "Cameroun",
+        "alias":  [
+                      "République du Cameroun"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Yaoundé",
+        "capitales":  [
+                          "Yaoundé"
+                      ],
+        "latlng":  [
+                       6,
+                       12
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "CA",
+        "nom":  "Canada",
+        "alias":  [
+
+                  ],
+        "continent":  "amerique-nord",
+        "capitale":  "Ottawa",
+        "capitales":  [
+                          "Ottawa"
+                      ],
+        "latlng":  [
+                       60,
+                       -95
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "CL",
+        "nom":  "Chili",
+        "alias":  [
+                      "République du Chili"
+                  ],
+        "continent":  "amerique-sud",
+        "capitale":  "Santiago",
+        "capitales":  [
+                          "Santiago"
+                      ],
+        "latlng":  [
+                       -30,
+                       -71
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "CN",
+        "nom":  "Chine",
+        "alias":  [
+                      "République populaire de Chine"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Pékin",
+        "capitales":  [
+                          "Pékin",
+                          "Beijing"
+                      ],
+        "latlng":  [
+                       35,
+                       105
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "CY",
+        "nom":  "Chypre",
+        "alias":  [
+                      "République de Chypre"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Nicosie",
+        "capitales":  [
+                          "Nicosie",
+                          "Nicosia"
+                      ],
+        "latlng":  [
+                       35,
+                       33
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "VA",
+        "nom":  "Vatican",
+        "alias":  [
+                      "Cité du Vatican",
+                      "Saint-Siège",
+                      "État de la Cité du Vatican"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Vatican",
+        "capitales":  [
+                          "Vatican",
+                          "Cité du Vatican",
+                          "Vatican City"
+                      ],
+        "latlng":  [
+                       41.9,
+                       12.45
+                   ],
+        "onu":  true,
+        "statut":  "État observateur non membre de l'ONU. Plus petit État du monde (0,44 km²), enclavé dans Rome, dirigé par le pape."
+    },
+    {
+        "code":  "CO",
+        "nom":  "Colombie",
+        "alias":  [
+                      "République de Colombie"
+                  ],
+        "continent":  "amerique-sud",
+        "capitale":  "Bogota",
+        "capitales":  [
+                          "Bogota",
+                          "Bogotá"
+                      ],
+        "latlng":  [
+                       4,
+                       -72
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "KM",
+        "nom":  "Comores",
+        "alias":  [
+                      "Union des Comores"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Moroni",
+        "capitales":  [
+                          "Moroni"
+                      ],
+        "latlng":  [
+                       -12.16666666,
+                       44.25
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "CG",
+        "nom":  "République du Congo",
+        "alias":  [
+                      "Congo",
+                      "Congo-Brazzaville"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Brazzaville",
+        "capitales":  [
+                          "Brazzaville"
+                      ],
+        "latlng":  [
+                       -1,
+                       15
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "CD",
+        "nom":  "République démocratique du Congo",
+        "alias":  [
+                      "RDC",
+                      "Congo-Kinshasa",
+                      "Congo démocratique",
+                      "RD Congo"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Kinshasa",
+        "capitales":  [
+                          "Kinshasa"
+                      ],
+        "latlng":  [
+                       0,
+                       25
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "KP",
+        "nom":  "Corée du Nord",
+        "alias":  [
+                      "République populaire démocratique de Corée",
+                      "RPDC"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Pyongyang",
+        "capitales":  [
+                          "Pyongyang"
+                      ],
+        "latlng":  [
+                       40,
+                       127
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "KR",
+        "nom":  "Corée du Sud",
+        "alias":  [
+                      "République de Corée"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Séoul",
+        "capitales":  [
+                          "Séoul",
+                          "Seoul"
+                      ],
+        "latlng":  [
+                       37,
+                       127.5
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "CR",
+        "nom":  "Costa Rica",
+        "alias":  [
+                      "République du Costa Rica"
+                  ],
+        "continent":  "amerique-centrale",
+        "capitale":  "San José",
+        "capitales":  [
+                          "San José"
+                      ],
+        "latlng":  [
+                       10,
+                       -84
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "CI",
+        "nom":  "Côte d'Ivoire",
+        "alias":  [
+                      "République de Côte d' Ivoire"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Yamoussoukro",
+        "capitales":  [
+                          "Yamoussoukro"
+                      ],
+        "latlng":  [
+                       8,
+                       -5
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "HR",
+        "nom":  "Croatie",
+        "alias":  [
+                      "République de Croatie"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Zagreb",
+        "capitales":  [
+                          "Zagreb"
+                      ],
+        "latlng":  [
+                       45.16666666,
+                       15.5
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "CU",
+        "nom":  "Cuba",
+        "alias":  [
+                      "République de Cuba"
+                  ],
+        "continent":  "amerique-centrale",
+        "capitale":  "La Havane",
+        "capitales":  [
+                          "La Havane",
+                          "Havana"
+                      ],
+        "latlng":  [
+                       21.5,
+                       -80
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "DK",
+        "nom":  "Danemark",
+        "alias":  [
+                      "Royaume du Danemark"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Copenhague",
+        "capitales":  [
+                          "Copenhague",
+                          "Copenhagen"
+                      ],
+        "latlng":  [
+                       56,
+                       10
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "DJ",
+        "nom":  "Djibouti",
+        "alias":  [
+                      "République de Djibouti"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Djibouti",
+        "capitales":  [
+                          "Djibouti",
+                          "Djibouti-ville"
+                      ],
+        "latlng":  [
+                       11.5,
+                       43
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "DM",
+        "nom":  "Dominique",
+        "alias":  [
+                      "Commonwealth de la Dominique"
+                  ],
+        "continent":  "amerique-centrale",
+        "capitale":  "Roseau",
+        "capitales":  [
+                          "Roseau"
+                      ],
+        "latlng":  [
+                       15.41666666,
+                       -61.33333333
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "EG",
+        "nom":  "Égypte",
+        "alias":  [
+                      "République arabe d'Égypte"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Le Caire",
+        "capitales":  [
+                          "Le Caire",
+                          "Cairo"
+                      ],
+        "latlng":  [
+                       27,
+                       30
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "AE",
+        "nom":  "Émirats arabes unis",
+        "alias":  [
+                      "EAU",
+                      "Émirats"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Abou Dabi",
+        "capitales":  [
+                          "Abou Dabi",
+                          "Abu Dhabi",
+                          "Abou Dhabi"
+                      ],
+        "latlng":  [
+                       24,
+                       54
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "EC",
+        "nom":  "Équateur",
+        "alias":  [
+                      "République de l'Équateur"
+                  ],
+        "continent":  "amerique-sud",
+        "capitale":  "Quito",
+        "capitales":  [
+                          "Quito"
+                      ],
+        "latlng":  [
+                       -2,
+                       -77.5
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "ER",
+        "nom":  "Érythrée",
+        "alias":  [
+                      "État d'Érythrée"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Asmara",
+        "capitales":  [
+                          "Asmara"
+                      ],
+        "latlng":  [
+                       15,
+                       39
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "ES",
+        "nom":  "Espagne",
+        "alias":  [
+                      "Royaume d'Espagne"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Madrid",
+        "capitales":  [
+                          "Madrid"
+                      ],
+        "latlng":  [
+                       40,
+                       -4
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "EE",
+        "nom":  "Estonie",
+        "alias":  [
+                      "République d'Estonie"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Tallinn",
+        "capitales":  [
+                          "Tallinn"
+                      ],
+        "latlng":  [
+                       59,
+                       26
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "SZ",
+        "nom":  "Eswatini",
+        "alias":  [
+                      "Royaume d’Eswatini",
+                      "Swaziland"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Mbabane (administrative) et Lobamba (royale et législative)",
+        "capitales":  [
+                          "Mbabane",
+                          "Lobamba"
+                      ],
+        "latlng":  [
+                       -26.5,
+                       31.5
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "US",
+        "nom":  "États-Unis",
+        "alias":  [
+                      "Les états-unis d'Amérique",
+                      "USA",
+                      "États-Unis d'Amérique",
+                      "Etats-Unis",
+                      "Amérique"
+                  ],
+        "continent":  "amerique-nord",
+        "capitale":  "Washington",
+        "capitales":  [
+                          "Washington",
+                          "Washington D.C.",
+                          "Washington DC"
+                      ],
+        "latlng":  [
+                       38,
+                       -97
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "ET",
+        "nom":  "Éthiopie",
+        "alias":  [
+                      "République fédérale démocratique d'Éthiopie"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Addis-Abeba",
+        "capitales":  [
+                          "Addis-Abeba",
+                          "Addis Ababa"
+                      ],
+        "latlng":  [
+                       8,
+                       38
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "FJ",
+        "nom":  "Fidji",
+        "alias":  [
+                      "République des Fidji"
+                  ],
+        "continent":  "oceanie",
+        "capitale":  "Suva",
+        "capitales":  [
+                          "Suva"
+                      ],
+        "latlng":  [
+                       -18,
+                       175
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "FI",
+        "nom":  "Finlande",
+        "alias":  [
+                      "République de Finlande"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Helsinki",
+        "capitales":  [
+                          "Helsinki"
+                      ],
+        "latlng":  [
+                       64,
+                       26
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "FR",
+        "nom":  "France",
+        "alias":  [
+                      "République française"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Paris",
+        "capitales":  [
+                          "Paris"
+                      ],
+        "latlng":  [
+                       46,
+                       2
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "GA",
+        "nom":  "Gabon",
+        "alias":  [
+                      "République gabonaise"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Libreville",
+        "capitales":  [
+                          "Libreville"
+                      ],
+        "latlng":  [
+                       -1,
+                       11.75
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "GM",
+        "nom":  "Gambie",
+        "alias":  [
+                      "République de Gambie"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Banjul",
+        "capitales":  [
+                          "Banjul"
+                      ],
+        "latlng":  [
+                       13.46666666,
+                       -16.56666666
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "GE",
+        "nom":  "Géorgie",
+        "alias":  [
+                      "République de Géorgie"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Tbilissi",
+        "capitales":  [
+                          "Tbilissi",
+                          "Tbilisi"
+                      ],
+        "latlng":  [
+                       42,
+                       43.5
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "GH",
+        "nom":  "Ghana",
+        "alias":  [
+                      "République du Ghana"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Accra",
+        "capitales":  [
+                          "Accra"
+                      ],
+        "latlng":  [
+                       8,
+                       -2
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "GR",
+        "nom":  "Grèce",
+        "alias":  [
+                      "République hellénique"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Athènes",
+        "capitales":  [
+                          "Athènes",
+                          "Athens"
+                      ],
+        "latlng":  [
+                       39,
+                       22
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "GD",
+        "nom":  "Grenade",
+        "alias":  [
+
+                  ],
+        "continent":  "amerique-centrale",
+        "capitale":  "Saint-Georges",
+        "capitales":  [
+                          "Saint-Georges",
+                          "St. George's",
+                          "Saint George's"
+                      ],
+        "latlng":  [
+                       12.11666666,
+                       -61.66666666
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "GT",
+        "nom":  "Guatemala",
+        "alias":  [
+                      "République du Guatemala"
+                  ],
+        "continent":  "amerique-centrale",
+        "capitale":  "Guatemala",
+        "capitales":  [
+                          "Guatemala",
+                          "Ciudad de Guatemala",
+                          "Guatemala City"
+                      ],
+        "latlng":  [
+                       15.5,
+                       -90.25
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "GN",
+        "nom":  "Guinée",
+        "alias":  [
+                      "République de Guinée"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Conakry",
+        "capitales":  [
+                          "Conakry"
+                      ],
+        "latlng":  [
+                       11,
+                       -10
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "GQ",
+        "nom":  "Guinée équatoriale",
+        "alias":  [
+                      "République de Guinée équatoriale"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Malabo",
+        "capitales":  [
+                          "Malabo",
+                          "Ciudad de la Paz"
+                      ],
+        "latlng":  [
+                       2,
+                       10
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "GW",
+        "nom":  "Guinée-Bissau",
+        "alias":  [
+                      "République de Guinée-Bissau"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Bissau",
+        "capitales":  [
+                          "Bissau"
+                      ],
+        "latlng":  [
+                       12,
+                       -15
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "GY",
+        "nom":  "Guyana",
+        "alias":  [
+                      "République coopérative de Guyana"
+                  ],
+        "continent":  "amerique-sud",
+        "capitale":  "Georgetown",
+        "capitales":  [
+                          "Georgetown"
+                      ],
+        "latlng":  [
+                       5,
+                       -59
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "HT",
+        "nom":  "Haïti",
+        "alias":  [
+                      "République d'Haïti"
+                  ],
+        "continent":  "amerique-centrale",
+        "capitale":  "Port-au-Prince",
+        "capitales":  [
+                          "Port-au-Prince"
+                      ],
+        "latlng":  [
+                       19,
+                       -72.41666666
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "HN",
+        "nom":  "Honduras",
+        "alias":  [
+                      "République du Honduras"
+                  ],
+        "continent":  "amerique-centrale",
+        "capitale":  "Tegucigalpa",
+        "capitales":  [
+                          "Tegucigalpa"
+                      ],
+        "latlng":  [
+                       15,
+                       -86.5
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "HU",
+        "nom":  "Hongrie",
+        "alias":  [
+
+                  ],
+        "continent":  "europe",
+        "capitale":  "Budapest",
+        "capitales":  [
+                          "Budapest"
+                      ],
+        "latlng":  [
+                       47,
+                       20
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "MU",
+        "nom":  "Maurice",
+        "alias":  [
+                      "République de Maurice",
+                      "Île Maurice",
+                      "Ile Maurice"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Port-Louis",
+        "capitales":  [
+                          "Port-Louis",
+                          "Port Louis"
+                      ],
+        "latlng":  [
+                       -20.28333333,
+                       57.55
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "CV",
+        "nom":  "Cap-Vert",
+        "alias":  [
+                      "République du Cap-Vert",
+                      "Cabo Verde",
+                      "Îles du Cap-Vert"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Praia",
+        "capitales":  [
+                          "Praia"
+                      ],
+        "latlng":  [
+                       16,
+                       -24
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "MH",
+        "nom":  "Îles Marshall",
+        "alias":  [
+                      "République des Îles Marshall"
+                  ],
+        "continent":  "oceanie",
+        "capitale":  "Majuro",
+        "capitales":  [
+                          "Majuro"
+                      ],
+        "latlng":  [
+                       9,
+                       168
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "SB",
+        "nom":  "Îles Salomon",
+        "alias":  [
+
+                  ],
+        "continent":  "oceanie",
+        "capitale":  "Honiara",
+        "capitales":  [
+                          "Honiara"
+                      ],
+        "latlng":  [
+                       -8,
+                       159
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "IN",
+        "nom":  "Inde",
+        "alias":  [
+                      "République de l'Inde"
+                  ],
+        "continent":  "asie",
+        "capitale":  "New Delhi",
+        "capitales":  [
+                          "New Delhi"
+                      ],
+        "latlng":  [
+                       20,
+                       77
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "ID",
+        "nom":  "Indonésie",
+        "alias":  [
+                      "République d'Indonésie"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Jakarta",
+        "capitales":  [
+                          "Jakarta"
+                      ],
+        "latlng":  [
+                       -5,
+                       120
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "IQ",
+        "nom":  "Irak",
+        "alias":  [
+                      "République d'Irak"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Bagdad",
+        "capitales":  [
+                          "Bagdad",
+                          "Baghdad"
+                      ],
+        "latlng":  [
+                       33,
+                       44
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "IR",
+        "nom":  "Iran",
+        "alias":  [
+                      "République islamique d'Iran"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Téhéran",
+        "capitales":  [
+                          "Téhéran",
+                          "Tehran"
+                      ],
+        "latlng":  [
+                       32,
+                       53
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "IE",
+        "nom":  "Irlande",
+        "alias":  [
+                      "République d'Irlande"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Dublin",
+        "capitales":  [
+                          "Dublin"
+                      ],
+        "latlng":  [
+                       53,
+                       -8
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "IS",
+        "nom":  "Islande",
+        "alias":  [
+                      "République d'Islande"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Reykjavik",
+        "capitales":  [
+                          "Reykjavik"
+                      ],
+        "latlng":  [
+                       65,
+                       -18
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "IL",
+        "nom":  "Israël",
+        "alias":  [
+                      "État d'Israël"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Jérusalem (non reconnue par la plupart des États, ambassades à Tel Aviv)",
+        "capitales":  [
+                          "Jérusalem",
+                          "Jerusalem"
+                      ],
+        "latlng":  [
+                       31.47,
+                       35.13
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "IT",
+        "nom":  "Italie",
+        "alias":  [
+                      "République italienne"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Rome",
+        "capitales":  [
+                          "Rome"
+                      ],
+        "latlng":  [
+                       42.83333333,
+                       12.83333333
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "JM",
+        "nom":  "Jamaïque",
+        "alias":  [
+
+                  ],
+        "continent":  "amerique-centrale",
+        "capitale":  "Kingston",
+        "capitales":  [
+                          "Kingston"
+                      ],
+        "latlng":  [
+                       18.25,
+                       -77.5
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "JP",
+        "nom":  "Japon",
+        "alias":  [
+
+                  ],
+        "continent":  "asie",
+        "capitale":  "Tokyo",
+        "capitales":  [
+                          "Tokyo"
+                      ],
+        "latlng":  [
+                       36,
+                       138
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "JO",
+        "nom":  "Jordanie",
+        "alias":  [
+                      "Royaume hachémite de Jordanie"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Amman",
+        "capitales":  [
+                          "Amman"
+                      ],
+        "latlng":  [
+                       31,
+                       36
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "KZ",
+        "nom":  "Kazakhstan",
+        "alias":  [
+                      "République du Kazakhstan"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Astana",
+        "capitales":  [
+                          "Astana",
+                          "Noursoultan",
+                          "Nur-Sultan"
+                      ],
+        "latlng":  [
+                       48,
+                       68
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "KE",
+        "nom":  "Kenya",
+        "alias":  [
+                      "République du Kenya"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Nairobi",
+        "capitales":  [
+                          "Nairobi"
+                      ],
+        "latlng":  [
+                       1,
+                       38
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "KG",
+        "nom":  "Kirghizistan",
+        "alias":  [
+                      "République kirghize"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Bichkek",
+        "capitales":  [
+                          "Bichkek",
+                          "Bishkek"
+                      ],
+        "latlng":  [
+                       41,
+                       75
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "KI",
+        "nom":  "Kiribati",
+        "alias":  [
+                      "République de Kiribati"
+                  ],
+        "continent":  "oceanie",
+        "capitale":  "Tarawa-Sud",
+        "capitales":  [
+                          "Tarawa-Sud",
+                          "Tarawa",
+                          "South Tarawa"
+                      ],
+        "latlng":  [
+                       1.41666666,
+                       173
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "XK",
+        "nom":  "Kosovo",
+        "alias":  [
+                      "République du Kosovo"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Pristina",
+        "capitales":  [
+                          "Pristina"
+                      ],
+        "latlng":  [
+                       42.666667,
+                       21.166667
+                   ],
+        "onu":  false,
+        "statut":  "Indépendance déclarée en 2008 (ex-province de Serbie). Reconnu par une centaine d'États, pas par la Serbie ni la Russie. Non membre de l'ONU."
+    },
+    {
+        "code":  "KW",
+        "nom":  "Koweït",
+        "alias":  [
+                      "État du Koweït"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Koweït",
+        "capitales":  [
+                          "Koweït",
+                          "Koweït City",
+                          "Kuwait City"
+                      ],
+        "latlng":  [
+                       29.5,
+                       45.75
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "LA",
+        "nom":  "Laos",
+        "alias":  [
+                      "République démocratique populaire lao"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Vientiane",
+        "capitales":  [
+                          "Vientiane"
+                      ],
+        "latlng":  [
+                       18,
+                       105
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "LS",
+        "nom":  "Lesotho",
+        "alias":  [
+                      "Royaume du Lesotho"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Maseru",
+        "capitales":  [
+                          "Maseru"
+                      ],
+        "latlng":  [
+                       -29.5,
+                       28.5
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "LV",
+        "nom":  "Lettonie",
+        "alias":  [
+                      "République de Lettonie"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Riga",
+        "capitales":  [
+                          "Riga"
+                      ],
+        "latlng":  [
+                       57,
+                       25
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "LB",
+        "nom":  "Liban",
+        "alias":  [
+                      "République libanaise"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Beyrouth",
+        "capitales":  [
+                          "Beyrouth",
+                          "Beirut"
+                      ],
+        "latlng":  [
+                       33.83333333,
+                       35.83333333
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "LR",
+        "nom":  "Liberia",
+        "alias":  [
+                      "République du Libéria"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Monrovia",
+        "capitales":  [
+                          "Monrovia"
+                      ],
+        "latlng":  [
+                       6.5,
+                       -9.5
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "LY",
+        "nom":  "Libye",
+        "alias":  [
+                      "Grande République arabe libyenne populaire et socialiste"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Tripoli",
+        "capitales":  [
+                          "Tripoli"
+                      ],
+        "latlng":  [
+                       25,
+                       17
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "LI",
+        "nom":  "Liechtenstein",
+        "alias":  [
+                      "Principauté du Liechtenstein"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Vaduz",
+        "capitales":  [
+                          "Vaduz"
+                      ],
+        "latlng":  [
+                       47.26666666,
+                       9.53333333
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "LT",
+        "nom":  "Lituanie",
+        "alias":  [
+                      "République de Lituanie"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Vilnius",
+        "capitales":  [
+                          "Vilnius"
+                      ],
+        "latlng":  [
+                       56,
+                       24
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "LU",
+        "nom":  "Luxembourg",
+        "alias":  [
+                      "Grand-Duché de Luxembourg"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Luxembourg",
+        "capitales":  [
+                          "Luxembourg",
+                          "Luxembourg-ville"
+                      ],
+        "latlng":  [
+                       49.75,
+                       6.16666666
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "MK",
+        "nom":  "Macédoine du Nord",
+        "alias":  [
+                      "République de Macédoine du Nord",
+                      "Macédoine"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Skopje",
+        "capitales":  [
+                          "Skopje"
+                      ],
+        "latlng":  [
+                       41.83333333,
+                       22
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "MG",
+        "nom":  "Madagascar",
+        "alias":  [
+                      "République de Madagascar"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Antananarivo",
+        "capitales":  [
+                          "Antananarivo"
+                      ],
+        "latlng":  [
+                       -20,
+                       47
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "MY",
+        "nom":  "Malaisie",
+        "alias":  [
+                      "Fédération de Malaisie"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Kuala Lumpur",
+        "capitales":  [
+                          "Kuala Lumpur",
+                          "Putrajaya"
+                      ],
+        "latlng":  [
+                       2.5,
+                       112.5
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "MW",
+        "nom":  "Malawi",
+        "alias":  [
+                      "République du Malawi"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Lilongwe",
+        "capitales":  [
+                          "Lilongwe"
+                      ],
+        "latlng":  [
+                       -13.5,
+                       34
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "MV",
+        "nom":  "Maldives",
+        "alias":  [
+                      "République des Maldives"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Malé",
+        "capitales":  [
+                          "Malé"
+                      ],
+        "latlng":  [
+                       3.25,
+                       73
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "ML",
+        "nom":  "Mali",
+        "alias":  [
+                      "République du Mali"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Bamako",
+        "capitales":  [
+                          "Bamako"
+                      ],
+        "latlng":  [
+                       17,
+                       -4
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "MT",
+        "nom":  "Malte",
+        "alias":  [
+                      "République de Malte"
+                  ],
+        "continent":  "europe",
+        "capitale":  "La Valette",
+        "capitales":  [
+                          "La Valette",
+                          "Valletta"
+                      ],
+        "latlng":  [
+                       35.83333333,
+                       14.58333333
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "MA",
+        "nom":  "Maroc",
+        "alias":  [
+                      "Royaume du Maroc"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Rabat",
+        "capitales":  [
+                          "Rabat"
+                      ],
+        "latlng":  [
+                       32,
+                       -5
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "MR",
+        "nom":  "Mauritanie",
+        "alias":  [
+                      "République islamique de Mauritanie"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Nouakchott",
+        "capitales":  [
+                          "Nouakchott"
+                      ],
+        "latlng":  [
+                       20,
+                       -12
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "MX",
+        "nom":  "Mexique",
+        "alias":  [
+                      "États-Unis du Mexique"
+                  ],
+        "continent":  "amerique-nord",
+        "capitale":  "Mexico",
+        "capitales":  [
+                          "Mexico",
+                          "Mexico City",
+                          "Ciudad de Mexico"
+                      ],
+        "latlng":  [
+                       23,
+                       -102
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "FM",
+        "nom":  "Micronésie",
+        "alias":  [
+                      "États fédérés de Micronésie"
+                  ],
+        "continent":  "oceanie",
+        "capitale":  "Palikir",
+        "capitales":  [
+                          "Palikir"
+                      ],
+        "latlng":  [
+                       6.91666666,
+                       158.25
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "MD",
+        "nom":  "Moldavie",
+        "alias":  [
+                      "République de Moldavie",
+                      "Moldova"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Chișinău",
+        "capitales":  [
+                          "Chisinau",
+                          "Chișinău",
+                          "Kichinev"
+                      ],
+        "latlng":  [
+                       47,
+                       29
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "MC",
+        "nom":  "Monaco",
+        "alias":  [
+                      "Principauté de Monaco"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Monaco",
+        "capitales":  [
+                          "Monaco"
+                      ],
+        "latlng":  [
+                       43.73333333,
+                       7.4
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "MN",
+        "nom":  "Mongolie",
+        "alias":  [
+
+                  ],
+        "continent":  "asie",
+        "capitale":  "Oulan-Bator",
+        "capitales":  [
+                          "Oulan-Bator",
+                          "Ulan Bator"
+                      ],
+        "latlng":  [
+                       46,
+                       105
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "ME",
+        "nom":  "Monténégro",
+        "alias":  [
+
+                  ],
+        "continent":  "europe",
+        "capitale":  "Podgorica",
+        "capitales":  [
+                          "Podgorica"
+                      ],
+        "latlng":  [
+                       42.5,
+                       19.3
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "MZ",
+        "nom":  "Mozambique",
+        "alias":  [
+                      "République du Mozambique"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Maputo",
+        "capitales":  [
+                          "Maputo"
+                      ],
+        "latlng":  [
+                       -18.25,
+                       35
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "NA",
+        "nom":  "Namibie",
+        "alias":  [
+                      "République de Namibie"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Windhoek",
+        "capitales":  [
+                          "Windhoek"
+                      ],
+        "latlng":  [
+                       -22,
+                       17
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "NR",
+        "nom":  "Nauru",
+        "alias":  [
+                      "République de Nauru"
+                  ],
+        "continent":  "oceanie",
+        "capitale":  "Yaren (de facto, pas de capitale officielle)",
+        "capitales":  [
+                          "Yaren"
+                      ],
+        "latlng":  [
+                       -0.53333333,
+                       166.91666666
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "NP",
+        "nom":  "Népal",
+        "alias":  [
+                      "République du Népal"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Katmandou",
+        "capitales":  [
+                          "Katmandou",
+                          "Kathmandu"
+                      ],
+        "latlng":  [
+                       28,
+                       84
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "NI",
+        "nom":  "Nicaragua",
+        "alias":  [
+                      "République du Nicaragua"
+                  ],
+        "continent":  "amerique-centrale",
+        "capitale":  "Managua",
+        "capitales":  [
+                          "Managua"
+                      ],
+        "latlng":  [
+                       13,
+                       -85
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "NE",
+        "nom":  "Niger",
+        "alias":  [
+                      "République du Niger"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Niamey",
+        "capitales":  [
+                          "Niamey"
+                      ],
+        "latlng":  [
+                       16,
+                       8
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "NG",
+        "nom":  "Nigeria",
+        "alias":  [
+                      "République fédérale du Nigeria",
+                      "Nigéria"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Abuja",
+        "capitales":  [
+                          "Abuja"
+                      ],
+        "latlng":  [
+                       10,
+                       8
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "NO",
+        "nom":  "Norvège",
+        "alias":  [
+                      "Royaume de Norvège"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Oslo",
+        "capitales":  [
+                          "Oslo"
+                      ],
+        "latlng":  [
+                       62,
+                       10
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "NZ",
+        "nom":  "Nouvelle-Zélande",
+        "alias":  [
+
+                  ],
+        "continent":  "oceanie",
+        "capitale":  "Wellington",
+        "capitales":  [
+                          "Wellington"
+                      ],
+        "latlng":  [
+                       -41,
+                       174
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "OM",
+        "nom":  "Oman",
+        "alias":  [
+                      "Sultanat d'Oman"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Mascate",
+        "capitales":  [
+                          "Mascate",
+                          "Muscat"
+                      ],
+        "latlng":  [
+                       21,
+                       57
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "UG",
+        "nom":  "Ouganda",
+        "alias":  [
+                      "République de l'Ouganda"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Kampala",
+        "capitales":  [
+                          "Kampala"
+                      ],
+        "latlng":  [
+                       1,
+                       32
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "UZ",
+        "nom":  "Ouzbékistan",
+        "alias":  [
+                      "République d'Ouzbékistan"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Tachkent",
+        "capitales":  [
+                          "Tachkent",
+                          "Tashkent"
+                      ],
+        "latlng":  [
+                       41,
+                       64
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "PK",
+        "nom":  "Pakistan",
+        "alias":  [
+                      "République islamique du Pakistan"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Islamabad",
+        "capitales":  [
+                          "Islamabad"
+                      ],
+        "latlng":  [
+                       30,
+                       70
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "PW",
+        "nom":  "Palaos",
+        "alias":  [
+                      "République des Palaos (Palau)",
+                      "Palau"
+                  ],
+        "continent":  "oceanie",
+        "capitale":  "Ngerulmud",
+        "capitales":  [
+                          "Ngerulmud"
+                      ],
+        "latlng":  [
+                       7.5,
+                       134.5
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "PS",
+        "nom":  "Palestine",
+        "alias":  [
+                      "État de Palestine"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Ramallah (siège administratif), Jérusalem-Est revendiquée",
+        "capitales":  [
+                          "Ramallah",
+                          "Jérusalem-Est",
+                          "Jérusalem Est"
+                      ],
+        "latlng":  [
+                       31.9,
+                       35.2
+                   ],
+        "onu":  false,
+        "statut":  "État observateur non membre de l'ONU depuis 2012, reconnu par environ 150 États. Territoires : Cisjordanie et bande de Gaza. Ramallah est le siège administratif ; Jérusalem-Est est revendiquée comme capitale."
+    },
+    {
+        "code":  "PA",
+        "nom":  "Panama",
+        "alias":  [
+                      "République du Panama"
+                  ],
+        "continent":  "amerique-centrale",
+        "capitale":  "Panama",
+        "capitales":  [
+                          "Panama",
+                          "Panama City",
+                          "Ciudad de Panama"
+                      ],
+        "latlng":  [
+                       9,
+                       -80
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "PG",
+        "nom":  "Papouasie-Nouvelle-Guinée",
+        "alias":  [
+                      "État indépendant de Papouasie-Nouvelle-Guinée"
+                  ],
+        "continent":  "oceanie",
+        "capitale":  "Port Moresby",
+        "capitales":  [
+                          "Port Moresby"
+                      ],
+        "latlng":  [
+                       -6,
+                       147
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "PY",
+        "nom":  "Paraguay",
+        "alias":  [
+                      "République du Paraguay"
+                  ],
+        "continent":  "amerique-sud",
+        "capitale":  "Asuncion",
+        "capitales":  [
+                          "Asuncion",
+                          "Asunción"
+                      ],
+        "latlng":  [
+                       -23,
+                       -58
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "NL",
+        "nom":  "Pays-Bas",
+        "alias":  [
+                      "Hollande"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Amsterdam (La Haye : siège du gouvernement)",
+        "capitales":  [
+                          "Amsterdam",
+                          "La Haye"
+                      ],
+        "latlng":  [
+                       52.5,
+                       5.75
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "PE",
+        "nom":  "Pérou",
+        "alias":  [
+                      "République du Pérou"
+                  ],
+        "continent":  "amerique-sud",
+        "capitale":  "Lima",
+        "capitales":  [
+                          "Lima"
+                      ],
+        "latlng":  [
+                       -10,
+                       -76
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "PH",
+        "nom":  "Philippines",
+        "alias":  [
+                      "République des Philippines"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Manille",
+        "capitales":  [
+                          "Manille",
+                          "Manila"
+                      ],
+        "latlng":  [
+                       13,
+                       122
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "PL",
+        "nom":  "Pologne",
+        "alias":  [
+                      "République de Pologne"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Varsovie",
+        "capitales":  [
+                          "Varsovie",
+                          "Warsaw"
+                      ],
+        "latlng":  [
+                       52,
+                       20
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "PT",
+        "nom":  "Portugal",
+        "alias":  [
+                      "République portugaise"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Lisbonne",
+        "capitales":  [
+                          "Lisbonne",
+                          "Lisbon"
+                      ],
+        "latlng":  [
+                       39.5,
+                       -8
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "QA",
+        "nom":  "Qatar",
+        "alias":  [
+                      "État du Qatar"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Doha",
+        "capitales":  [
+                          "Doha"
+                      ],
+        "latlng":  [
+                       25.5,
+                       51.25
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "CF",
+        "nom":  "République centrafricaine",
+        "alias":  [
+                      "Centrafrique",
+                      "RCA"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Bangui",
+        "capitales":  [
+                          "Bangui"
+                      ],
+        "latlng":  [
+                       7,
+                       21
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "DO",
+        "nom":  "République dominicaine",
+        "alias":  [
+
+                  ],
+        "continent":  "amerique-centrale",
+        "capitale":  "Saint-Domingue",
+        "capitales":  [
+                          "Saint-Domingue",
+                          "Santo Domingo"
+                      ],
+        "latlng":  [
+                       19,
+                       -70.66666666
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "RO",
+        "nom":  "Roumanie",
+        "alias":  [
+
+                  ],
+        "continent":  "europe",
+        "capitale":  "Bucarest",
+        "capitales":  [
+                          "Bucarest",
+                          "Bucharest"
+                      ],
+        "latlng":  [
+                       46,
+                       25
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "GB",
+        "nom":  "Royaume-Uni",
+        "alias":  [
+                      "Royaume-Uni de Grande-Bretagne et d'Irlande du Nord",
+                      "Grande-Bretagne",
+                      "UK",
+                      "Royaume Uni"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Londres",
+        "capitales":  [
+                          "Londres",
+                          "London"
+                      ],
+        "latlng":  [
+                       54,
+                       -2
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "RU",
+        "nom":  "Russie",
+        "alias":  [
+                      "Fédération de Russie"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Moscou",
+        "capitales":  [
+                          "Moscou",
+                          "Moscow"
+                      ],
+        "latlng":  [
+                       60,
+                       100
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "RW",
+        "nom":  "Rwanda",
+        "alias":  [
+                      "République rwandaise"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Kigali",
+        "capitales":  [
+                          "Kigali"
+                      ],
+        "latlng":  [
+                       -2,
+                       30
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "KN",
+        "nom":  "Saint-Christophe-et-Niévès",
+        "alias":  [
+                      "Fédération de Saint-Christophe-et-Niévès",
+                      "Saint-Kitts-et-Nevis",
+                      "Saint-Christophe-et-Niévès"
+                  ],
+        "continent":  "amerique-centrale",
+        "capitale":  "Basseterre",
+        "capitales":  [
+                          "Basseterre"
+                      ],
+        "latlng":  [
+                       17.33333333,
+                       -62.75
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "LC",
+        "nom":  "Sainte-Lucie",
+        "alias":  [
+
+                  ],
+        "continent":  "amerique-centrale",
+        "capitale":  "Castries",
+        "capitales":  [
+                          "Castries"
+                      ],
+        "latlng":  [
+                       13.88333333,
+                       -60.96666666
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "SM",
+        "nom":  "Saint-Marin",
+        "alias":  [
+                      "République de Saint-Marin"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Saint-Marin",
+        "capitales":  [
+                          "Saint-Marin",
+                          "San Marino",
+                          "City of San Marino"
+                      ],
+        "latlng":  [
+                       43.76666666,
+                       12.41666666
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "VC",
+        "nom":  "Saint-Vincent-et-les-Grenadines",
+        "alias":  [
+                      "Saint-Vincent-et-les Grenadines"
+                  ],
+        "continent":  "amerique-centrale",
+        "capitale":  "Kingstown",
+        "capitales":  [
+                          "Kingstown"
+                      ],
+        "latlng":  [
+                       13.25,
+                       -61.2
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "SV",
+        "nom":  "Salvador",
+        "alias":  [
+                      "République du Salvador",
+                      "El Salvador"
+                  ],
+        "continent":  "amerique-centrale",
+        "capitale":  "San Salvador",
+        "capitales":  [
+                          "San Salvador"
+                      ],
+        "latlng":  [
+                       13.83333333,
+                       -88.91666666
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "WS",
+        "nom":  "Samoa",
+        "alias":  [
+
+                  ],
+        "continent":  "oceanie",
+        "capitale":  "Apia",
+        "capitales":  [
+                          "Apia"
+                      ],
+        "latlng":  [
+                       -13.58333333,
+                       -172.33333333
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "ST",
+        "nom":  "Sao Tomé-et-Principe",
+        "alias":  [
+                      "République démocratique de São Tomé et Príncipe",
+                      "São Tomé et Príncipe",
+                      "Sao Tome et Principe"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "São Tomé",
+        "capitales":  [
+                          "São Tomé"
+                      ],
+        "latlng":  [
+                       1,
+                       7
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "SN",
+        "nom":  "Sénégal",
+        "alias":  [
+                      "République du Sénégal"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Dakar",
+        "capitales":  [
+                          "Dakar"
+                      ],
+        "latlng":  [
+                       14,
+                       -14
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "RS",
+        "nom":  "Serbie",
+        "alias":  [
+                      "République de Serbie"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Belgrade",
+        "capitales":  [
+                          "Belgrade"
+                      ],
+        "latlng":  [
+                       44,
+                       21
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "SC",
+        "nom":  "Seychelles",
+        "alias":  [
+                      "République des Seychelles"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Victoria",
+        "capitales":  [
+                          "Victoria"
+                      ],
+        "latlng":  [
+                       -4.58333333,
+                       55.66666666
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "SL",
+        "nom":  "Sierra Leone",
+        "alias":  [
+                      "République de Sierra Leone"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Freetown",
+        "capitales":  [
+                          "Freetown"
+                      ],
+        "latlng":  [
+                       8.5,
+                       -11.5
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "SG",
+        "nom":  "Singapour",
+        "alias":  [
+                      "République de Singapour"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Singapour",
+        "capitales":  [
+                          "Singapour",
+                          "Singapore"
+                      ],
+        "latlng":  [
+                       1.36666666,
+                       103.8
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "SK",
+        "nom":  "Slovaquie",
+        "alias":  [
+                      "République slovaque"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Bratislava",
+        "capitales":  [
+                          "Bratislava"
+                      ],
+        "latlng":  [
+                       48.66666666,
+                       19.5
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "SI",
+        "nom":  "Slovénie",
+        "alias":  [
+                      "République de Slovénie"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Ljubljana",
+        "capitales":  [
+                          "Ljubljana"
+                      ],
+        "latlng":  [
+                       46.11666666,
+                       14.81666666
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "SO",
+        "nom":  "Somalie",
+        "alias":  [
+                      "République fédérale de Somalie"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Mogadiscio",
+        "capitales":  [
+                          "Mogadiscio",
+                          "Mogadishu"
+                      ],
+        "latlng":  [
+                       10,
+                       49
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "SD",
+        "nom":  "Soudan",
+        "alias":  [
+                      "République du Soudan"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Khartoum",
+        "capitales":  [
+                          "Khartoum"
+                      ],
+        "latlng":  [
+                       15,
+                       30
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "SS",
+        "nom":  "Soudan du Sud",
+        "alias":  [
+                      "République du Soudan du Sud"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Djouba",
+        "capitales":  [
+                          "Djouba",
+                          "Juba"
+                      ],
+        "latlng":  [
+                       7,
+                       30
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "LK",
+        "nom":  "Sri Lanka",
+        "alias":  [
+                      "République démocratique socialiste du Sri Lanka"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Sri Jayawardenepura Kotte (officielle) ; Colombo (économique)",
+        "capitales":  [
+                          "Sri Jayawardenepura Kotte",
+                          "Sri Jayawardenepura",
+                          "Kotte",
+                          "Colombo"
+                      ],
+        "latlng":  [
+                       7,
+                       81
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "SE",
+        "nom":  "Suède",
+        "alias":  [
+                      "Royaume de Suède"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Stockholm",
+        "capitales":  [
+                          "Stockholm"
+                      ],
+        "latlng":  [
+                       62,
+                       15
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "CH",
+        "nom":  "Suisse",
+        "alias":  [
+                      "Confédération suisse"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Berne",
+        "capitales":  [
+                          "Berne",
+                          "Bern"
+                      ],
+        "latlng":  [
+                       47,
+                       8
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "SR",
+        "nom":  "Suriname",
+        "alias":  [
+                      "République du Suriname",
+                      "Surinam"
+                  ],
+        "continent":  "amerique-sud",
+        "capitale":  "Paramaribo",
+        "capitales":  [
+                          "Paramaribo"
+                      ],
+        "latlng":  [
+                       4,
+                       -56
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "SY",
+        "nom":  "Syrie",
+        "alias":  [
+                      "République arabe syrienne"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Damas",
+        "capitales":  [
+                          "Damas",
+                          "Damascus"
+                      ],
+        "latlng":  [
+                       35,
+                       38
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "TJ",
+        "nom":  "Tadjikistan",
+        "alias":  [
+                      "République du Tadjikistan"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Douchanbé",
+        "capitales":  [
+                          "Douchanbé",
+                          "Dushanbe"
+                      ],
+        "latlng":  [
+                       39,
+                       71
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "TW",
+        "nom":  "Taïwan",
+        "alias":  [
+                      "République de Chine (Taïwan)",
+                      "Taiwan",
+                      "République de Chine"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Taipei",
+        "capitales":  [
+                          "Taipei"
+                      ],
+        "latlng":  [
+                       23.5,
+                       121
+                   ],
+        "onu":  false,
+        "statut":  "Gouvernement autonome depuis 1949, non membre de l'ONU (siège perdu en 1971 au profit de la Chine populaire). Revendiqué par la Chine, reconnu par une douzaine d'États."
+    },
+    {
+        "code":  "TZ",
+        "nom":  "Tanzanie",
+        "alias":  [
+                      "République unie de Tanzanie"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Dodoma",
+        "capitales":  [
+                          "Dodoma"
+                      ],
+        "latlng":  [
+                       -6,
+                       35
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "TD",
+        "nom":  "Tchad",
+        "alias":  [
+                      "République du Tchad"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "N'Djaména",
+        "capitales":  [
+                          "N'Djaména",
+                          "N'Djamena",
+                          "Ndjamena"
+                      ],
+        "latlng":  [
+                       15,
+                       19
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "CZ",
+        "nom":  "Tchéquie",
+        "alias":  [
+                      "République tchèque"
+                  ],
+        "continent":  "europe",
+        "capitale":  "Prague",
+        "capitales":  [
+                          "Prague"
+                      ],
+        "latlng":  [
+                       49.75,
+                       15.5
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "TH",
+        "nom":  "Thaïlande",
+        "alias":  [
+                      "Royaume de Thaïlande"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Bangkok",
+        "capitales":  [
+                          "Bangkok"
+                      ],
+        "latlng":  [
+                       15,
+                       100
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "TL",
+        "nom":  "Timor oriental",
+        "alias":  [
+                      "République démocratique du Timor oriental",
+                      "Timor-Leste",
+                      "Timor Est"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Dili",
+        "capitales":  [
+                          "Dili"
+                      ],
+        "latlng":  [
+                       -8.83333333,
+                       125.91666666
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "TG",
+        "nom":  "Togo",
+        "alias":  [
+                      "République togolaise"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Lomé",
+        "capitales":  [
+                          "Lomé"
+                      ],
+        "latlng":  [
+                       8,
+                       1.16666666
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "TO",
+        "nom":  "Tonga",
+        "alias":  [
+                      "Royaume des Tonga"
+                  ],
+        "continent":  "oceanie",
+        "capitale":  "Nuku'alofa",
+        "capitales":  [
+                          "Nuku'alofa",
+                          "Nukualofa"
+                      ],
+        "latlng":  [
+                       -20,
+                       -175
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "TT",
+        "nom":  "Trinité-et-Tobago",
+        "alias":  [
+                      "République de Trinité-et-Tobago",
+                      "Trinidad-et-Tobago",
+                      "Trinité et Tobago"
+                  ],
+        "continent":  "amerique-centrale",
+        "capitale":  "Port-d'Espagne",
+        "capitales":  [
+                          "Port-d'Espagne",
+                          "Port of Spain"
+                      ],
+        "latlng":  [
+                       11,
+                       -61
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "TN",
+        "nom":  "Tunisie",
+        "alias":  [
+                      "République tunisienne"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Tunis",
+        "capitales":  [
+                          "Tunis"
+                      ],
+        "latlng":  [
+                       34,
+                       9
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "TM",
+        "nom":  "Turkménistan",
+        "alias":  [
+
+                  ],
+        "continent":  "asie",
+        "capitale":  "Achgabat",
+        "capitales":  [
+                          "Achgabat",
+                          "Ashgabat",
+                          "Asgabat"
+                      ],
+        "latlng":  [
+                       40,
+                       60
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "TR",
+        "nom":  "Turquie",
+        "alias":  [
+                      "République de Turquie"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Ankara",
+        "capitales":  [
+                          "Ankara"
+                      ],
+        "latlng":  [
+                       39,
+                       35
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "TV",
+        "nom":  "Tuvalu",
+        "alias":  [
+
+                  ],
+        "continent":  "oceanie",
+        "capitale":  "Funafuti",
+        "capitales":  [
+                          "Funafuti"
+                      ],
+        "latlng":  [
+                       -8,
+                       178
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "UA",
+        "nom":  "Ukraine",
+        "alias":  [
+
+                  ],
+        "continent":  "europe",
+        "capitale":  "Kiev",
+        "capitales":  [
+                          "Kiev",
+                          "Kyiv"
+                      ],
+        "latlng":  [
+                       49,
+                       32
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "UY",
+        "nom":  "Uruguay",
+        "alias":  [
+                      "République orientale de l'Uruguay"
+                  ],
+        "continent":  "amerique-sud",
+        "capitale":  "Montevideo",
+        "capitales":  [
+                          "Montevideo"
+                      ],
+        "latlng":  [
+                       -33,
+                       -56
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "VU",
+        "nom":  "Vanuatu",
+        "alias":  [
+                      "République de Vanuatu"
+                  ],
+        "continent":  "oceanie",
+        "capitale":  "Port-Vila",
+        "capitales":  [
+                          "Port-Vila",
+                          "Port Vila"
+                      ],
+        "latlng":  [
+                       -16,
+                       167
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "VE",
+        "nom":  "Venezuela",
+        "alias":  [
+                      "République bolivarienne du Venezuela"
+                  ],
+        "continent":  "amerique-sud",
+        "capitale":  "Caracas",
+        "capitales":  [
+                          "Caracas"
+                      ],
+        "latlng":  [
+                       8,
+                       -66
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "VN",
+        "nom":  "Vietnam",
+        "alias":  [
+                      "République socialiste du Viêt Nam",
+                      "Viêt Nam",
+                      "Viet Nam"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Hanoï",
+        "capitales":  [
+                          "Hanoï",
+                          "Hanoi"
+                      ],
+        "latlng":  [
+                       16.16666666,
+                       107.83333333
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "YE",
+        "nom":  "Yémen",
+        "alias":  [
+                      "République du Yémen"
+                  ],
+        "continent":  "asie",
+        "capitale":  "Sanaa",
+        "capitales":  [
+                          "Sanaa",
+                          "Sana'a"
+                      ],
+        "latlng":  [
+                       15,
+                       48
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "ZM",
+        "nom":  "Zambie",
+        "alias":  [
+                      "République de Zambie"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Lusaka",
+        "capitales":  [
+                          "Lusaka"
+                      ],
+        "latlng":  [
+                       -15,
+                       30
+                   ],
+        "onu":  true
+    },
+    {
+        "code":  "ZW",
+        "nom":  "Zimbabwe",
+        "alias":  [
+                      "République du Zimbabwe"
+                  ],
+        "continent":  "afrique",
+        "capitale":  "Harare",
+        "capitales":  [
+                          "Harare"
+                      ],
+        "latlng":  [
+                       -20,
+                       30
+                   ],
+        "onu":  true
+    }
+]
