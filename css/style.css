@@ -185,8 +185,10 @@ input:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-colo
 .carte-marqueur { fill: var(--carte-pays); stroke: var(--surface); stroke-width: 1.5; cursor: pointer; transition: fill .15s ease; }
 .carte-marqueur.point { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 2; }
 .mini-drapeau { width: 22px; height: 16px; object-fit: cover; border-radius: 3px; display: inline-block; margin-right: 6px; box-shadow: 0 0 0 1px var(--line); }
-.segment.defile { max-width: 100%; overflow-x: auto; }
+.segment.defile { max-width: 100%; flex-wrap: wrap; }
 .segment.defile button { white-space: nowrap; }
+.pastille.jouer { cursor: pointer; color: var(--accent); border-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+.nav a { font-size: .68rem; }
 .carte-pays.selection, .carte-marqueur.selection { fill: var(--accent); }
 .carte-pays.trouve, .carte-marqueur.trouve { fill: var(--ok); }
 .carte-pays.manque, .carte-marqueur.manque { fill: var(--ko); }
@@ -277,18 +279,20 @@ details.carte > summary::-webkit-details-marker { display: none; }
 .bandeau-record { top: 18%; background: var(--ok); color: #fff; }
 .bandeau-premier { top: 28%; background: var(--warn); color: #fff; }
 @keyframes surgir { from { transform: translateX(-50%) scale(.3); opacity: 0; } to { transform: translateX(-50%) scale(1); opacity: 1; } }
-.moonwalk { position: fixed; inset: 0; pointer-events: none; z-index: 51; }
-.moonwalk svg { position: absolute; bottom: calc(var(--nav-h) + 10px + env(safe-area-inset-bottom)); left: 0; animation: glisse 6s linear forwards; filter: drop-shadow(0 6px 6px rgba(0, 0, 0, .25)); }
-/* Le bonhomme regarde à droite (scaleX) mais recule vers la gauche : c'est le moonwalk. */
-@keyframes glisse { from { transform: translateX(105vw) scaleX(-1); } to { transform: translateX(-90px) scaleX(-1); } }
-.moonwalk .jambe, .moonwalk .pied { transform-origin: 30px 56px; animation: pas .7s ease-in-out infinite alternate; }
-.moonwalk .jambe-d, .moonwalk .pied-d { animation-delay: -.7s; }
-@keyframes pas { from { transform: rotate(-16deg); } to { transform: rotate(16deg); } }
-.moonwalk .corps { transform-origin: 30px 56px; animation: dandine .7s ease-in-out infinite alternate; }
-@keyframes dandine { from { transform: rotate(-4deg) translateY(0); } to { transform: rotate(4deg) translateY(-2px); } }
-.moonwalk .bras { transform-origin: 30px 28px; animation: balance .7s ease-in-out infinite alternate; }
-.moonwalk .bras-d { animation-delay: -.7s; }
-@keyframes balance { from { transform: rotate(-10deg); } to { transform: rotate(10deg); } }
+.moonwalk { position: fixed; inset: 0; pointer-events: none; z-index: 51; overflow: hidden; }
+/* Le danseur regarde vers la droite mais recule vers la gauche : c'est le moonwalk. */
+.moonwalk .danseur { position: absolute; bottom: calc(var(--nav-h) + 12px + env(safe-area-inset-bottom)); left: 100vw; width: 96px; height: 156px; animation: glisse 6.5s linear forwards; filter: drop-shadow(0 8px 6px rgba(0, 0, 0, .25)); }
+.moonwalk .danseur svg { display: block; transform: scaleX(-1); }
+@keyframes glisse { from { transform: translateX(0); } to { transform: translateX(calc(-100vw - 120px)); } }
+.moonwalk .jambe, .moonwalk .pied { transform-origin: 40px 72px; animation: pas .6s ease-in-out infinite alternate; transform-box: view-box; }
+.moonwalk .jambe-d, .moonwalk .pied-d { animation-delay: -.6s; }
+@keyframes pas { from { transform: rotate(-14deg); } to { transform: rotate(14deg); } }
+.moonwalk .corps { transform-origin: 40px 72px; animation: dandine .6s ease-in-out infinite alternate; transform-box: view-box; }
+@keyframes dandine { from { transform: rotate(-3deg) translateY(0); } to { transform: rotate(3deg) translateY(-3px); } }
+.moonwalk .bras { transform-origin: 40px 40px; animation: balance .6s ease-in-out infinite alternate; transform-box: view-box; }
+.moonwalk .bras-d { animation-delay: -.6s; }
+@keyframes balance { from { transform: rotate(-12deg); } to { transform: rotate(12deg); } }
+@media (prefers-reduced-motion: reduce) { .moonwalk .danseur, .moonwalk .jambe, .moonwalk .pied, .moonwalk .corps, .moonwalk .bras, .confettis i, .battu-gant { animation-duration: 6.5s !important; animation: revert; } }
 
 /* ----- « X t'a battu » ----- */
 .battu { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: 24px; background: rgba(10, 16, 22, .45); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); animation: fondu .3s ease both; }

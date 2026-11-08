@@ -5,4 +5,4 @@ export const ONLINE = {
   key: 'sb_publishable_4x5Ua-5TfA2cUdpXzPoA_Q_uCYVHZ9q'
 };
 
-export const VERSION = '0.6.0';
+export const VERSION = '0.7.0';

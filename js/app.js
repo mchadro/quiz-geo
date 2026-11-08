@@ -145,11 +145,12 @@ function afficherBattu(nouveaux, cl) {
       return `<p><span class="avatar petit-avatar">${emojiAvatar(av)}</span><strong>${e(n.pseudo)}</strong> t’a battu sur <strong>${e(nomTheme(theme, D))}</strong> <span class="badge">${e(nomMode(mode))}</span></p>`;
     }).join('')}
     ${nouveaux.length > 4 ? `<p class="petit muted">… et ${nouveaux.length - 4} autre${nouveaux.length > 5 ? 's' : ''}</p>` : ''}
-    <button class="btn primaire bloc mt-s" id="revanche">Prendre ma revanche</button>
+    <div class="btn-ligne mt-s"><button class="btn primaire" id="revanche">Prendre ma revanche</button><button class="btn" id="pas-maintenant">Pas maintenant</button></div>
   </div>`;
   document.body.appendChild(zone);
   const fermer = () => zone.remove();
   zone.addEventListener('click', ev => { if (ev.target === zone) fermer(); });
+  zone.querySelector('#pas-maintenant').addEventListener('click', fermer);
   zone.querySelector('#revanche').addEventListener('click', () => {
     const [theme, mode] = nouveaux[0].k.split('|');
     fermer(); aller(`#/classement?theme=${theme}&mode=${mode}`);
@@ -557,21 +558,28 @@ function confettis() {
 
 function moonwalk() {
   const d = document.createElement('div'); d.className = 'moonwalk'; d.setAttribute('aria-hidden', 'true');
-  d.innerHTML = `<svg viewBox="0 0 60 100" width="72" height="120">
+  // Chaussures noires, pantalon blanc, haut rouge, cheveux longs noirs, casquette jaune à l'envers.
+  d.innerHTML = `<div class="danseur"><svg viewBox="0 0 80 130" width="96" height="156">
       <g class="corps">
-        <rect x="18" y="4" width="24" height="8" rx="2" fill="#1c1c1c"/><rect x="24" y="0" width="12" height="8" rx="2" fill="#1c1c1c"/>
-        <circle cx="30" cy="18" r="8" fill="#e8b89a"/>
-        <path d="M22 26 L38 26 L40 56 L20 56 Z" fill="#e2762a"/>
-        <path class="bras bras-g" d="M22 28 L10 48" stroke="#e2762a" stroke-width="6" stroke-linecap="round" fill="none"/>
-        <path class="bras bras-d" d="M38 28 L50 46" stroke="#e2762a" stroke-width="6" stroke-linecap="round" fill="none"/>
+        <path d="M18 24 Q18 44 24 56 L36 56 Q30 40 30 24 Z" fill="#141414"/>
+        <path d="M62 24 Q62 44 56 56 L44 56 Q50 40 50 24 Z" fill="#141414"/>
+        <circle cx="40" cy="24" r="11" fill="#e8b89a"/>
+        <path d="M27 22 Q40 4 53 22 Q46 16 40 17 Q34 16 27 22 Z" fill="#141414"/>
+        <path d="M26 20 Q40 6 54 20 L54 24 Q40 16 26 24 Z" fill="#f2c84b"/>
+        <path d="M54 22 L70 26 L68 31 L54 26 Z" fill="#f2c84b"/>
+        <rect x="26" y="19" width="28" height="4" rx="2" fill="#d9ad2f"/>
+        <path d="M30 36 L50 36 L53 72 L27 72 Z" fill="#c62828"/>
+        <path class="bras bras-g" d="M30 40 L16 64" stroke="#c62828" stroke-width="7" stroke-linecap="round" fill="none"/>
+        <path class="bras bras-d" d="M50 40 L64 62" stroke="#c62828" stroke-width="7" stroke-linecap="round" fill="none"/>
+        <circle cx="15" cy="66" r="4" fill="#e8b89a"/><circle cx="65" cy="64" r="4" fill="#e8b89a"/>
       </g>
-      <path class="jambe jambe-g" d="M25 56 L22 92" stroke="#1c1c1c" stroke-width="7" stroke-linecap="round" fill="none"/>
-      <path class="jambe jambe-d" d="M35 56 L38 92" stroke="#1c1c1c" stroke-width="7" stroke-linecap="round" fill="none"/>
-      <ellipse class="pied pied-g" cx="20" cy="95" rx="8" ry="3.5" fill="#f4f4f4" stroke="#1c1c1c" stroke-width="1.5"/>
-      <ellipse class="pied pied-d" cx="40" cy="95" rx="8" ry="3.5" fill="#f4f4f4" stroke="#1c1c1c" stroke-width="1.5"/>
-    </svg><div class="bandeau-premier">1<sup>re</sup> place !</div>`;
+      <path class="jambe jambe-g" d="M33 72 L29 116" stroke="#f4f4f4" stroke-width="9" stroke-linecap="round" fill="none"/>
+      <path class="jambe jambe-d" d="M47 72 L51 116" stroke="#f4f4f4" stroke-width="9" stroke-linecap="round" fill="none"/>
+      <path class="pied pied-g" d="M20 120 L36 120 Q38 120 38 117 L38 113 L28 113 Q22 113 20 118 Z" fill="#141414"/>
+      <path class="pied pied-d" d="M44 120 L60 120 Q62 120 62 117 L62 113 L52 113 Q46 113 44 118 Z" fill="#141414"/>
+    </svg></div><div class="bandeau-premier">1<sup>re</sup> place !</div>`;
   document.body.appendChild(d);
-  setTimeout(() => d.remove(), 6500);
+  setTimeout(() => d.remove(), 7000);
 }
 
 // ---------- Classement ----------
@@ -656,6 +664,10 @@ async function ecranProfil() {
   }
   const totalBonnes = hist.reduce((a, h) => a + h.bonnes, 0), totalQ = hist.reduce((a, h) => a + h.total, 0);
   const themes = [...parTheme.values()].sort((a, b) => new Date(b.derniere.jouee_le) - new Date(a.derniere.jouee_le));
+  // Jeux (thème × mode) jamais joués par ce joueur.
+  const joues = new Set(hist.map(h => `${h.theme}|${h.mode}`));
+  const restants = THEMES.map(t => ({ t, modes: (t.modes ? MODES.filter(m => t.modes.includes(m.id)) : MODES).filter(m => !joues.has(`${t.id}|${m.id}`)) })).filter(x => x.modes.length);
+  const nbRestants = restants.reduce((a, x) => a + x.modes.length, 0);
   app.querySelector('.chargement').outerHTML = `
     <div class="stat">
       <div class="carte"><div class="n">${hist.length}</div><div class="l">parties</div></div>
@@ -672,7 +684,48 @@ async function ecranProfil() {
           <div class="pastilles">${rates.map(el => `<span class="pastille manque">${img(el.petitDrapeau?.replace('w80', 'w40'))}${e(el.libelle)}</span>`).join('')}</div>`
           : '<p class="petit muted">Dernière partie sans faute.</p>'}</div></details>`;
     }).join('') : '<p class="vide">Joue une première partie pour voir ta progression.</p>'}</div>
+    <details class="carte mt" id="restants"><summary class="ligne espace"><strong>Jeux pas encore joués</strong><span class="badge accent">${nbRestants}</span></summary>
+      ${restants.length ? `<div class="pile mt-s" style="gap:8px">${restants.map(x => `<div class="ligne" style="flex-wrap:wrap;gap:6px"><span class="petit" style="min-width:140px"><strong>${e(x.t.nom)}</strong></span>${x.modes.map(m => `<button class="pastille jouer" data-theme="${x.t.id}" data-mode="${m.id}">${e(m.nom)}</button>`).join('')}</div>`).join('')}</div>`
+        : '<p class="petit muted mt-s">Tu as tout essayé, bravo !</p>'}
+    </details>
     <p class="petit muted centre mt">${store.enLigne() ? 'Scores partagés dans la famille' : 'Mode hors ligne'} · v${VERSION}</p>`;
+  app.querySelectorAll('.jouer[data-theme]').forEach(b => b.addEventListener('click', () => {
+    store.sauverPrefs({ mode: b.dataset.mode, dernierTheme: b.dataset.theme });
+    store.sauverPartie(genererPartie(b.dataset.theme, b.dataset.mode, D, { chrono: store.prefs().chrono }));
+    aller('#/partie');
+  }));
+}
+
+// ---------- Infos ----------
+function ecranInfos() {
+  const nb = D.personnes.length;
+  app.innerHTML = `
+    <div class="entete"><div><p class="sur">Quiz géo v${VERSION}</p><h1>Infos</h1></div></div>
+    <section class="carte mb pile">
+      <h2>Le classement général</h2>
+      <p>Pour chaque <strong>jeu</strong> (un thème joué dans un mode), seule ta <strong>meilleure partie</strong> compte. Elle rapporte un nombre de points égal au nombre de bonnes réponses, multiplié selon le mode :</p>
+      <table><tbody>
+        <tr><td>QCM</td><td class="num"><strong>× 1</strong></td></tr>
+        <tr><td>Saisie</td><td class="num"><strong>× 2</strong></td></tr>
+        <tr><td>Nomme-les tous</td><td class="num"><strong>× 2</strong></td></tr>
+        <tr><td>Carte : trouve-le</td><td class="num"><strong>× 2</strong></td></tr>
+        <tr><td>Carte : nomme-les tous</td><td class="num"><strong>× 3</strong></td></tr>
+      </tbody></table>
+      <p>Puis un <strong>bonus de podium</strong> par jeu : +${BONUS_PODIUM[0]} au premier de la famille, +${BONUS_PODIUM[1]} au deuxième, +${BONUS_PODIUM[2]} au troisième. À score égal sur un jeu, le plus rapide est devant. Le total de tous les jeux donne le classement général ; plus tu explores de jeux, plus tu marques.</p>
+    </section>
+    <section class="carte mb pile">
+      <h2>D’où viennent les réponses ?</h2>
+      <p><strong>Pays, capitales, continents</strong> : base libre <em>mledoze/countries</em> et Wikidata pour les noms français, relues à la main (capitales multiples, variantes acceptées). Les 193 membres de l’ONU plus le Kosovo, Taïwan, la Palestine et le Vatican, dont le statut est précisé.</p>
+      <p><strong>Drapeaux</strong> : images de <em>flagcdn.com</em>. <strong>Contours des pays</strong> : Natural Earth (via <em>world-atlas</em>, 1:50m). <strong>États américains</strong> : US Census Bureau (via <em>us-atlas</em>) et Wikidata pour les capitales.</p>
+      <p><strong>Grandes villes</strong> : les 10 premières économies selon le PIB nominal du FMI (2025) ; pour chacune, les 5 villes les plus peuplées au sens de la <em>ville proprement dite</em> (commune ou municipalité), d’après le dernier recensement national. Populations arrondies.</p>
+      <p><strong>Personnalités</strong> (${nb} fiches) : textes rédigés pour ce quiz à partir d’informations publiques (Wikipédia, encyclopédies, sites officiels), avec les dates et faits vérifiables ; nationalités multiples acceptées quand elles existent. Les « gentilés » (française, allemand…) sont acceptés en réponse.</p>
+      <p><strong>Les 100 footballeurs les plus connus</strong> : liste établie en croisant trois classements publiés, l’équipe de rêve du Ballon d’or (<em>France Football</em>, 2020), la liste <em>FIFA 100</em> dressée par Pelé pour le centenaire de la FIFA (2004) et les 100 meilleurs joueurs du XXe siècle du magazine <em>World Soccer</em> (1999), complétés par les Ballons d’or et les stars des années 2010-2020, ainsi que quelques joueuses majeures. La sélection finale est celle du quiz, pas un classement officiel.</p>
+      <p class="petit muted">Une erreur ? Un oubli ? Dis-le à papa, qui corrigera la fiche.</p>
+    </section>
+    <section class="carte pile">
+      <h2>Ce que fait l’app</h2>
+      <p>Pseudo et code secret à 4 chiffres, code famille sur chaque appareil. Scores partagés dans la famille uniquement. Moonwalk quand tu prends la première place d’un jeu, confettis quand tu bats ton record. Si quelqu’un te dépasse pendant ton absence, tu le sauras en revenant.</p>
+    </section>`;
 }
 
 // ---------- Routeur ----------
@@ -691,6 +744,7 @@ async function rendre() {
     case 'resultats': return ecranResultats();
     case 'classement': return ecranClassement();
     case 'profil': return ecranProfil();
+    case 'infos': return ecranInfos();
     default: return aller('#/themes');
   }
 }
