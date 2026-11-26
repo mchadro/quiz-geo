@@ -238,7 +238,7 @@ export function repTexte(el) { return el.texte || el; }
 export function genererPartie(theme, mode, D, options = {}) {
   const elements = elementsTheme(theme, D);
   const ordre = melanger(elements.map(e => e.id));
-  const partie = { theme, mode, ordre, index: 0, reponses: {}, debut: Date.now(), ecoule: 0 };
+  const partie = { theme, mode, ordre, index: 0, reponses: {}, debut: Date.now(), ecoule: 0, entrainement: Boolean(options.entrainement) };
   if (mode === 'qcm') {
     // Les propositions sont des libellés : la bonne réponse et trois autres, distincts
     // (plusieurs villes d'un même pays donnent la même réponse « pays » ; une double nationalité en exclut deux).

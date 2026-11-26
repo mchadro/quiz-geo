@@ -9,6 +9,7 @@ Quiz de géographie familial pour les enfants de Mathieu (14 et 18 ans, très ca
 - Données dans `data/` : `pays.json` (197 pays, gentilés, statuts), `etats-usa.json`, `villes.json`, `personnalites.json` (index des lots) et `perso-*.json`.
 - Un **thème** (`infoTheme`) × un **mode** = un **jeu**. Les éléments d'un thème (`elementsTheme`) ont une forme commune : `id, court, reponse, formes, drapeau, titre, libelle, info/infos`. Pour ajouter un type de contenu, étendre `infoTheme`, `elementsTheme`, `listeThemes` ; les écrans n'ont en principe pas à changer.
 - Modes : `qcm`, `saisie`, `liste` (texte, chrono), `carte` (toucher puis taper, chrono), `carte-trouve`. Un thème peut restreindre ses modes (`modes: [...]`).
+- Entraînement : drapeau `partie.entrainement` (choisi sur l'écran des modes, mémorisé dans les préférences). `terminer()` n'appelle pas `enregistrerPartie`, l'écran de résultats ne calcule ni rang ni célébration, et `lancerChrono()` n'impose pas de limite.
 
 ## Backend Supabase
 

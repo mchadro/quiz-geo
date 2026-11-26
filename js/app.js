@@ -97,7 +97,7 @@ function ecranThemes() {
   app.innerHTML = `
     <div class="entete"><div><p class="sur">Salut ${e(s.pseudo)}</p><h1>À quoi on joue ?</h1></div>${s.avatar ? `<a href="#/profil" class="avatar moyen" aria-label="Profil">${emojiAvatar(s.avatar)}</a>` : ''}</div>
     ${enCours ? `<div class="carte ligne espace mb">
-        <div><strong>Partie en cours</strong><br><span class="petit muted">${e(nomTheme(enCours.theme, D))} · ${e(nomMode(enCours.mode))} · ${MODES_CHRONO.includes(enCours.mode) ? enCours.trouves.length : enCours.index}/${enCours.ordre.length}</span></div>
+        <div><strong>Partie en cours</strong><br><span class="petit muted">${e(nomTheme(enCours.theme, D))} · ${e(nomMode(enCours.mode))}${enCours.entrainement ? ' · entraînement' : ''} · ${MODES_CHRONO.includes(enCours.mode) ? enCours.trouves.length : enCours.index}/${enCours.ordre.length}</span></div>
         <div class="ligne"><button class="btn discret" id="abandonner">Abandonner</button><button class="btn primaire" id="reprendre">Reprendre</button></div>
       </div>` : ''}
     ${GROUPES.map(g => `<section class="mb"><h2>${e(g.nom)}</h2><p class="petit muted mb">${e(g.description)}</p>
@@ -166,26 +166,32 @@ function ecranModes() {
   const prefs = store.prefs();
   const modes = t.modes ? MODES.filter(m => t.modes.includes(m.id)) : MODES;
   let mode = modes.some(m => m.id === prefs.mode) ? prefs.mode : modes[0].id, chrono = prefs.chrono;
+  let entrainement = Boolean(prefs.entrainement);
   const rendu = () => {
     const c = CHRONOS.find(x => x.id === chrono) || CHRONOS[1];
     app.innerHTML = `
       <div class="entete"><div><button class="retour" id="retour">‹ Thèmes</button><h1>${e(t.nom)}</h1>
         <p class="muted">${n} questions · ${e(t.consigne)}</p></div></div>
+      <div class="carte mb ligne espace" style="flex-wrap:wrap">
+        <div><strong>${entrainement ? 'Entraînement' : 'Compétition'}</strong><br><span class="petit muted">${entrainement ? 'Score non enregistré, sans limite de temps.' : 'Score enregistré dans les classements.'}</span></div>
+        <div class="segment"><button data-entrainement="0" class="${entrainement ? '' : 'actif'}">Compétition</button><button data-entrainement="1" class="${entrainement ? 'actif' : ''}">Entraînement</button></div>
+      </div>
       <div class="pile">
         ${modes.map(m => `<button class="tuile ${m.id === mode ? 'active' : ''}" data-mode="${m.id}">
           <span class="titre">${e(m.nom)}</span><span class="compte">${e(m.description)}</span></button>`).join('')}
       </div>
-      ${MODES_CHRONO.includes(mode) ? `<div class="carte mt ligne espace" style="flex-wrap:wrap">
+      ${MODES_CHRONO.includes(mode) && !entrainement ? `<div class="carte mt ligne espace" style="flex-wrap:wrap">
         <div><strong>Chrono</strong><br><span class="petit muted">${formaterDuree(n * c.secondes * 1000)} au total (${c.secondes} s par élément)</span></div>
         <div class="segment">${CHRONOS.map(x => `<button data-chrono="${x.id}" class="${x.id === chrono ? 'actif' : ''}">${x.nom}</button>`).join('')}</div>
       </div>` : ''}
-      <button class="btn primaire bloc mt" id="commencer">Commencer</button>`;
+      <button class="btn primaire bloc mt" id="commencer">${entrainement ? 'Commencer l’entraînement' : 'Commencer'}</button>`;
     document.getElementById('retour').addEventListener('click', () => aller('#/themes'));
     app.querySelectorAll('[data-mode]').forEach(b => b.addEventListener('click', () => { mode = b.dataset.mode; rendu(); }));
     app.querySelectorAll('[data-chrono]').forEach(b => b.addEventListener('click', () => { chrono = b.dataset.chrono; rendu(); }));
+    app.querySelectorAll('[data-entrainement]').forEach(b => b.addEventListener('click', () => { entrainement = b.dataset.entrainement === '1'; rendu(); }));
     document.getElementById('commencer').addEventListener('click', () => {
-      store.sauverPrefs({ mode, chrono, dernierTheme: theme });
-      store.sauverPartie(genererPartie(theme, mode, D, { chrono }));
+      store.sauverPrefs({ mode, chrono, entrainement, dernierTheme: theme });
+      store.sauverPartie(genererPartie(theme, mode, D, { chrono, entrainement }));
       aller('#/partie');
     });
   };
@@ -207,12 +213,12 @@ function ecranPartie() {
   function barre(compteur) {
     return `<div class="barre-partie">
       <button class="quitter" id="quitter" aria-label="Quitter">✕</button>
-      <div class="infos"><div class="theme">${e(t.nom)}</div><div class="petit muted">${e(nomMode(partie.mode))}</div></div>
+      <div class="infos"><div class="theme">${e(t.nom)}</div><div class="petit muted">${e(nomMode(partie.mode))}${partie.entrainement ? ' <span class="badge accent">Entraînement</span>' : ''}</div></div>
       <div class="compteur">${compteur}</div></div>`;
   }
   function brancherQuitter() {
     document.getElementById('quitter').addEventListener('click', () => {
-      if (MODES_CHRONO.includes(partie.mode)) { if (confirm('Arrêter ici ? La partie sera comptée telle quelle.')) terminer(); return; }
+      if (MODES_CHRONO.includes(partie.mode)) { if (confirm(partie.entrainement ? 'Arrêter l’entraînement ici ?' : 'Arrêter ici ? La partie sera comptée telle quelle.')) terminer(); return; }
       sauver(); aller('#/themes');
     });
   }
@@ -229,11 +235,12 @@ function ecranPartie() {
     dernierResultat = {
       theme: partie.theme, mode: partie.mode, total: partie.ordre.length, bonnes, duree_ms: Math.round(duree),
       details: { rates, chrono: partie.chrono, erreurs: partie.erreurs, reponses: MODES_CHRONO.includes(partie.mode) ? undefined : Object.fromEntries(rates.map(id => [id, partie.reponses[id]?.saisie || ''])) },
-      enregistrement: 'en cours'
+      enregistrement: partie.entrainement ? 'entrainement' : 'en cours', entrainement: Boolean(partie.entrainement)
     };
     try { sessionStorage.setItem('qg.resultat', JSON.stringify(dernierResultat)); } catch { /* rien */ }
     store.effacerPartie();
     const r = dernierResultat;
+    if (r.entrainement) { aller('#/resultats'); return; } // entraînement : rien n'est envoyé
     store.enregistrerPartie({ theme: r.theme, mode: r.mode, total: r.total, bonnes: r.bonnes, duree_ms: r.duree_ms, details: r.details })
       .then(() => { r.enregistrement = 'ok'; })
       .catch(ex => { r.enregistrement = ex.message; })
@@ -302,7 +309,11 @@ function ecranPartie() {
   // ----- Chrono (liste et carte) -----
   function lancerChrono() {
     const barreChrono = document.getElementById('chrono'); const temps = document.getElementById('temps');
-    const tic = () => {
+    const tic = partie.entrainement ? () => {
+      // Entraînement : pas de limite, on affiche simplement le temps écoulé.
+      temps.textContent = formaterDuree(ecoule());
+      barreChrono.firstElementChild.style.width = '100%';
+    } : () => {
       const reste = Math.max(0, partie.dureeMax - ecoule());
       temps.textContent = formaterDuree(reste);
       barreChrono.firstElementChild.style.width = `${(reste / partie.dureeMax) * 100}%`;
@@ -497,7 +508,7 @@ async function ecranResultats() {
     <div class="carte score">
       <div class="gros">${r.bonnes}<small> / ${r.total}</small></div>
       <div class="sous">${pct} % · ${formaterDuree(r.duree_ms)}${r.details.erreurs ? ` · ${r.details.erreurs} essai${r.details.erreurs > 1 ? 's' : ''} raté${r.details.erreurs > 1 ? 's' : ''}` : ''}</div>
-      <div class="sous petit" id="enregistrement">${r.enregistrement === 'ok' ? 'Partie enregistrée' : r.enregistrement === 'en cours' ? 'Enregistrement…' : e(r.enregistrement)}</div>
+      <div class="sous petit" id="enregistrement">${r.entrainement ? '<span class="badge accent">Entraînement</span> score non enregistré' : r.enregistrement === 'ok' ? 'Partie enregistrée' : r.enregistrement === 'en cours' ? 'Enregistrement…' : e(r.enregistrement)}</div>
       <div class="sous" id="rang"></div>
     </div>
     <div class="btn-ligne mt">
@@ -512,10 +523,11 @@ async function ecranResultats() {
         ${el.infos ? `<ul class="infos statut">${el.infos.map(i => `<li>${e(i)}</li>`).join('')}</ul>` : el.info ? `<div class="statut">${e(el.info)}</div>` : ''}
       </div></div>`).join('')}</div>` : ''}`;
   document.getElementById('rejouer').addEventListener('click', () => {
-    store.sauverPartie(genererPartie(r.theme, r.mode, D, { chrono: r.details.chrono })); aller('#/partie');
+    store.sauverPartie(genererPartie(r.theme, r.mode, D, { chrono: r.details.chrono, entrainement: r.entrainement })); aller('#/partie');
   });
   document.getElementById('autre').addEventListener('click', () => aller('#/themes'));
   document.getElementById('voir-classement').addEventListener('click', () => aller(`#/classement?theme=${r.theme}&mode=${r.mode}`));
+  if (r.entrainement) return; // ni classement ni célébration à l'entraînement
   if (r.enregistrement === 'en cours') return; // le rang se calcule une fois la partie enregistrée
   try {
     const cl = (await store.classement()).filter(x => x.theme === r.theme && x.mode === r.mode).sort(trier);
